@@ -5,8 +5,8 @@ interface IContainerProps extends IProps {
   children: ReactNode;
 }
 
-const index: FC<IContainerProps> = ({ children, ...rest }) => {
+const UpdatedContainer: FC<IContainerProps> = ({ children, ...rest }) => {
   return <Wrapper {...rest}>{children}</Wrapper>;
 };
 
-export default index;
+export default UpdatedContainer;
