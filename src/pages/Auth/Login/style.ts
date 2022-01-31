@@ -5,8 +5,9 @@ export const WrapperRemmber = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  margin: 0;
+  padding: 20px 0;
+  background-color: orange;
+  margin: 10px 0;
 `;
 
 export const LoginText = styled(Typography)`
@@ -18,7 +19,6 @@ export const LoginText = styled(Typography)`
 `;
 export const LoginSubText = styled('p')`
   font-size: 25px;
-  width: 35rem;
   color: #70707070;
   font-family: mulish;
   margin-bottom: 30px;
@@ -69,6 +69,7 @@ export const ForgotPassword = styled(Typography)`
 `;
 
 export const ButtonSuginup = styled('button')`
+  cursor: pointer;
   width: 200px;
   height: 56px;
   border: 3px solid #fcdd06;
@@ -85,6 +86,7 @@ export const ButtonSuginup = styled('button')`
   margin-top: 1rem;
 `;
 export const ButtonLogin = styled('button')`
+  cursor: pointer;
   width: 100%;
   min-height: 40px;
   border: 3px solid ${props => props.theme?.primary?.lightYallow};
@@ -109,11 +111,11 @@ export const FormContainer = styled(Container)`
   }
 `;
 export const ContainerLogin = styled(Container)`
-  height: 90vh;
   padding: 0;
   overflow: hidden;
   width: 90%;
   margin: 0 auto;
+  padding: 20px 0;
   @media (max-width: 768px) {
     width: 95%;
     margin: auto;

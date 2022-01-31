@@ -37,7 +37,6 @@ export const Input = styled('input')<IInput>`
   width: 100% !important;
   height: 100%;
   border: none;
-  background: transparent;
   padding: 0.5em;
 
   /* border: ${props =>
