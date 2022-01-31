@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { useFormik, FormikHelpers } from 'formik';
 import { AiOutlineMail } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { toast } from 'react-toastify';
@@ -39,9 +39,7 @@ const Login = () => {
     password: '',
     ischeckbox: false,
   };
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setChecked(event.target.checked);
-  // };
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch<ThunkDispatch<AppState, any, TAllActionAuth>>();
@@ -107,20 +105,18 @@ const Login = () => {
                     icon={<RiLockPasswordFill />}
                     value={formik.values.password}
                   />
-                  <ButtonLogin
-                    disabled={!formik.isValid}
-                    type="submit"
-                    style={{ padding: '5px 0', marginBottom: '20px' }}
-                  >
+                  <ButtonLogin disabled={!formik.isValid} type="submit">
                     Login
                   </ButtonLogin>
                   <Column>
                     <CheckBox label="Remember me" name="Remember me" />
-                    <ForgotPassword
-                      style={{ marginTop: '15px', marginBottom: '15px' }}
-                    >
-                      Forgot your password?
-                    </ForgotPassword>
+                    <Link to="/">
+                      <ForgotPassword
+                        style={{ marginTop: '15px', marginBottom: '15px' }}
+                      >
+                        Forgot your password?
+                      </ForgotPassword>
+                    </Link>
                   </Column>
                   <Divider thick="2px" width="100%" />
                   <ButtonSuginup onClick={() => navigate('/signup')}>
