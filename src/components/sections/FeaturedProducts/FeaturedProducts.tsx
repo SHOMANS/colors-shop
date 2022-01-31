@@ -3,7 +3,7 @@
 /* eslint-disable no-underscore-dangle */
 import { useState, CSSProperties } from "react";
 import SwipeableViews from "react-swipeable-views";
-import { Featured, RowInnerSlider } from "./styles";
+import { Featured, RowInnerSlider, FeaturedProduc } from "./styles";
 import { Container } from "../..";
 import ComplexCard from "../../Card/productCard";
 import { Dot } from "../../Slider/SliderStyle";
@@ -60,11 +60,11 @@ export const FeaturedProduct = ({ data }: IProps) => {
       return i;
     });
     return chunks.map((i: any, inx: number) => (
-      <Container key={inx} flex-wrap="wrap">
+      <FeaturedProduc key={inx}>
         {i.map((item: IProducts) => (
           <ComplexCard key={item._id} {...item} image={item.images[0]} />
         ))}
-      </Container>
+      </FeaturedProduc>
     ));
   };
 

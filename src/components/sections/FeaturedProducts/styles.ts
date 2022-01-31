@@ -52,7 +52,7 @@ export const Featured = styled.div`
 export const FeaturedProduc = styled.div`
   display: flex;
   flex-direction: row;
-  width: 33.33%;
+  flex-wrap:wrap;
   @media (max-width: 800px) {
     width: 100%;
     display: flex;
