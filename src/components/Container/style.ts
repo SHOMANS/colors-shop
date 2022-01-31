@@ -21,7 +21,7 @@ export const ContainerWrapper = styled.div<any>`
     font-size: 12px;
     flex-wrap: wrap;
     margin-top: 1em;
-    width: 98%;
+    width: 100%;
     & > button {
       margin: 1.5em 0.2em;
     }

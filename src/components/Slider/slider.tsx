@@ -67,7 +67,7 @@ export const Slider = ({ data }: IProps) => {
           .fill(0)
           .map((x, index) => (
             <Dot
-              width="1rem"
+              width="14px"
               isGrey={sliderIndex !== index}
               onClick={() => setSliderIndex(index)}
             />

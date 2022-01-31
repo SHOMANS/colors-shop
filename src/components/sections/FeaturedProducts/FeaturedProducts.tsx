@@ -1,23 +1,24 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/extensions */
 /* eslint-disable no-underscore-dangle */
-import { useState, CSSProperties } from 'react';
-import SwipeableViews from 'react-swipeable-views';
-import { RowInnerSlider } from './styles';
-import { Container } from '../..';
-import ComplexCard from '../../Card/productCard';
-import { Dot } from '../../Slider/SliderStyle';
-import { DeviderTitle } from '../../DeviderTitle/deviderTitle';
-import { IProducts } from '../../../redux/Product/type';
+import { useState, CSSProperties } from "react";
+import SwipeableViews from "react-swipeable-views";
+import { Featured, RowInnerSlider } from "./styles";
+import { Container } from "../..";
+import ComplexCard from "../../Card/productCard";
+import { Dot } from "../../Slider/SliderStyle";
+import { DeviderTitle } from "../../DeviderTitle/deviderTitle";
+import { IProducts } from "../../../redux/Product/type";
+import UpdatedContainer from "../../UpdatedContainer";
 
 const cssStyle: CSSProperties = {
-  position: 'relative',
-  width: '100%',
-  height: '100%',
+  position: "relative",
+  width: "100%",
+  height: "100%",
 };
 
 const DotsStyles: CSSProperties = {
-  color: '#707070',
+  color: "#707070",
   zIndex: 2,
   margin: 10,
 };
@@ -68,17 +69,15 @@ export const FeaturedProduct = ({ data }: IProps) => {
   };
 
   return (
-    <Container
-      direction="column"
-      align-items="center"
-      background="#F7F8FC"
-      width="100%"
-    >
-      <Container direction="column" width="85.4%">
+    <Featured>
+      <UpdatedContainer
+        flexDirection={"column"}
+        flexWrap={false}
+        justifyContent={"flex-end"}
+        alignItems={"flex-end"}
+      >
         <DeviderTitle title="Featured Product" position="center" />
-      </Container>
 
-      <Container direction="row" width="85.4%" justify-content="space-between">
         <SwipeableViews
           enableMouseEvents
           index={sliderIndex}
@@ -87,25 +86,24 @@ export const FeaturedProduct = ({ data }: IProps) => {
         >
           {getSlider()}
         </SwipeableViews>
-      </Container>
-      <Container
-        flexDirection="row"
-        background="#F7F8FC"
-        padding="1em"
-        width="auto"
-      >
-        {Array(getSlider().length)
-          .fill(0)
-          .map((x, i) => (
-            <Dot
-              style={DotsStyles}
-              width="14px"
-              isGrey={sliderIndex !== i}
-              onClick={() => setSliderIndex(i)}
-            />
-          ))}
-      </Container>
-      <Container height="20px" />
-    </Container>
+        <UpdatedContainer
+          flexDirection={"row"}
+          flexWrap={false}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          {Array(getSlider().length)
+            .fill(0)
+            .map((x, i) => (
+              <Dot
+                style={DotsStyles}
+                width="14px"
+                isGrey={sliderIndex !== i}
+                onClick={() => setSliderIndex(i)}
+              />
+            ))}
+        </UpdatedContainer>
+      </UpdatedContainer>
+    </Featured>
   );
 };

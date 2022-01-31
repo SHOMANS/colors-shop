@@ -1,22 +1,23 @@
 /* eslint-disable import/extensions */
-import React, { useState, CSSProperties } from 'react';
-import SwipeableViews from 'react-swipeable-views';
-import { CategoryCard, Container } from '../..';
-import { Divider, Title } from '../../DeviderTitle/style';
-import { CategDots } from '../../Slider/SliderStyle';
-import { RowInnerSlider, WrapperDots } from '../FeaturedProducts/styles';
-import { IGetAllCategory, IProducts } from '../../../redux/Product/type';
+import React, { useState, CSSProperties } from "react";
+import SwipeableViews from "react-swipeable-views";
+import { CategoryCard, Container } from "../..";
+import { Divider, Title } from "../../DeviderTitle/style";
+import { CategDots } from "../../Slider/SliderStyle";
+import { RowInnerSlider, WrapperDots } from "../FeaturedProducts/styles";
+import { IGetAllCategory, IProducts } from "../../../redux/Product/type";
+import UpdatedContainer from "../../UpdatedContainer";
 
 const cssStyle: CSSProperties = {
-  position: 'relative',
-  width: '100%',
-  height: '100%',
+  position: "relative",
+  width: "100%",
+  height: "100%",
 };
 
 const DotsStyles: CSSProperties = {
-  color: '#707070',
+  color: "#707070",
   zIndex: 2,
-  margin: 10,
+  margin: "0 0.5rem",
 };
 interface IProps {
   data?: IGetAllCategory[];
@@ -54,78 +55,42 @@ export const FeaturedCategories = ({ data }: IProps) => {
 
   return (
     <>
-      <Container
-        direction="column"
-        width="100%"
-        justify-content="center"
-        align-items="center"
-        margin-top="60px"
-        flex-wrap="wrape"
+      <UpdatedContainer
+        flexDirection={"column"}
+        flexWrap={true}
+        justifyContent={"center"}
+        alignItems={"flex-start"}
       >
-        <Container direction="column" width="85.4%">
-          <Title>Featured Categories</Title>
-          <Divider width="12%" height="7px" color="#FCDD06" />
-          <Divider width="100%" height="0px" color="#707070" />
-        </Container>
-        <Container direction="row" width="90%">
-          <SwipeableViews
-            enableMouseEvents
-            index={sliderIndex}
-            style={cssStyle}
-            onChangeIndex={setSliderIndex}
-          >
-            {getSlider()}
-          </SwipeableViews>
-        </Container>
-        <WrapperDots item="center">
-          {Array(getSlider().length / 2)
-            .fill(0)
-            .map((x, i) => (
-              <CategDots
-                style={DotsStyles}
-                width="14px"
-                isGrey={sliderIndex !== i}
-                onClick={() => setSliderIndex(i)}
-              />
-            ))}
-        </WrapperDots>
-      </Container>
+        <>
+          <>
+            <Title>Featured Categories</Title>
+            <WrapperDots item="flex-start">
+              {Array(3)
+                .fill(0)
+                .map((x, i) => (
+                  <CategDots
+                    style={DotsStyles}
+                    width="14px"
+                    isGrey={sliderIndex !== i}
+                    onClick={() => setSliderIndex(i)}
+                  />
+                ))}
+            </WrapperDots>{" "}
+            <Divider width="12%" height="7px" color="#FCDD06" />
+            <Divider width="100%" height="0px" color="#d3cdcd" />
+          </>
+          <>
+            <SwipeableViews
+              enableMouseEvents
+              index={sliderIndex}
+              style={cssStyle}
+              onChangeIndex={setSliderIndex}
+            >
+              {getSlider()}
+            </SwipeableViews>
+          </>
+        </>
+      </UpdatedContainer>
     </>
   );
 };
-
-// <Container
-// direction="column"
-// background="white"
-// width="90%"
-// margin="60px auto"
-// >
-// <Container justifyContent="space-between">
-//   <Container direction="column" width="auto">
-//     <Title>Featured Categories</Title>
-//     <Divider width="12%" height="7px" color="#FCDD06" />
-//     <Divider width="88%" height="1px" color="#707070" />
-
-//     <WrapperDots
-//       item="center"
-//       style={{
-//         marginTop: '22px',
-//       }}
-//     >
-//       {Array(getSlider().length)
-//         .fill(0)
-//         .map((x, i) => (
-//           <CategDots
-//             style={DotsStyles}
-//             width="14px"
-//             isGrey={sliderIndex !== i}
-//             onClick={() => setSliderIndex(i)}
-//           />
-//         ))}
-//     </WrapperDots>
-//   </Container>
-// </Container>
-// <SwipeableViews enableMouseEvents index={sliderIndex} style={cssStyle}>
-//   {getSlider()}
-// </SwipeableViews>
-// </Container>

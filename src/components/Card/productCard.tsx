@@ -81,7 +81,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
           isHalf
           name="rate"
           edit={false}
-          value={props.rating}
+          value={props.rating}flex-wrap="wrap" 
           size={40}
         />
       </Content>

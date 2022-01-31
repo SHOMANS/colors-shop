@@ -15,7 +15,7 @@ export const Wrapper = styled.div<IProps>`
   justify-content: ${props => props.justifyContent || 'space-between'};
   align-items: ${props => props.alignItems || 'center'};
   @media screen and (max-width: 1500px) {
-    width: 80%;
+    width: 90%;
   }
   @media screen and (max-width: 1200px) {
     width: 85%;

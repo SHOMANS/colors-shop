@@ -18,12 +18,23 @@ export const FlexCenter = styled.div`
   padding: 1rem;
 `;
 
+export const FlexColumn = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction:column;
+  text-align: left;
+  @media (max-width: 800px) {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+  }
+`;
 export const SliderSection = styled(ContainerWrapper)`
   margin: 0 auto;
   overflow: hidden;
   flex-wrap: wrap;
-  padding-top: 60px;
-  padding-bottom: 30px;
+  padding-top: 1rem;
   @media (max-width: 768px) {
     flex-direction: column;
     margin: auto;
@@ -95,14 +106,22 @@ export const ButtonHero = styled(Link)`
   max-width: 220px;
 `;
 
-export const WrapperImageHero = styled(Column)`
-  max-width: 627px;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+export const WrapperImageHero = styled.div`
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
 
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
 interface IDot {
   isGrey: boolean;
   width?: string;
@@ -125,7 +144,19 @@ export const CategDots = styled(Dot)`
     display: none;
   }
 `;
-
+export const Flex = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  padding: 1rem 0;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+`;
 interface IArrow {
   isLeft?: boolean;
   color?: string;
@@ -145,7 +176,6 @@ export const Arrow = styled("div")<IArrow>`
   padding: 0rem 0.5rem;
   cursor: pointer;
   opacity: 1;
-
 `;
 
 export const ContentContainer = styled(Container)`
