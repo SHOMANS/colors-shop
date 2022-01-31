@@ -74,7 +74,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
           edit={false}
           value={props.rating}
           flex-wrap="wrap"
-          size={40}
+          size={30}
         />
       </Content>
       <Content>

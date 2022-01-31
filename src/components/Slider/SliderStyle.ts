@@ -135,7 +135,7 @@ export const Dot = styled("div")<IDot>`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0.5rem;
+  margin: 0 0.3rem;
   cursor: pointer;
 `;
 

@@ -20,7 +20,7 @@ const cssStyle: CSSProperties = {
 const DotsStyles: CSSProperties = {
   color: "#707070",
   zIndex: 2,
-  margin: 10,
+  margin: "1rem 0.5rem",
 };
 
 export interface IProduct {
