@@ -17,7 +17,7 @@ export const InnerSection = styled(Column)`
 `;
 export const ListNav = styled(Container)<Props>`
   background-color: ${props => props.theme.common?.black || '#242424'};
-  height: ${props => (props.open ? '100vh' : '70px')};
+  height: 50px;
   z-index: 999;
   padding: 7px 5%;
   @media (max-width: 768px) {
@@ -46,34 +46,40 @@ export const Badge = styled('div')`
   color: #242424;
   text-align: center;
   font-family: normal normal normal 10px/13px Muli;
-  height: 22px;
-  width: 22px;
+  height: 15px;
+  width: 15px;
   z-index: 10;
-  right: 8px;
+  font-weight: bold;
   position: absolute;
-  top: -5px;
+  right: 12px;
+  top: 4px;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const SearchButton = styled(FlexBox)`
+export const SearchButton = styled.div`
+  padding: 5px 15px;
   cursor: pointer;
-  align-items: center;
   background: #fcdd06;
   border-radius: 6px;
   display: flex;
-  height: 42px;
+  align-items: center;
   justify-content: center;
-  width: 21.5%;
+  height: 100%;
+  /* width: 25%; */
+  font-size: 15px;
 `;
-export const StyledSearchIcon = styled(AiOutlineSearch)`
+export const StyledSearchIcon = styled('div')`
   font-size: 18;
-  margin-right: 10px;
 `;
 
 export const NavBox = styled('div')`
   display: flex;
+  height: 30px;
   justify-content: space-between;
-  width: 36.7%;
+  width: auto;
   background: #fff;
   border-radius: 6px;
   @media (max-width: 768px) {
@@ -82,7 +88,6 @@ export const NavBox = styled('div')`
 `;
 export const NavIcon = styled('div')`
   display: flex;
-  width: 36.7%;
   border-radius: 6px;
   justify-content: center;
   background: none;
@@ -101,6 +106,7 @@ export const Logo = styled('img')`
   width: 180px;
 `;
 export const IconList = styled('li')`
+  font-size: 12px;
   cursor: pointer;
   display: inline;
   margin-left: 2rem;
@@ -118,7 +124,6 @@ export const IconList = styled('li')`
     background: #06aefc;
     text-decoration: none;
     cursor: pointer;
-    font-size: 12px;
     font-weight: 700;
     border-radius: 50%;
     width: 13px;
@@ -136,7 +141,6 @@ export const IconList = styled('li')`
     flex-direction: row;
     width: 10rem;
     justify-content: center;
-    font-size: 18px;
   }
 `;
 export const Hamburger = styled.div`
@@ -164,18 +168,11 @@ export const SearchInput = styled.input`
   border: none;
   border-radius: 6px;
   text-indent: 15px;
-  height: 40px;
-  width: 36.7%;
-  &:focus {
-    border: none;
-    outline: none;
-  }
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    color: black;
-  }
-  :-ms-input-placeholder {
-    color: black;
+  height: 100%;
+  width: 100%;
+
+  &::placeholder {
+    color: gray;
   }
 `;
 export const List = styled('ul')`
@@ -216,9 +213,7 @@ export const IConsContainer = styled('div')`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  /* align-items: center; */
   @media (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
