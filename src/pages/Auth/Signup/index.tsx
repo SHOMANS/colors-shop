@@ -10,14 +10,9 @@ import { useState } from 'react';
 import {
   LoginText,
   LoginSubText,
-  RightLogin,
-  ImageShape,
   Wrapper,
-  WrapperRemmber,
   ForgotPassword,
-  ButtonSuginup,
   ButtonLogin,
-  LeftLogin,
   ContainerLogin,
   FormContainer,
 } from '../Login/style';
@@ -32,7 +27,6 @@ import {
   Column,
   InnerColSection,
   InputController,
-  CheckBox,
   Divider,
   Container,
   Image,
@@ -42,7 +36,8 @@ import { AppState } from '../../../redux/store';
 import { TAllActionAuth } from '../../../redux/Auth/type';
 
 const initialValues: ISchemaValidationSuginup = {
-  name: '',
+  firstName: '',
+  lastName: '',
   email: '',
   password: '',
   passwordConfirmation: '',
@@ -63,8 +58,8 @@ const Signup = () => {
           {
             email: values.email,
             password: values.password,
-            firstName: values.name.split(' ')[0],
-            lastName: values.name.split(' ')[1],
+            firstName: values.lastName,
+            lastName: values.firstName,
             passwordConfirmation: values.passwordConfirmation,
           },
           () => {
@@ -96,15 +91,27 @@ const Signup = () => {
               >
                 <Container width="100%" direction="column" padding={0}>
                   <InputController
-                    name="name"
-                    label="Name"
+                    name="firstName"
+                    label="First name"
                     type="text"
-                    placeholder="your Name"
-                    errors={formik.errors?.name}
+                    placeholder="Ahmed"
+                    errors={formik.errors?.firstName}
                     onChange={formik.handleChange}
                     icon={<GrUserNew />}
-                    value={formik.values.name}
-                    touched={formik.touched.name}
+                    value={formik.values.firstName}
+                    touched={formik.touched.firstName}
+                    onBlur={formik.handleBlur}
+                  />
+                  <InputController
+                    name="lastName"
+                    label="Last name"
+                    type="text"
+                    placeholder="Ghanim"
+                    errors={formik.errors?.lastName}
+                    onChange={formik.handleChange}
+                    icon={<GrUserNew />}
+                    value={formik.values.lastName}
+                    touched={formik.touched.lastName}
                     onBlur={formik.handleBlur}
                   />
                   <InputController
@@ -113,6 +120,7 @@ const Signup = () => {
                     type="email"
                     placeholder="test@test.com"
                     errors={formik.errors?.email}
+                    touched={formik.touched.email}
                     onChange={formik.handleChange}
                     icon={<AiOutlineMail />}
                     value={formik.values.email}
@@ -121,8 +129,9 @@ const Signup = () => {
                     name="password"
                     label="Enter your password"
                     type="password"
-                    placeholder="enter password"
+                    placeholder="Password..."
                     errors={formik.errors?.password}
+                    touched={formik.touched.password}
                     onChange={formik.handleChange}
                     icon={<RiLockPasswordFill />}
                     value={formik.values.password}
@@ -131,8 +140,9 @@ const Signup = () => {
                     name="passwordConfirmation"
                     label="Confirm your password"
                     type="password"
-                    placeholder="enter password"
+                    placeholder="Confirm Password..."
                     errors={formik.errors?.passwordConfirmation}
+                    touched={formik.touched.passwordConfirmation}
                     onChange={formik.handleChange}
                     icon={<RiLockPasswordFill />}
                     value={formik.values.passwordConfirmation}

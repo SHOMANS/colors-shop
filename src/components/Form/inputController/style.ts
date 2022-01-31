@@ -34,34 +34,19 @@ interface IInput {
   isSuccess?: boolean;
 }
 export const Input = styled('input')<IInput>`
-  width: 100% !important;
-  height: 100%;
+  width: 100%;
   border: none;
-  padding: 0.5em;
-
-  /* border: ${props =>
-    props.isError ? '1px solid red' : '1px solid green'}; */
-  /* border-radius: 6px; */
   border-left: none;
-  /* border-top-left-radius: 0; */
-  border-bottom-left-radius: 0;
-  background: transparent;
-  ::placeholder {
-    padding-left: 5px;
-    outline: none;
-    background: transparent;
-  }
+  padding-left: 5px;
+  font-size: 12px;
   &:disabled {
     box-shadow: none;
     cursor: not-allowed;
     outline: none;
-    background: transparent;
   }
 
   &:focus:not(:disabled) {
     outline: none;
-    border-left: none;
-    background: transparent;
   }
 `;
 
