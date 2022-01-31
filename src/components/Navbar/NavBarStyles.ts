@@ -68,7 +68,6 @@ export const SearchButton = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
-  /* width: 25%; */
   font-size: 15px;
 `;
 export const StyledSearchIcon = styled('div')`
@@ -79,7 +78,7 @@ export const NavBox = styled('div')`
   display: flex;
   height: 30px;
   justify-content: space-between;
-  width: auto;
+  width: 40%;
   background: #fff;
   border-radius: 6px;
   @media (max-width: 768px) {
@@ -109,7 +108,6 @@ export const IconList = styled('li')`
   font-size: 12px;
   cursor: pointer;
   display: inline;
-  margin-left: 2rem;
   color: #fff;
   display: flex;
   text-decoration: none;
