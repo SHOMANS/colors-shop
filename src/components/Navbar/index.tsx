@@ -78,11 +78,10 @@ export const Navbar = ({ open, setToggle }) => {
             navigate(`/search${value ? `?keyword=${value}` : ''}`);
           }}
         >
-          <StyledSearchIcon />
           Search
         </SearchButton>
       </NavBox>
-      <NavIcon style={{ width: '15%' }}>
+      <NavIcon>
         <IConsContainer>
           {user.isAdmin ? (
             <Link
@@ -90,7 +89,7 @@ export const Navbar = ({ open, setToggle }) => {
               style={{ textDecoration: 'none', fontFamily: 'mulish' }}
             >
               <IconList>
-                <FiSettings size="1.2em" style={Style} />
+                <FiSettings size="1em" style={Style} />
                 Admin
               </IconList>
             </Link>
@@ -111,7 +110,7 @@ export const Navbar = ({ open, setToggle }) => {
               style={{ textDecoration: 'none', fontFamily: 'mulish' }}
             >
               <IconList>
-                <FaUserAlt size="1.2em" style={Style} />
+                <FaUserAlt size="16px" style={Style} />
                 Login/Signup
               </IconList>
             </Link>
@@ -121,12 +120,10 @@ export const Navbar = ({ open, setToggle }) => {
             style={{ textDecoration: 'none', fontFamily: 'mulish' }}
           >
             <IconList style={{ position: 'relative' }}>
-              {!cart.isLoading && cart.success ? (
+              {!cart.isLoading && cart.success && (
                 <Badge>{cart?.cart?.items.length}</Badge>
-              ) : (
-                <Badge>0</Badge>
               )}
-              <BsFillCartFill size="5em" style={Style} />
+              <BsFillCartFill size="16px" style={Style} />
               Cart
             </IconList>
           </Link>
