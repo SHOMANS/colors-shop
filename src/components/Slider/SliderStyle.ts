@@ -1,14 +1,21 @@
-import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Button } from '../Button/ButtonStyle';
-import { FlexBox, Row, Column } from '../Row';
-import { ContainerWrapper } from '../Container/style';
-import { Container, Image, Typography } from '..';
-import { IPropTypography } from '../Typography/interface';
+import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
+import { Button } from "../Button/ButtonStyle";
+import { FlexBox, Row, Column } from "../Row";
+import { ContainerWrapper } from "../Container/style";
+import { Container, Image, Typography } from "..";
+import { IPropTypography } from "../Typography/interface";
 
 export const SectionSlider = styled(FlexBox)`
   background: #f2f2f2;
   // height: 70%px;
+`;
+export const FlexCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding: 1rem;
 `;
 
 export const SliderSection = styled(ContainerWrapper)`
@@ -101,15 +108,15 @@ interface IDot {
   width?: string;
 }
 
-export const Dot = styled('div')<IDot>`
-  background: ${props => (props.isGrey ? '#70707030' : '#FCDD06 ')};
+export const Dot = styled("div")<IDot>`
+  background: ${(props) => (props.isGrey ? "#70707030" : "#FCDD06 ")};
   border-radius: 50%;
-  width: ${props => props.width};
-  height: ${props => props.width};
+  width: ${(props) => props.width};
+  height: ${(props) => props.width};
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 20px;
+  margin: 0 0.5rem;
   cursor: pointer;
 `;
 
@@ -132,21 +139,13 @@ export const RowArrowWrapper = styled(Row)`
   margin-bottom: 32px;
 `;
 
-export const Arrow = styled('div')<IArrow>`
-  font-size: 35px;
-  font-weight: bold;
+export const Arrow = styled("div")<IArrow>`
+  font-size: 23px;
   font-weight: 700;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
+  padding: 0rem 0.5rem;
   cursor: pointer;
-  ${props =>
-    props.isLeft &&
-    css`
-      transform: rotate(0.5turn);
-    `}
+  opacity: 1;
+
 `;
 
 export const ContentContainer = styled(Container)`
