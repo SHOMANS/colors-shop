@@ -35,7 +35,7 @@ const Home: React.FC = () => {
 
   console.log("allCatogory", allCatogory);
   return (
-    <Container width="100%" direction="column" justify-content="center">
+    <>
       {topProducts.isLoading ? (
         <SpinnerContainer />
       ) : (
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
         <FeaturedProduct data={featcheProduct.allProduct.products} />
       )}
       <TopRate />
-    </Container>
+    </>
   );
 };
 

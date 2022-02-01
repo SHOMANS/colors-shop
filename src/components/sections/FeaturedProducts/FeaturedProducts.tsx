@@ -69,12 +69,13 @@ export const FeaturedProduct = ({ data }: IProps) => {
   };
 
   return (
-       <UpdatedContainer
-      flexDirection={"column"}
-      flexWrap={true}
-      justifyContent={"flex-start"}
-      alignItems={"flex-start"}
-    >
+    <Featured>
+      <UpdatedContainer
+        flexDirection={"column"}
+        flexWrap={true}
+        justifyContent={"flex-start"}
+        alignItems={"flex-start"}
+      >
         <DeviderTitle title="Featured Product" position="center" />
 
         <SwipeableViews
@@ -103,5 +104,6 @@ export const FeaturedProduct = ({ data }: IProps) => {
             ))}
         </UpdatedContainer>
       </UpdatedContainer>
+    </Featured>
   );
 };
