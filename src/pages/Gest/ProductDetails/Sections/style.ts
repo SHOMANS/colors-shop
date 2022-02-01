@@ -56,5 +56,5 @@ export const Title = styled.div`
 `;
 
 export const Padding = styled.div`
-  padding: 0.5rem;
+  padding: 0.4rem;
 `;
