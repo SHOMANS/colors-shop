@@ -33,8 +33,8 @@ const ProfileDashboard = ({ user, isActive }: IProfileDashboard) => {
     <DashboardContainer
       direction="column"
       align-items="flex-start"
-      width="30%"
-      height="528px"
+      // width="30%"
+      // height="528px"
       background="#F2F2F2"
       border-radius="16px"
     >

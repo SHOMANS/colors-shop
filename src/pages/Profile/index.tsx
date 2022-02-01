@@ -9,6 +9,7 @@ import { AppState } from '../../redux/store';
 import { TAllActionUser } from '../../redux/User/type';
 import { SpinnerContainer } from '../../components';
 import OrdersProduct from './Orders';
+import UpdatedContainer from '../../components/UpdatedContainer';
 
 const Profile = () => {
   const [active, setActive] = useState(false);
@@ -21,15 +22,17 @@ const Profile = () => {
   return useProfile.isLoading ? (
     <SpinnerContainer />
   ) : (
-    <ProfileContainer
-      align-items="flex-start"
-      width="71%"
-      margin-left="7.3%"
-      margin-top="129px"
-    >
-      <ProfileDashboard user={useProfile.user} isActive={isActive} />
-      {active ? <OrdersProduct /> : <ProfileInfo user={useProfile.user} />}
-    </ProfileContainer>
+    <UpdatedContainer flexDirection="column">
+      <ProfileContainer
+      // align-items="flex-start"
+      // width="71%"
+      // margin-left="7.3%"
+      // margin-top="129px"
+      >
+        <ProfileDashboard user={useProfile.user} isActive={isActive} />
+        {active ? <OrdersProduct /> : <ProfileInfo user={useProfile.user} />}
+      </ProfileContainer>
+    </UpdatedContainer>
   );
 };
 

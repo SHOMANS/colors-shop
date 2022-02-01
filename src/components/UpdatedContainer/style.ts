@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export interface IProps {
-  flexDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  flexWrap: boolean;
-  justifyContent: 'center' | 'space-between' | 'flex-start' | 'flex-end';
-  alignItems: 'center' | 'flex-start' | 'flex-end' | 'stretch';
+  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  flexWrap?: boolean;
+  justifyContent?: 'center' | 'space-between' | 'flex-start' | 'flex-end';
+  alignItems?: 'center' | 'flex-start' | 'flex-end' | 'stretch';
 }
 export const Wrapper = styled.div<IProps>`
+  background: red;
   width: 75%;
   margin: auto;
   display: flex;

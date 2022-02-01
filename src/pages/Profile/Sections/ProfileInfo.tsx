@@ -26,7 +26,7 @@ const ProfileInfo = ({ user }: IProfileDashboard) => {
       border-radius="16px"
       padding="2em"
     >
-      <InfoBoxContainer direction="column" width="60%">
+      <InfoBoxContainer direction="column" width="80%">
         <Typography variant="h2" fontSize="2rem" margin-bottom="2em">
           My Profile
         </Typography>

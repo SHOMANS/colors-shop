@@ -44,7 +44,12 @@ export const DataValue = styled.h4`
   }
 `;
 
-export const ProfileContainer = styled(Container)`
+export const ProfileContainer = styled.div`
+  background: pink;
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+
   @media only screen and (max-width: 767px) {
     width: 100%;
     flex-direction: column;
@@ -56,6 +61,7 @@ export const ProfileContainer = styled(Container)`
 `;
 
 export const DashboardContainer = styled(Container)`
+  background: lightblue;
   @media only screen and (max-width: 767px) {
     margin-bottom: 2em;
     width: 100%;
@@ -65,6 +71,7 @@ export const DashboardContainer = styled(Container)`
 `;
 
 export const DashImgContainer = styled(Container)`
+  background: blue;
   @media only screen and (max-width: 767px) {
     width: 100%;
     flex-direction: column;
@@ -74,6 +81,7 @@ export const DashImgContainer = styled(Container)`
 
 export const InfoContainer = styled(Container)`
   margin-left: 2em;
+  background: yellow;
   @media only screen and (max-width: 767px) {
     flex-direction: column;
     width: 100%;
@@ -84,6 +92,7 @@ export const InfoContainer = styled(Container)`
 `;
 
 export const InfoBoxContainer = styled(Container)`
+  background: green;
   @media only screen and (max-width: 767px) {
     width: 100%;
     align-items: center;
