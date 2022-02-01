@@ -71,7 +71,8 @@ export const ItemContainer = styled.div`
   display: flex;
   background: #f2f2f2;
   border-radius: 16px;
-  padding: 1.5em;
+  padding: 1em 0.5em;
+  position: relative;
   @media only screen and (max-width: 767px) {
     width: 100%;
     display: flex;
