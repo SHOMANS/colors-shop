@@ -1,24 +1,25 @@
-import ReactStars from 'react-rating-stars-component';
-import { BsBookmark } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '../Button/ButtonStyle';
-import img from '../../assets/tow.jpg';
-import Typography from '../Typography';
+import ReactStars from "react-rating-stars-component";
+import { BsBookmark } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { useNavigate } from "react-router-dom";
+import { Button } from "../Button/ButtonStyle";
+import img from "../../assets/tow.jpg";
+import Typography from "../Typography";
 import {
   Actions,
   AddCart,
   Content,
   ContentAction,
   Discount,
+  FlexButton,
   MainCard,
   SaveBtn,
-} from './cardStyles';
-import { Container, Image } from '..';
-import { AppState } from '../../redux/store';
-import { ActionCartType } from '../../redux/Cart/type';
-import { upduteActionCart } from '../../redux/Cart/action';
+} from "./cardStyles";
+import { Container, Image } from "..";
+import { AppState } from "../../redux/store";
+import { ActionCartType } from "../../redux/Cart/type";
+import { upduteActionCart } from "../../redux/Cart/action";
 
 export interface IProducts {
   image: string;
@@ -37,8 +38,8 @@ const ComplexCard = ({ ...props }: IProducts) => {
   const handelAddCart = () => {
     dispatch(
       upduteActionCart({ productId: props._id, qty: 1 }, () => {
-        navigate('/cart');
-      }),
+        navigate("/cart");
+      })
     );
   };
   return (
@@ -57,24 +58,14 @@ const ComplexCard = ({ ...props }: IProducts) => {
           size="lg"
           style={{
             flexShrink: 0,
-            minWidth: '100%',
-            maxHeight: '18rem',
           }}
         />
       </ContentAction>
       <Content
         onClick={() => navigate(`/product/${props._id}`)}
-        style={{ textAlign: 'center' }}
+        style={{ textAlign: "center" }}
       >
-        <Typography
-          variant="h2"
-          font-size="30px"
-          font-family="mulish"
-          width="80%"
-          margin="20px auto"
-        >
-          {props.name}
-        </Typography>
+        <Typography font-family="mulish">{props.name}</Typography>
       </Content>
       <Content>
         <ReactStars
@@ -82,14 +73,15 @@ const ComplexCard = ({ ...props }: IProducts) => {
           name="rate"
           edit={false}
           value={props.rating}
-          size={40}
+          flex-wrap="wrap"
+          size={30}
         />
       </Content>
       <Content>
         {props.discount && (
           <Typography
             variant="h2"
-            text-decoration={props.discount ? 'line-through' : 'none'}
+            text-decoration={props.discount ? "line-through" : "none"}
             fontFamily="mulish"
             color="red"
             marginRight="20px"
@@ -102,7 +94,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
         </Typography>
       </Content>
 
-      <Container direction="row" margin="0 auto" padding="15px">
+      <FlexButton>
         <Button
           height="62px"
           background="#F2F2F2"
@@ -122,7 +114,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
         >
           Add to cart
         </Button>
-      </Container>
+      </FlexButton>
     </MainCard>
   );
 };

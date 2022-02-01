@@ -1,30 +1,30 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { Container, SpinnerContainer } from '../../../components';
-import { FeaturedCategories } from '../../../components/sections/FeaturedCategories/FeaturedCategories';
-import { FeaturedProduct } from '../../../components/sections/FeaturedProducts/FeaturedProducts';
-import { TopRate } from '../../../components/sections/TopRate/TopRate';
-import { Slider } from '../../../components/Slider/slider';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { Container, SpinnerContainer } from "../../../components";
+import { FeaturedCategories } from "../../../components/sections/FeaturedCategories/FeaturedCategories";
+import { FeaturedProduct } from "../../../components/sections/FeaturedProducts/FeaturedProducts";
+import { TopRate } from "../../../components/sections/TopRate/TopRate";
+import { Slider } from "../../../components/Slider/slider";
 import {
   getAlCategory,
   getProducts,
   getTopProducts,
-} from '../../../redux/Product/action';
-import { TAllActionProduct } from '../../../redux/Product/type';
-import { AppState } from '../../../redux/store';
+} from "../../../redux/Product/action";
+import { TAllActionProduct } from "../../../redux/Product/type";
+import { AppState } from "../../../redux/store";
 
 const Home: React.FC = () => {
   const dispatch =
     useDispatch<ThunkDispatch<AppState, any, TAllActionProduct>>();
   const topProducts = useSelector(
-    (state: AppState) => state.product.topProducts,
+    (state: AppState) => state.product.topProducts
   );
   const allCatogory = useSelector(
-    (state: AppState) => state.product.allCategory,
+    (state: AppState) => state.product.allCategory
   );
   const featcheProduct = useSelector(
-    (state: AppState) => state.product.allProducts,
+    (state: AppState) => state.product.allProducts
   );
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  console.log('allCatogory', allCatogory);
+  console.log("allCatogory", allCatogory);
   return (
     <Container width="100%" direction="column" justify-content="center">
       {topProducts.isLoading ? (
