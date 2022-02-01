@@ -51,7 +51,7 @@ const Subtotal = ({ data }: Props) => {
         fontSize=".8rem"
         to="/review"
         padding="1em"
-        margin="10px 0px 0px 0px"
+        margin="15px 0px 0px 0px"
       >
         Proceed to checkout
       </Button>

@@ -100,9 +100,8 @@ export const TotalContainer = styled.div`
   padding: 1em 2em;
   display: flex;
   flex-direction: column;
-  gap: 5px;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   @media only screen and (max-width: 767px) {
     width: 100%;
     max-width: 25rem;
