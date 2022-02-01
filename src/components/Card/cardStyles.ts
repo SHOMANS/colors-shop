@@ -28,7 +28,6 @@ export const CategoryImage = styled.div`
   }
 `;
 
-
 export const Image = styled.img`
   width: 100%;
   height: 100%;
@@ -36,6 +35,8 @@ export const Image = styled.img`
 export const CategoryoneImage = styled.div`
   height: 250px;
   padding: 2rem;
+  width: 100%;
+
   background: #f7f8fc;
   border-radius: 10px;
   overflow: hidden;
