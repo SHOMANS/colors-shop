@@ -69,6 +69,7 @@ export const FeaturedProduct = ({ data }: IProps) => {
   };
 
   return (
+    <Featured>
       <UpdatedContainer
         flexDirection={"column"}
         flexWrap={true}
@@ -103,5 +104,6 @@ export const FeaturedProduct = ({ data }: IProps) => {
             ))}
         </UpdatedContainer>
       </UpdatedContainer>
+    </Featured>
   );
 };

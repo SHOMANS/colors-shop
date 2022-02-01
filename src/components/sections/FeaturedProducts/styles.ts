@@ -43,9 +43,7 @@ export const TitleCard = styled("h3")`
 `;
 
 export const Featured = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+
   background: #f7f8fc;
 `;
 export const CatProduct = styled.div`
