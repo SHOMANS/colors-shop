@@ -1,7 +1,7 @@
-import React, { HTMLAttributes, useState } from 'react';
-import { CSSProperties } from 'styled-components';
-import { Container } from '..';
-import CircleStyle from './styles';
+import React, { HTMLAttributes, useState } from "react";
+import { CSSProperties } from "styled-components";
+import { Container } from "..";
+import CircleStyle from "./styles";
 
 export interface IProps extends HTMLAttributes<HTMLElement> {
   className?: string;
@@ -19,9 +19,9 @@ const Circle = (props: IProps) => {
 };
 
 Circle.defaultProps = {
-  size: '2.5rem',
-  bgColor: '#EDEAE3',
-  borderColor: '#242424',
+  size: "2.5rem",
+  bgColor: "#EDEAE3",
+  borderColor: "#242424",
 };
 
 const GroupCircle = ({ colors, setColorActive }) => {
@@ -37,7 +37,7 @@ const GroupCircle = ({ colors, setColorActive }) => {
             setColorActive(color);
           }}
           style={{
-            margin: index > 0 ? '0 .5rem' : '0',
+            margin: index > 0 ? "0 .5rem" : "0",
           }}
           size="2.5rem"
           key={index}

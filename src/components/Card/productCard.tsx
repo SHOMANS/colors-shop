@@ -15,6 +15,7 @@ import {
   FlexButton,
   MainCard,
   SaveBtn,
+  StyleMainCard,
 } from "./cardStyles";
 import { Container, Image } from "..";
 import { AppState } from "../../redux/store";
@@ -43,7 +44,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
     );
   };
   return (
-    <MainCard padding="0 1rem">
+    <StyleMainCard>
       {props?.discount > 0 && (
         <Discount>
           <Typography width="none" color="white" fontSize="24px">
@@ -114,7 +115,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
           Add to cart
         </Button>
       </FlexButton>
-    </MainCard>
+    </StyleMainCard>
   );
 };
 

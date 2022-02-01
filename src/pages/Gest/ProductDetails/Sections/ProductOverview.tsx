@@ -1,9 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useCallback, useEffect, useState } from 'react';
-import { BsBookmarks } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { ThunkDispatch } from 'redux-thunk';
+import React, { useCallback, useEffect, useState } from "react";
+import { BsBookmarks } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { ThunkDispatch } from "redux-thunk";
 import {
   Container,
   Button,
@@ -11,19 +11,18 @@ import {
   Icon,
   Counter,
   GroupCircle,
-} from '../../../../components';
-import { upduteActionCart } from '../../../../redux/Cart/action';
-import { ActionCartType } from '../../../../redux/Cart/type';
-import { IProducts } from '../../../../redux/Product/type';
-import { AppState } from '../../../../redux/store';
-import { ProductImage } from './style';
+} from "../../../../components";
+import { upduteActionCart } from "../../../../redux/Cart/action";
+import { ActionCartType } from "../../../../redux/Cart/type";
+import { IProducts } from "../../../../redux/Product/type";
+import { AppState } from "../../../../redux/store";
+import { ProductImage, ImageSections, Imagefirst, Discount } from "./style";
 
-const ProductOverview: React.FC<IProducts> = props => {
+const ProductOverview: React.FC<IProducts> = (props) => {
   const { id } = useParams<{ id: string }>();
 
   const { images, colors, _id } = props;
-  const [colorActive, setColorActive] = useState(colors?.[0] || '');
-  const [memory, setMemory] = useState('');
+  const [colorActive, setColorActive] = useState(colors?.[0] || "");
   const [currentImages, setImages] = useState<string[]>(images || []);
   const [count, setCount] = useState<number>(1);
 
@@ -36,10 +35,10 @@ const ProductOverview: React.FC<IProducts> = props => {
           productId: id as string,
           qty: count,
         },
-        () => navigation('/cart'),
-      ),
+        () => navigation("/cart")
+      )
     );
-    console.log('count', count);
+    console.log("count", count);
   }, [dispatch, upduteActionCart, count]);
 
   const handleImageClick = (index: number) => {
@@ -55,34 +54,48 @@ const ProductOverview: React.FC<IProducts> = props => {
       // flex-Wrap="wrap"
       justify-ontent="space-between"
     >
-      <Container direction="column" max-width="23rem">
-        <Container padding="2em" width="80%" height="300px">
+      <ImageSections>
+        <Imagefirst>
           <ProductImage size="md" src={currentImages?.[0]} />
-        </Container>
+        </Imagefirst>
         <Container direction="row" margin=".1em 0">
-          {currentImages?.map(
+          {/* {currentImages?.map(
             (image, index) =>
-              index > 0 && (
-                <ProductImage
-                  key={index.toString()}
-                  src={image}
-                  onClick={() => handleImageClick(index)}
-                  border
-                  height="6em"
-                  width="5em"
-                />
-              ),
-          )}
+              index > 0 && ( */}
+          <ProductImage
+            // key={index.toString()}
+            src={currentImages?.[0]}
+            //  onClick={() => handleImageClick(index)}
+            border
+            height="6em"
+            width="5em"
+          />
+          {/* ) */}
+          {/* )} */}
         </Container>
-      </Container>
-      <Container direction="column" margin-left="2em">
+      </ImageSections>
+      <Container direction="column">
         <Container justify-Content="space-between">
           <Typography variant="h3" font-Size="1.2rem" bold>
             {props?.name}
           </Typography>
-          <Typography bold variant="h2" font-Size="1.3rem">
-            {props?.price}$
-          </Typography>
+          <div>
+            {props.discount ? (
+              <Discount>
+                <Typography style={{ fontSize: "15px" }}>
+                  <del> ${(props.price - props.discount).toFixed(2)}</del>
+                </Typography>
+                <Typography style={{ color: "red", fontSize: "15px" }}>
+                  {Math.round((100 * props.discount) / props.price)}% Sale
+                </Typography>
+              </Discount>
+            ) : (
+              ""
+            )}
+            <Typography bold variant="h2" font-Size="1.3rem">
+              {props?.price}$
+            </Typography>
+          </div>
         </Container>
 
         <Container margin="1em 0">
@@ -97,7 +110,7 @@ const ProductOverview: React.FC<IProducts> = props => {
           <Typography variant="h3" color="grey">
             Color:
           </Typography>
-          <Typography bold variant="h3" margin="0 1em">
+          <Typography bold variant="h3" margin="1rem">
             {colorActive}
           </Typography>
         </Container>
@@ -105,49 +118,13 @@ const ProductOverview: React.FC<IProducts> = props => {
           colors={props?.colors || []}
           setColorActive={setColorActive}
         />
-        <Container>
-          {props?.size && (
-            <>
-              <Typography variant="h3" color="grey">
-                Size:
-              </Typography>
-              <Typography bold variant="h3" margin="0 1em">
-                {props?.size}
-              </Typography>
-            </>
-          )}
-        </Container>
+
         <Container
           margin="1em 0 1em 0"
           justify-Content="space-between"
           align-Items="center"
         >
-          <Container>
-            <Button
-              margin="0 1em 0 0"
-              padding=".6em 2em"
-              onClick={() => setMemory('64GB')}
-              brand={memory === '64GB'}
-            >
-              64GB
-            </Button>
-            <Button
-              margin="0 1em"
-              padding=".6em 2em"
-              onClick={() => setMemory('128GB')}
-              brand={memory === '128GB'}
-            >
-              128GB
-            </Button>
-            <Button
-              margin="0 1em"
-              padding=".6em 2em"
-              onClick={() => setMemory('256GB')}
-              brand={memory === '256GB'}
-            >
-              256GB
-            </Button>
-          </Container>
+          <Container></Container>
           <Button width="3rem" margin="0 1em">
             <Icon size="20" icon={<BsBookmarks />} />
           </Button>
@@ -159,13 +136,9 @@ const ProductOverview: React.FC<IProducts> = props => {
           variant="p"
           line-Height={1.5}
           text-Align="justify"
-          font-Family="Mulish"
-          font-Size=".8rem"
+          font-Size=".9rem"
         >
           {props?.description}
-        </Typography>
-        <Typography font-size=".8rem" margin="1rem 0">
-          {props?.categories?.join(', ')}
         </Typography>
       </Container>
     </Container>

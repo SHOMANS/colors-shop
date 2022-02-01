@@ -49,7 +49,7 @@ export const StyledImage = styled(Img)<any>`
   display: block;
   max-width: 100%;
 
-  border: ${props => props?.border && '1px solid grey'};
+  border: ${props => props?.border && '1px solid #F2F2F2'};
   border-radius: ${props =>
     props.variant === 'circle'
       ? '50%'
