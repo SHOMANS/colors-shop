@@ -4,7 +4,11 @@ import SwipeableViews from "react-swipeable-views";
 import { CategoryCard, Container } from "../..";
 import { Divider, Title } from "../../DeviderTitle/style";
 import { CategDots } from "../../Slider/SliderStyle";
-import { RowInnerSlider, WrapperDots } from "../FeaturedProducts/styles";
+import {
+  FeaturedProduc,
+  CatProduct,
+  WrapperDots,
+} from "../FeaturedProducts/styles";
 import { IGetAllCategory, IProducts } from "../../../redux/Product/type";
 import UpdatedContainer from "../../UpdatedContainer";
 
@@ -41,7 +45,7 @@ export const FeaturedCategories = ({ data }: IProps) => {
       return i;
     });
     return chunks.map((i: any, inx: number) => (
-      <RowInnerSlider key={inx}>
+      <CatProduct key={inx}>
         {i.map((item, index) => (
           <CategoryCard
             name={item.name}
@@ -49,48 +53,46 @@ export const FeaturedCategories = ({ data }: IProps) => {
             key={index + item.name}
           />
         ))}
-      </RowInnerSlider>
+      </CatProduct>
     ));
   };
 
   return (
-    <>
-      <UpdatedContainer
-        flexDirection={"column"}
-        flexWrap={true}
-        justifyContent={"center"}
-        alignItems={"flex-start"}
-      >
+    <UpdatedContainer
+      flexDirection={"column"}
+      flexWrap={true}
+      justifyContent={"flex-start"}
+      alignItems={"flex-start"}
+    >
+      <>
         <>
-          <>
-            <Title>Featured Categories</Title>
-            <WrapperDots item="flex-start">
-              {Array(3)
-                .fill(0)
-                .map((x, i) => (
-                  <CategDots
-                    style={DotsStyles}
-                    width="14px"
-                    isGrey={sliderIndex !== i}
-                    onClick={() => setSliderIndex(i)}
-                  />
-                ))}
-            </WrapperDots>{" "}
-            <Divider width="12%" height="7px" color="#FCDD06" />
-            <Divider width="100%" height="0px" color="#d3cdcd" />
-          </>
-          <>
-            <SwipeableViews
-              enableMouseEvents
-              index={sliderIndex}
-              style={cssStyle}
-              onChangeIndex={setSliderIndex}
-            >
-              {getSlider()}
-            </SwipeableViews>
-          </>
+          <Title>Featured Categories</Title>
+          <WrapperDots item="flex-start">
+            {Array(3)
+              .fill(0)
+              .map((x, i) => (
+                <CategDots
+                  style={DotsStyles}
+                  width="14px"
+                  isGrey={sliderIndex !== i}
+                  onClick={() => setSliderIndex(i)}
+                />
+              ))}
+          </WrapperDots>{" "}
+          <Divider width="12%" height="7px" color="#FCDD06" />
+          <Divider width="100%" height="0px" color="#d3cdcd" />
         </>
-      </UpdatedContainer>
-    </>
+        <>
+          <SwipeableViews
+            enableMouseEvents
+            index={sliderIndex}
+            style={cssStyle}
+            onChangeIndex={setSliderIndex}
+          >
+            {getSlider()}
+          </SwipeableViews>
+        </>
+      </>
+    </UpdatedContainer>
   );
 };

@@ -48,14 +48,25 @@ export const Featured = styled.div`
   align-items: flex-end;
   background: #f7f8fc;
 `;
+export const CatProduct = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
 
 export const FeaturedProduc = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   @media (max-width: 800px) {
     width: 100%;
     display: flex;
+    flex-wrap: no-wrap;
+
     flex-direction: column;
   }
 `;

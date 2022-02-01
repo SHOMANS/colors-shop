@@ -18,6 +18,8 @@ export const CategoryImage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
+
   align-self: center;
   justify-content: center;
   padding: 0.5rem 0.2rem;
@@ -26,22 +28,13 @@ export const CategoryImage = styled.div`
   }
 `;
 
-export const Category = styled.div`
-  width: 28%;
-  padding: 1rem;
-  @media (max-width: 800px) {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-`;
+
 export const Image = styled.img`
   width: 100%;
   height: 100%;
 `;
 export const CategoryoneImage = styled.div`
   height: 250px;
-  width: 100%;
   padding: 2rem;
   background: #f7f8fc;
   border-radius: 10px;
@@ -154,7 +147,5 @@ export const FlexButton = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin:1rem 0;
-
+  margin: 1rem 0;
 `;
-
