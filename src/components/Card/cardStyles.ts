@@ -60,8 +60,8 @@ export const MainCard = styled("div")<IstyleMainCard>(
     alignItems = "baseline",
     alignContent = "baseline",
     boxShadow = "none",
-    width = "28.2%",
-    margin = "20px auto",
+    width = "33.3%",
+    margin = "0 1rem 1rem 0 ",
     padding = "none",
     ...props
   }: IstyleMainCard) => ({
@@ -82,6 +82,16 @@ export const MainCard = styled("div")<IstyleMainCard>(
   })
 );
 
+export const StyleMainCard = styled(MainCard)`
+  @media (max-width: 800px) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-self: center;
+  }
+`;
 // '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
 export const Content = styled("div")<IcontentProp>(
   ({
