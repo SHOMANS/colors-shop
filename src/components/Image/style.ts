@@ -58,7 +58,7 @@ export const StyledImage = styled(Img)<any>`
       : '0'};
   max-height: ${props =>
     props.maxHeight || (props?.size && getImageHeight(props.size)) || '100%'};
-  margin: 0 auto;
+  margin: 0;
   ${props =>
     props.loading === 'eager' &&
     `

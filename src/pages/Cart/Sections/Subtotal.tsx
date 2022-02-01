@@ -22,69 +22,39 @@ const Subtotal = ({ data }: Props) => {
 
   return (
     <>
-      <Container direction="column" align-items="center" padding="2em">
-        <Typography
-          variant="h2"
-          fontSize="32px"
-          letter-spacing="0.64px"
-          margin-bottom="1em"
-        >
-          Subtotal ({data?.items.length}) items
-        </Typography>
-
-        <Typography
-          variant="span"
-          color="#707070"
-          fontSize="24px"
-          letter-spacing="0.48px"
-          margin-bottom="0.5em"
-          text-decoration="line-through"
-        >
-          {data.totalPrice}$
-        </Typography>
-
-        <Typography
-          variant="h2"
-          fontSize="38px"
-          letter-spacing="0.76px"
-          margin-bottom="1em"
-        >
-          {allDiscount}$
-        </Typography>
-      </Container>
-      <Divider color="#E8E8E8" />
+      <Typography variant="h2" fontSize=".8rem">
+        Subtotal({data?.items.length})items
+      </Typography>
+      <Typography
+        variant="span"
+        color="#707070"
+        fontSize="24px"
+        letter-spacing="0.48px"
+        // margin-bottom="0.5em"
+        text-decoration="line-through"
+      >
+        {data.totalPrice}$
+      </Typography>
+      <Typography
+        variant="h2"
+        // fontSize="38px"
+        letter-spacing="0.76px"
+        // margin-bottom="1em"
+      >
+        {allDiscount}$
+      </Typography>
+      {/* </Container> */}
+      <Divider width="100%" />
       <Button
-        margin="4px auto"
         as={Link}
         brand
-        padding=".8em"
-        width="80%"
+        fontSize=".8rem"
         to="/review"
-        style={{ margin: '2em auto', padding: '1.2em' }}
+        padding="1em"
+        margin="10px 0px 0px 0px"
       >
         Proceed to checkout
-      </Button>{' '}
-      {/* <Button
-        as="Link"
-        to="/review"
-        width="80%"
-        style={{ margin: '2em auto', padding: '1.2em' }}
-        background="#FCDD06"
-      >
-        cccccccccccc
-        <Button
-          to="/review"
-          style={{
-            fontFamily: 'mulish',
-            fontVariant: 'inherit',
-            fontSize: '22px',
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Proceed to checkout
-        </Button>
-      </Button> */}
+      </Button>
     </>
   );
 };

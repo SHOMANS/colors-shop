@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Container } from '../../components';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -31,9 +30,11 @@ export const OldPrice = styled.div`
 `;
 
 export const ItemTitle = styled(Link)`
-  width: 60%;
+  /* width: 60%; */
   text-decoration: none;
   color: #242424;
+  margin-top: 10px;
+  font-size: 0.8rem;
   @media only screen and (max-width: 767px) {
     width: 100%;
     text-align: center;
@@ -42,46 +43,60 @@ export const ItemTitle = styled(Link)`
 
 export const WrapCounter = styled.div`
   background: #fff;
+
   @media only screen and (max-width: 767px) {
     margin-bottom: 1em;
   }
 `;
 
-export const CartContainer = styled(Container)`
+export const CartContainer = styled.div`
+  display: flex;
+  /* algin-items: center; */
+  gap: 20px;
+
   @media only screen and (max-width: 767px) {
     flex-direction: column;
     align-items: center;
   }
 `;
 
-export const ListContainer = styled(Container)`
+export const ListContainer = styled.div`
   @media only screen and (max-width: 767px) {
     width: 100%;
     align-items: center;
   }
 `;
 
-export const ItemContainer = styled(Container)`
-  display: ${props => (props.display === '0' ? 'none' : 'flex')};
+export const ItemContainer = styled.div`
+  display: flex;
+  background: #f2f2f2;
+  border-radius: 16px;
+  padding: 1.5em;
   @media only screen and (max-width: 767px) {
     width: 100%;
-    max-width: 25rem;
-    flex-direction: column;
-    height: auto;
-    align-items: center;
+    display: flex;
   }
 `;
 
-export const ImgContainer = styled(Container)`
-  @media only screen and (max-width: 767px) {
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  }
-`;
-
-export const TotalContainer = styled(Container)`
+export const ImgContainer = styled.div`
   width: 30%;
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+    min-width: 30%;
+  }
+`;
+
+export const TotalContainer = styled.div`
+  background: #f2f2f2;
+  border-radius: 16px;
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  gap: 5px;
   @media only screen and (max-width: 767px) {
     width: 100%;
     max-width: 25rem;
