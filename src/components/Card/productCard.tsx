@@ -48,7 +48,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
       {props?.discount > 0 && (
         <Discount>
           <Typography width="none" color="white" fontSize="24px">
-            {`-${Math.floor(-100 * (props.discount / props.price - 1))}%`}
+            {Math.round((100 * props.discount) / props.price)}%
           </Typography>
         </Discount>
       )}
@@ -79,19 +79,17 @@ const ComplexCard = ({ ...props }: IProducts) => {
         />
       </Content>
       <Content>
-        {props.discount && (
-          <Typography
-            variant="h2"
-            text-decoration={props.discount ? "line-through" : "none"}
-            fontFamily="mulish"
-            color="red"
-            marginRight="20px"
-          >
-            ${props.price}
-          </Typography>
-        )}
         <Typography variant="h2" fontFamily="mulish">
-          ${props.discount}
+          {props.discount ? (
+            <>
+              <span style={{ color: "red" }}>
+                ${(props.price - props.discount).toFixed(2)}
+              </span>{" "}
+              <del>${props.price.toFixed(2)}</del>
+            </>
+          ) : (
+            <span> ${props.price.toFixed(2)}</span>
+          )}
         </Typography>
       </Content>
 
