@@ -26,7 +26,7 @@ const App: React.FC = () => {
           <Suspense fallback={<SpinnerContainer />}>
             <ErrorBoundary>
               <Burger open={open} setOpen={setstate} />
-              <Navbar open={open} setToggle={setToggle} />
+              <Navbar open={open} setoggle={undefined} />
               <Container height="3rem" />
               <AllRouter />
             </ErrorBoundary>

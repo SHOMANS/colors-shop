@@ -72,6 +72,6 @@ export const StyledImage = styled(Img)<any>`
   }
 `}
   @media (max-width: 768px) {
-    display: ${props => (props.responsive ? 'none' : 'block')};
+    /* display: ${props => (props.responsive ? 'none' : 'block')}; */
   }
 `;

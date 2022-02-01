@@ -43,11 +43,10 @@ const Style = {
   lineHieght: '1px',
 };
 
-export const Navbar = ({ open, setToggle }) => {
+export const Navbar = ({ open, setoggle }) => {
   const [value, setValue] = useState<string>('');
   const navigate = useNavigate();
   const user: IUser = useToken();
-  const { theme } = useTheme();
   const dispatch = useDispatch<ThunkDispatch<AppState, any, ActionCartType>>();
   const cart = useSelector((state: AppState) => state.cart);
 
@@ -60,7 +59,7 @@ export const Navbar = ({ open, setToggle }) => {
     navigate('/login');
   };
   return (
-    <ListNav open={false}>
+    <ListNav open={open}>
       <Logo />
       <NavBox style={{ margin: 'auto' }}>
         <SearchInput
@@ -89,7 +88,7 @@ export const Navbar = ({ open, setToggle }) => {
               style={{ textDecoration: 'none', fontFamily: 'mulish' }}
             >
               <IconList>
-                <FiSettings size="1em" style={Style} />
+                <FiSettings size="16px" style={Style} />
                 Admin
               </IconList>
             </Link>
@@ -100,7 +99,7 @@ export const Navbar = ({ open, setToggle }) => {
               style={{ textDecoration: 'none', fontFamily: 'mulish' }}
             >
               <IconList>
-                <FaUserAlt size="1.5em" style={Style} />
+                <FaUserAlt size="16px" style={Style} />
                 {`${user.firstName} ${user.lastName}`}
               </IconList>
             </Link>
@@ -129,7 +128,7 @@ export const Navbar = ({ open, setToggle }) => {
           </Link>
           {user?._id && (
             <IconList onClick={Logout}>
-              <BiLogOut size="2em" style={Style} />
+              <BiLogOut size="16px" style={Style} />
               Logout
             </IconList>
           )}
