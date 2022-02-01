@@ -1,6 +1,6 @@
-import styled, { CSSProperties } from 'styled-components';
-import { Button } from '../Button/ButtonStyle';
-import { IstyleMainCard, IcontentProp } from './interface';
+import styled, { CSSProperties } from "styled-components";
+import { Button } from "../Button/ButtonStyle";
+import { IstyleMainCard, IcontentProp } from "./interface";
 
 export const SaveBtn = styled(Button)`
   height: 62px;
@@ -10,6 +10,43 @@ export const SaveBtn = styled(Button)`
   margin-left: 7%;
 `;
 
+export const Images = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+export const CategoryImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+
+  align-self: center;
+  justify-content: center;
+  padding: 0.5rem 0.2rem;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+export const CategoryoneImage = styled.div`
+  height: 250px;
+  padding: 2rem;
+  width: 100%;
+
+  background: #f7f8fc;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 800px) {
+    margin-bottom: 1rem;
+  }
+`;
 export const AddCart = styled(Button)`
   height: 62px;
   width: 65.3%;
@@ -18,71 +55,71 @@ export const AddCart = styled(Button)`
   margin: 0 5%;
 `;
 
-export const MainCard = styled('div')<IstyleMainCard>(
+export const MainCard = styled("div")<IstyleMainCard>(
   ({
-    alignItems = 'baseline',
-    alignContent = 'baseline',
-    boxShadow = 'none',
-    width = '28.2%',
-    margin = '20px auto',
-    padding = 'none',
+    alignItems = "baseline",
+    alignContent = "baseline",
+    boxShadow = "none",
+    width = "28.2%",
+    margin = "20px auto",
+    padding = "none",
     ...props
   }: IstyleMainCard) => ({
-    position: 'relative',
+    position: "relative",
     alignItems: `${alignItems}`,
     alignContent: `${alignContent}`,
     boxShadow: `${boxShadow}`,
-    transition: '0.3s',
+    transition: "0.3s",
     width: `${width}`,
-    minWidth: '300px',
+    minWidth: "300px",
     margin: `${margin}`,
     padding: `${padding}`,
-    display: 'flex',
-    flexDirection: `${(props.flexDirection as 'row') || ('column' as const)}`,
-    borderRadius: `${props.borderRadius || '10px'}`,
-    backgroundColor: `${props.backgroundColor || 'white'}`,
-    flexWrap: 'wrap',
-  }),
+    display: "flex",
+    flexDirection: `${(props.flexDirection as "row") || ("column" as const)}`,
+    borderRadius: `${props.borderRadius || "10px"}`,
+    backgroundColor: `${props.backgroundColor || "white"}`,
+    flexWrap: "wrap",
+  })
 );
 
 // '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
-export const Content = styled('div')<IcontentProp>(
+export const Content = styled("div")<IcontentProp>(
   ({
-    padding = '0',
-    width = 'none',
-    height = 'none',
-    maxHeight = '60%',
-    margin = '5px auto',
+    padding = "0",
+    width = "none",
+    height = "none",
+    maxHeight = "60%",
+    margin = "5px auto",
   }: // ...props
   IcontentProp) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItem: 'center',
+    display: "flex",
+    justifyContent: "center",
+    alignItem: "center",
     padding: `${padding}`,
     width: `${width}`,
     height: `${height}`,
     maxHeight: `${maxHeight}`,
     margin: `${margin}`,
-  }),
+  })
 );
 
 export const ContentAction = styled.div<CSSProperties>(
   ({
-    padding = 'none',
-    width = '100%',
-    height = 'none',
-    border = 'none',
-    margin = ' auto',
+    padding = "none",
+    width = "100%",
+    height = "none",
+    border = "none",
+    margin = " auto",
   }) => ({
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     padding: `${padding}`,
     width: `${width}`,
     height: `${height}`,
     border: ` ${border}`,
     margin: `${margin}`,
-    cursor: 'pointer',
-  }),
+    cursor: "pointer",
+  })
 );
 
 export const Discount = styled.div`
@@ -105,4 +142,11 @@ export const Actions = styled.div`
   align-items: center;
   margin: 0 auto;
   margin-top: 1 rem;
+`;
+
+export const FlexButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1rem 0;
 `;

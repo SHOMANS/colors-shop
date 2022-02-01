@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Column, Row } from '../../../components/Row';
+import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
+import { Column, Row } from "../../../components/Row";
 
 export const ContainerCard = styled(Link)`
   align-items: center;
@@ -22,7 +22,7 @@ export const ContainerCard = styled(Link)`
   }
 `;
 
-export const ImageCard = styled('img')`
+export const ImageCard = styled("img")`
   height: 100%;
   height: 342px;
   margin-bottom: 34px;
@@ -32,7 +32,7 @@ export const ImageCard = styled('img')`
   width: 100%;
 `;
 
-export const TitleCard = styled('h3')`
+export const TitleCard = styled("h3")`
   color: #242424;
   font-size: 24px;
   letter-spacing: 0.48px;
@@ -42,7 +42,33 @@ export const TitleCard = styled('h3')`
   text-decoration: none;
 `;
 
-export const DiscountCard = styled('p')`
+export const Featured = styled.div`
+
+  background: #f7f8fc;
+`;
+export const CatProduct = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const FeaturedProduc = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @media (max-width: 800px) {
+    width: 100%;
+    display: flex;
+    flex-wrap: no-wrap;
+
+    flex-direction: column;
+  }
+`;
+export const DiscountCard = styled("p")`
   color: #fc4059;
   font-size: 30px;
   letter-spacing: 0.6px;
@@ -52,13 +78,13 @@ export const DiscountCard = styled('p')`
   letter-spacing: 0.6px;
   color: #fc4059;
 `;
-export const PriceCard = styled('p')<{ isDiscount?: boolean }>`
+export const PriceCard = styled("p")<{ isDiscount?: boolean }>`
   color: #242424;
   font-size: 30px;
   letter-spacing: 0.6px;
   margin-right: 8px;
   opacity: 1;
-  text-decoration: ${props => (props.isDiscount ? 'line-through' : 'none')};
+  text-decoration: ${(props) => (props.isDiscount ? "line-through" : "none")};
 `;
 
 export const RowPrice = styled(Row)`
@@ -69,7 +95,7 @@ export const RowPrice = styled(Row)`
   margin-bottom: 16px;
 `;
 
-export const BockBarkButton = styled('button')`
+export const BockBarkButton = styled("button")`
   border: 10px solid transparent;
   cursor: pointer;
   margin-right: 28px;
@@ -96,7 +122,7 @@ export const AddToCartButton = styled(Link)<{ disabled?: boolean }>`
   text-decoration: none;
   text-transform: capitalize;
   width: 324px;
-  ${props =>
+  ${(props) =>
     props.disabled &&
     css`
       background: gray;
@@ -105,7 +131,7 @@ export const AddToCartButton = styled(Link)<{ disabled?: boolean }>`
     `}
 `;
 
-export const FeaturedProducts = styled('p')`
+export const FeaturedProducts = styled("p")`
   color: #242424;
   font-size: 32px;
   font-weight: bold;
@@ -127,15 +153,13 @@ export const FeaturedProductsContainer = styled(Column)`
   min-height: 948px;
 `;
 export const WrapperDots = styled(Row)`
-  align-items: center;
-  height: 40px;
+  align-items: right;
   justify-content: flex-end;
-  margin: 10px 0px;
-  width: auto;
-  margin: 0px;
+  display: flex;
+  margin: 0px 0.5rem;
 `;
 export const CardsCategory = styled(Row)`
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 export const RowInnerSlider = styled(Row)`
@@ -145,7 +169,7 @@ export const RowInnerSlider = styled(Row)`
   overflow: hidden;
 `;
 
-export const DicountCircle = styled('div')`
+export const DicountCircle = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,7 +197,7 @@ export const CardContainerWithoutLink = styled(Column)<{
 
   min-width: 520px;
   width: 520px;
-  ${props =>
+  ${(props) =>
     props.widthBorder &&
     css`
       box-shadow: 0px 2px 20px #08091e1a;

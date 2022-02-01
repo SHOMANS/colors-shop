@@ -1,22 +1,40 @@
-import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Button } from '../Button/ButtonStyle';
-import { FlexBox, Row, Column } from '../Row';
-import { ContainerWrapper } from '../Container/style';
-import { Container, Image, Typography } from '..';
-import { IPropTypography } from '../Typography/interface';
+import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
+import { Button } from "../Button/ButtonStyle";
+import { FlexBox, Row, Column } from "../Row";
+import { ContainerWrapper } from "../Container/style";
+import { Container, Image, Typography } from "..";
+import { IPropTypography } from "../Typography/interface";
 
 export const SectionSlider = styled(FlexBox)`
   background: #f2f2f2;
   // height: 70%px;
 `;
+export const FlexCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding: 1rem;
+`;
 
+export const FlexColumn = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction:column;
+  text-align: left;
+  @media (max-width: 800px) {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+  }
+`;
 export const SliderSection = styled(ContainerWrapper)`
   margin: 0 auto;
   overflow: hidden;
   flex-wrap: wrap;
-  padding-top: 60px;
-  padding-bottom: 30px;
+  padding-top: 1rem;
   @media (max-width: 768px) {
     flex-direction: column;
     margin: auto;
@@ -88,28 +106,36 @@ export const ButtonHero = styled(Link)`
   max-width: 220px;
 `;
 
-export const WrapperImageHero = styled(Column)`
-  max-width: 627px;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+export const WrapperImageHero = styled.div`
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
 
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
 interface IDot {
   isGrey: boolean;
   width?: string;
 }
 
-export const Dot = styled('div')<IDot>`
-  background: ${props => (props.isGrey ? '#70707030' : '#FCDD06 ')};
+export const Dot = styled("div")<IDot>`
+  background: ${(props) => (props.isGrey ? "#70707030" : "#FCDD06 ")};
   border-radius: 50%;
-  width: ${props => props.width};
-  height: ${props => props.width};
+  width: ${(props) => props.width};
+  height: ${(props) => props.width};
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 20px;
+  margin: 0 0.3rem;
   cursor: pointer;
 `;
 
@@ -118,7 +144,19 @@ export const CategDots = styled(Dot)`
     display: none;
   }
 `;
-
+export const Flex = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  padding: 1rem 0;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+`;
 interface IArrow {
   isLeft?: boolean;
   color?: string;
@@ -132,21 +170,12 @@ export const RowArrowWrapper = styled(Row)`
   margin-bottom: 32px;
 `;
 
-export const Arrow = styled('div')<IArrow>`
-  font-size: 35px;
-  font-weight: bold;
+export const Arrow = styled("div")<IArrow>`
+  font-size: 23px;
   font-weight: 700;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
+  padding: 0rem 0.5rem;
   cursor: pointer;
-  ${props =>
-    props.isLeft &&
-    css`
-      transform: rotate(0.5turn);
-    `}
+  opacity: 1;
 `;
 
 export const ContentContainer = styled(Container)`

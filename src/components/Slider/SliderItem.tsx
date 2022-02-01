@@ -1,7 +1,8 @@
 /* eslint-disable import/extensions */
-import { Container } from '..';
-import { Column } from '../Col';
-import { Row } from '../Row';
+import { Container } from "..";
+import { Column } from "../Col";
+import { Row } from "../Row";
+import UpdatedContainer from "../UpdatedContainer";
 import {
   PriceText,
   NameText,
@@ -9,8 +10,8 @@ import {
   DescriptionText,
   ButtonHero,
   ImageSlider,
-  ContentContainer,
-} from './SliderStyle';
+  FlexColumn,
+} from "./SliderStyle";
 
 interface Props {
   _id: string;
@@ -21,19 +22,22 @@ interface Props {
 }
 
 export const SliderItem = ({ name, description, price, image, _id }: Props) => (
-  <ContentContainer
-    key={_id}
-    justifyContent="space-between"
-    background="#F2F2F2"
+  <UpdatedContainer
+    flexDirection={"row"}
+    flexWrap={false}
+    justifyContent={"space-between"}
+    alignItems={"center"}
   >
-    <Column style={{ maxWidth: '521px' }}>
-      <PriceText variant="p"> Save up to ${price}</PriceText>
-      <NameText>{name.substring(0, 15)}</NameText>
-      <DescriptionText> {description.substring(0, 80)}</DescriptionText>
-      <ButtonHero to={`/product/${_id}`}>Shop now</ButtonHero>
-    </Column>
-    <WrapperImageHero>
-      <ImageSlider size="lg" src={image} variant="square" />
-    </WrapperImageHero>
-  </ContentContainer>
+    <>
+      <FlexColumn>
+        <PriceText variant="p"> Save up to ${price}</PriceText>
+        <NameText>{name}</NameText>
+        <DescriptionText> {description}</DescriptionText>
+        <ButtonHero to={`/product/${_id}`}>Shop now</ButtonHero>
+      </FlexColumn>
+      <WrapperImageHero>
+        <ImageSlider size="lg" src={image} variant="square" />
+      </WrapperImageHero>
+    </>
+  </UpdatedContainer>
 );

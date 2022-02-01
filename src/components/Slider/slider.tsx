@@ -1,15 +1,16 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useState, CSSProperties } from 'react';
-import SwipeableViews from 'react-swipeable-views';
-import { SliderItem } from './SliderItem';
-import { Arrow, Dot, SliderSection } from './SliderStyle';
-import { Container } from '..';
-import { IProducts } from '../../redux/Product/type';
+import React, { useState, CSSProperties } from "react";
+import SwipeableViews from "react-swipeable-views";
+import { SliderItem } from "./SliderItem";
+import { Arrow, Dot, SliderSection, FlexCenter } from "./SliderStyle";
+import { Container } from "..";
+
+import { IProducts } from "../../redux/Product/type";
 
 const cssStyle: CSSProperties = {
-  position: 'relative',
-  width: '100%',
-  backgroundColor: '#f2f2f2',
+  position: "relative",
+  width: "100%",
+  backgroundColor: "#f2f2f2",
 };
 
 interface ProductItem {
@@ -24,7 +25,6 @@ interface IProps {
 }
 export const Slider = ({ data }: IProps) => {
   const [sliderIndex, setSliderIndex] = useState<number>(0);
-  //   const handleChangeIndex = () => {};
   const handleLeft = () => {
     if (sliderIndex === 0) {
       setSliderIndex(2);
@@ -39,7 +39,7 @@ export const Slider = ({ data }: IProps) => {
   const sliders =
     data &&
     data.length &&
-    data.map(item => (
+    data.map((item) => (
       <SliderItem
         _id={item._id}
         name={item.name}
@@ -61,28 +61,19 @@ export const Slider = ({ data }: IProps) => {
           {sliders}
         </SwipeableViews>
       </SliderSection>
-      <Container
-        flexDirection="row"
-        background="#F2F2F2"
-        padding="1em"
-        margin="auto"
-        width="auto"
-        height="10%"
-      >
-        <Arrow isLeft onClick={handleRight}>
-          &#8250;
-        </Arrow>
+      <FlexCenter>
+        <Arrow onClick={handleLeft}>&#x3c;</Arrow>
         {Array(3)
           .fill(0)
           .map((x, index) => (
             <Dot
-              width="25px"
+              width="14px"
               isGrey={sliderIndex !== index}
               onClick={() => setSliderIndex(index)}
             />
           ))}
-        <Arrow onClick={handleLeft}>&#8250;</Arrow>
-      </Container>
+        <Arrow onClick={handleRight}>&#x3e;</Arrow>
+      </FlexCenter>
     </Container>
   );
 };

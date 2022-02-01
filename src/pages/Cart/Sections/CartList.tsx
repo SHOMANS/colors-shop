@@ -62,14 +62,14 @@ const CartList = ({ data }: IProps) => {
 
   return (
     <ItemContainer
-      background-color="#F2F2F2"
-      height="180px"
-      border-radius="16px"
-      position="relative"
-      padding="1em"
-      margin-bottom="30px"
-      justify-content="space-between"
-      display={count.toString()}
+    // background-color="#F2F2F2"
+    // height="180px"
+    // border-radius="16px"
+    // position="relative"
+    // padding="1em"
+    // margin-bottom="30px"
+    // justify-content="space-evenly"
+    // display={count.toString()}
     >
       <CloseIcon onClick={removeFromCart}>
         <GrFormClose />
@@ -87,23 +87,26 @@ const CartList = ({ data }: IProps) => {
           </Typography>
         </OldPrice>
       ) : null}
-      <ImgContainer
-        width="60%"
-        align-items="start"
-        justify-content="space-between"
-      >
-        <Image src={product.images[0]} width="40%" fit="cover" />
-        <ItemTitle to={`/product/${product._id}`}>
-          <Typography
-            children={product.name}
-            variant="h2"
-            margin-left="0.5em"
-            padding="0.5em"
-            overflow-wrap="break-word"
-          />
-        </ItemTitle>
+      <ImgContainer align-items="start" justify-content="space-between">
+        <Image src={product.images[0]} fit="cover" />
       </ImgContainer>
-      <WrapCounter>
+      <ItemTitle to={`/product/${product._id}`}>
+        <Typography
+          children={product.name}
+          variant="h2"
+          // margin-left="0.5em"
+          // padding="0.5em"
+          overflow-wrap="break-word"
+        />
+      </ItemTitle>
+      {/* <WrapCounter> */}
+      <div
+        style={{
+          display: 'flex',
+          alignSelf: 'center',
+          gap: '4rem',
+        }}
+      >
         <Counter
           max={product?.countInStock}
           min={1}
@@ -112,14 +115,15 @@ const CartList = ({ data }: IProps) => {
           handleIncrease={handleIncress}
           handleDecrease={handleDecress}
         />
-      </WrapCounter>
-      <Typography
-        children={String(`${product.discount}`)}
-        variant="h2"
-        fontSize="38px"
-        width="auto"
-        text-align="right"
-      />
+        {/* </WrapCounter> */}
+        <Typography
+          children={String(` $${product.discount}`)}
+          variant="h2"
+          // fontSize="38px"
+          // width="auto"
+          // text-align="right"
+        />
+      </div>
     </ItemContainer>
   );
 };
