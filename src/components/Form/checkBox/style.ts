@@ -14,6 +14,7 @@ export const WarperCheckBox = styled(Row)`
   border-radius: 6px;
   justify-content: center;
   align-items: center;
+  margin: 8px 0;
 `;
 export const WarperFileBox = styled('label')<{ margin?: string }>`
   cursor: pointer;
