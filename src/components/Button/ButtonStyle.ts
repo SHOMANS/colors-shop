@@ -7,7 +7,7 @@ export const ButtonStyle = styled.button<IStyleButton>(
   ({
     width = 'none',
     height = 'none',
-    padding = '.5em 1em',
+    padding = '.3em',
     borderRadius = '10px',
     border = 'none',
     fontWeight = 'bold',
@@ -27,6 +27,7 @@ export const ButtonStyle = styled.button<IStyleButton>(
     borderRadius: `${borderRadius}`,
     border: `${border}`,
     fontWeight: `${fontWeight}`,
+
     background: `${
       background ||
       (brand
@@ -44,6 +45,7 @@ export const ButtonStyle = styled.button<IStyleButton>(
 );
 
 export const Button = styled(ButtonStyle)`
+  text-decoration: none;
   &:hover {
     color: white;
     background: #fcdd06;
