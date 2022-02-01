@@ -110,7 +110,7 @@ const Login = () => {
                   </ButtonLogin>
                   <Column>
                     <CheckBox label="Remember me" name="Remember me" />
-                    <Link to="/">
+                    <Link to="/" style={{ textDecoration: 'none' }}>
                       <ForgotPassword
                         style={{ marginTop: '15px', marginBottom: '15px' }}
                       >

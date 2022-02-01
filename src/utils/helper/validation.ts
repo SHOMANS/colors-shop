@@ -21,8 +21,9 @@ export const schemaValidationLogin =
   };
 
 export interface ISchemaValidationSuginup {
+  firstName: string;
+  lastName: string;
   email: string;
-  name: string;
   password: string;
   passwordConfirmation: string;
 }
@@ -30,29 +31,30 @@ export interface ISchemaValidationSuginup {
 export const schemaValidationSignUp =
   (): Yup.SchemaOf<ISchemaValidationSuginup> => {
     return Yup.object().shape({
+      firstName: Yup.string()
+        .required('First name is required')
+        .matches(
+          /^[A-Za-z ]+$/,
+          'Should field with the alphabet with spaces format',
+        ),
+      lastName: Yup.string()
+        .required('Last name is required')
+        .matches(
+          /^[A-Za-z ]+$/,
+          'Should field with the alphabet with spaces format',
+        ),
       email: Yup.string()
-        .email('it should be correct email ')
-        .min(5, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required email'),
-      name: Yup.string()
-        .required('Name is a required field')
-        .min(3, 'Name must be at least 3 characters'),
+        .email('Email is not valid')
+        .required('Email is required'),
       password: Yup.string()
-        .min(4, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-
-      /**
-         * passwordConfirm: Yup.mixed().test('match', 'Passwords do not match', function (password) {
-        return password === this.parent.passwordConfirm
-      }).required('Password confirm is required')
-         */
-      passwordConfirmation: Yup.mixed()
-        .test('match', 'Passwords do not match', function (password) {
-          return password === this.parent.passwordConfirmation;
-        })
-        .required('Password confirm is required'),
+        .required('Password is required')
+        .matches(
+          /^(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#$%./^&*()_+<>,~`"':;]{8,}$/,
+          `Password should be 8 digits length at least, contains at least one Capital letter, contains at least one number.)`,
+        ),
+      passwordConfirmation: Yup.string()
+        .required('Password confirmation is required')
+        .oneOf([Yup.ref('password'), null], 'Passwords should matches'),
     });
   };
 
