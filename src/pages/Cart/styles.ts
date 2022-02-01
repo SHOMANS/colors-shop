@@ -61,16 +61,20 @@ export const CartContainer = styled.div`
 `;
 
 export const ListContainer = styled.div`
+  display: flex;
+  background: #f2f2f2;
+  border-radius: 16px;
   @media only screen and (max-width: 767px) {
     width: 100%;
+    display: flex;
     align-items: center;
+    height: 100%;
   }
 `;
 
 export const ItemContainer = styled.div`
   display: flex;
-  background: #f2f2f2;
-  border-radius: 16px;
+
   padding: 1em 0.5em;
   position: relative;
   @media only screen and (max-width: 767px) {
@@ -81,6 +85,7 @@ export const ItemContainer = styled.div`
 
 export const ImgContainer = styled.div`
   width: 30%;
+  over-flow: hidden;
 
   @media only screen and (max-width: 767px) {
     flex-direction: column;
