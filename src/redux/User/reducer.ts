@@ -1,25 +1,26 @@
-import { IUser } from '../Auth/type';
-import { EnumUserAction } from './constant';
-import { IStateUser, TAllActionUser } from './type';
+import { stat } from "fs/promises";
+import { IUser } from "../Auth/type";
+import { EnumUserAction } from "./constant";
+import { IStateUser, TAllActionUser } from "./type";
 
 const initialState: IStateUser = {
   myProfile: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     user: {} as IUser,
   },
   updatedProfile: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     user: {} as IUser,
   },
 };
 
 export const UserReducer = (
   state = initialState,
-  action: TAllActionUser,
+  action: TAllActionUser
 ): IStateUser => {
   switch (action.type) {
     /**
@@ -29,6 +30,7 @@ export const UserReducer = (
       return {
         ...state,
         myProfile: {
+          ...state.myProfile,
           isLoading: true,
         },
       };
@@ -36,6 +38,8 @@ export const UserReducer = (
       return {
         ...state,
         myProfile: {
+          ...state.myProfile,
+
           isLoading: false,
           success: true,
           user: action.payload.user,
@@ -45,6 +49,8 @@ export const UserReducer = (
       return {
         ...state,
         myProfile: {
+          ...state.myProfile,
+
           error: action.payload.error,
           isLoading: false,
         },
@@ -62,6 +68,7 @@ export const UserReducer = (
       return {
         ...state,
         updatedProfile: {
+          ...state.updatedProfile,
           isLoading: false,
           success: true,
           user: action.payload.user,
@@ -71,6 +78,7 @@ export const UserReducer = (
       return {
         ...state,
         updatedProfile: {
+          ...state.updatedProfile,
           error: action.payload.error,
           isLoading: false,
         },
@@ -78,6 +86,6 @@ export const UserReducer = (
     /** * TOP PRODUCT */
 
     default:
-      return initialState;
+      return state;
   }
 };

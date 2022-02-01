@@ -102,7 +102,6 @@ export const myActionCart = () => {
 
     try {
       const response = await Api.get(`/users/profile`);
-      console.log('reee+++++', response.data.cart);
       dispatch({
         type: EnumCartAction.MY_CART_SUCCESS,
         payload: {

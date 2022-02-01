@@ -43,7 +43,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
     );
   };
   return (
-    <MainCard>
+    <MainCard padding="0 1rem">
       {props?.discount > 0 && (
         <Discount>
           <Typography width="none" color="white" fontSize="24px">
@@ -105,7 +105,6 @@ const ComplexCard = ({ ...props }: IProducts) => {
           <BsBookmark size="24px" />
         </Button>
         <Button
-          height="62px"
           width="65.3%"
           background="#F2F2F2"
           fontSize="15px"

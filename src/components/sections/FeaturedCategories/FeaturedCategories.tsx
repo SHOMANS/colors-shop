@@ -8,6 +8,7 @@ import {
   FeaturedProduc,
   CatProduct,
   WrapperDots,
+  Featured,
 } from "../FeaturedProducts/styles";
 import { IGetAllCategory, IProducts } from "../../../redux/Product/type";
 import UpdatedContainer from "../../UpdatedContainer";
@@ -58,13 +59,13 @@ export const FeaturedCategories = ({ data }: IProps) => {
   };
 
   return (
-    <UpdatedContainer
-      flexDirection={"column"}
-      flexWrap={true}
-      justifyContent={"flex-start"}
-      alignItems={"flex-start"}
-    >
-      <>
+    <>
+      <UpdatedContainer
+        flexDirection={"column"}
+        flexWrap={false}
+        justifyContent={"flex-start"}
+        alignItems={"flex-start"}
+      >
         <>
           <Title>Featured Categories</Title>
           <WrapperDots item="flex-start">
@@ -92,7 +93,7 @@ export const FeaturedCategories = ({ data }: IProps) => {
             {getSlider()}
           </SwipeableViews>
         </>
-      </>
-    </UpdatedContainer>
+      </UpdatedContainer>
+    </>
   );
 };

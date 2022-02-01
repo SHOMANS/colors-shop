@@ -1,61 +1,61 @@
-import { IUser } from '../Auth/type';
-import { EnumAdminAction } from './constant';
+import { IUser } from "../Auth/type";
+import { EnumAdminAction } from "./constant";
 import {
   IGetAllUser,
   IProducts,
   IStateAdmin,
   IUserAdmin,
   TAllActionAdmin,
-} from './type';
+} from "./type";
 
 const initialState: IStateAdmin = {
   users: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     user: {} as IGetAllUser,
   },
   user: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     user: {} as IUserAdmin,
   },
   updatedUser: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     user: {} as IUser,
   },
   deletedUser: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     user: {} as IUser,
   },
   addProduct: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     product: {} as IProducts,
   },
   deleteProduct: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     product: {} as IProducts,
   },
   updateProduct: {
     success: false,
     isLoading: false,
-    error: '',
+    error: "",
     product: {} as IProducts,
   },
 };
 
 export const AdminReducer = (
   state = initialState,
-  action: TAllActionAdmin,
+  action: TAllActionAdmin
 ): IStateAdmin => {
   switch (action.type) {
     /**
@@ -251,6 +251,6 @@ export const AdminReducer = (
         },
       };
     default:
-      return initialState;
+      return state;
   }
 };

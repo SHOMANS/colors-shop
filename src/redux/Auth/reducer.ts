@@ -1,18 +1,18 @@
-import { EnumAuthAction } from './constant';
-import { IStateAuth, IUser, TAllActionAuth } from './type';
+import { EnumAuthAction } from "./constant";
+import { IStateAuth, IUser, TAllActionAuth } from "./type";
 
-const temp = localStorage.getItem('user');
+const temp = localStorage.getItem("user");
 const user = temp ? JSON.parse(temp) : {};
 const initialState: IStateAuth = {
   user: user as IUser,
   success: false,
   isLoading: false,
-  error: '',
+  error: "",
 };
 
 export const AuthReducer = (
   state = initialState,
-  action: TAllActionAuth,
+  action: TAllActionAuth
 ): IStateAuth => {
   switch (action.type) {
     case EnumAuthAction.USER_SIGHUP_START:
@@ -60,6 +60,6 @@ export const AuthReducer = (
       return initialState;
 
     default:
-      return initialState;
+      return state;
   }
 };
