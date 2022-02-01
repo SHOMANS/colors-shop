@@ -146,7 +146,7 @@ export const Actions = styled.div`
 
 export const FlexButton = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   margin: 1rem 0;
 `;

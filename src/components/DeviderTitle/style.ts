@@ -28,5 +28,5 @@ export const Divider = styled("hr")<IDivider>`
 `;
 
 export const ColumnCusom = styled(Column)`
-  margin-top: 62px;
+  margin-top: 1rem;
 `;

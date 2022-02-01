@@ -114,7 +114,7 @@ export const WrapperImageHero = styled.div`
   @media screen and (max-width: 500px) {
     width: 100%;
     height: auto;
-    display: none;
+
   }
   & img {
     width: 100%;

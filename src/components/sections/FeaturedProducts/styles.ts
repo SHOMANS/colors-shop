@@ -43,7 +43,6 @@ export const TitleCard = styled("h3")`
 `;
 
 export const Featured = styled.div`
-
   background: #f7f8fc;
 `;
 export const CatProduct = styled.div`
@@ -59,7 +58,6 @@ export const CatProduct = styled.div`
 export const FeaturedProduc = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   @media (max-width: 800px) {
     width: 100%;
     display: flex;
