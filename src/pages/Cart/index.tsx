@@ -9,6 +9,7 @@ import Subtotal from './Sections/Subtotal';
 import { AppState } from '../../redux/store';
 import { TopRate } from '../../components/sections/TopRate/TopRate';
 import { myActionCart } from '../../redux/Cart/action';
+import UpdatedContainer from '../../components/UpdatedContainer';
 
 const Cart = () => {
   const dispatch = useDispatch<ThunkDispatch<AppState, any, any>>();
@@ -21,7 +22,11 @@ const Cart = () => {
 
   const TopRateComp = useCallback(() => <TopRate />, []);
   return (
-    <Container direction="column" width="90%" margin="80px auto">
+    <UpdatedContainer
+      flexDirection="column"
+
+      // direction="column" width="90%" margin="80px auto"
+    >
       <PathNavigate name="Shopping Cart" />
       {cart.isLoading ? (
         <SpinnerContainer />
@@ -29,24 +34,26 @@ const Cart = () => {
         <EmptyCart />
       ) : (
         <CartContainer align-items="flex-start">
-          <ListContainer direction="column" width="70%">
+          <ListContainer
+          // direction="column" width="70%"
+          >
             {cart.cart?.items.map(item => (
               <CartList data={item} key={item.product._id} />
             ))}
           </ListContainer>
           <TotalContainer
-            direction="column"
-            background-color="#F2F2F2"
-            border-radius="16px"
-            margin-left="2em"
-            height="50%"
+          // direction="column"
+          // background-color="#F2F2F2"
+          // border-radius="16px"
+          // margin-left="2em"
+          // height="50%"
           >
             <Subtotal data={cart.cart} />
           </TotalContainer>
         </CartContainer>
       )}
-      {TopRateComp()}
-    </Container>
+      {/* {TopRateComp()} */}
+    </UpdatedContainer>
   );
 };
 
