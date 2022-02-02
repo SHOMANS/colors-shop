@@ -1,13 +1,12 @@
-import styled from 'styled-components';
-import { IProps } from './index';
+import styled from "styled-components";
+import { IProps } from "./index";
 
 const CircleStyle = styled.div<IProps>(
   ({ size, bgColor, borderColor, active, ...props }) => ({
-    position: 'relative',
-    borderRadius: '50%',
+    position: "relative",
+    borderRadius: "50%",
     width: `${size}`,
     height: `${size}`,
-
     backgroundColor: `${bgColor || props.theme.background?.lightGrey}`,
 
     border:
@@ -16,9 +15,9 @@ const CircleStyle = styled.div<IProps>(
             borderColor
             // || props.theme.background.border
           }`
-        : `none`,
+        : `1px solid gray`,
     cursor: `pointer`,
-  }),
+  })
 );
 
 export default CircleStyle;

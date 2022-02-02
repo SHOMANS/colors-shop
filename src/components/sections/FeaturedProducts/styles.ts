@@ -58,11 +58,11 @@ export const CatProduct = styled.div`
 export const FeaturedProduc = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 1rem;
   @media (max-width: 800px) {
     width: 100%;
     display: flex;
-    flex-wrap: no-wrap;
-
+    justify-content: center;
     flex-direction: column;
   }
 `;
