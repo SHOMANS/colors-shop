@@ -7,7 +7,6 @@ export interface IProps {
   alignItems?: 'center' | 'flex-start' | 'flex-end' | 'stretch';
 }
 export const Wrapper = styled.div<IProps>`
-  background: red;
   width: 75%;
   margin: auto;
   display: flex;

@@ -33,31 +33,32 @@ const ProfileDashboard = ({ user, isActive }: IProfileDashboard) => {
     <DashboardContainer
       direction="column"
       align-items="flex-start"
-      // width="30%"
-      // height="528px"
+      width="30%"
       background="#F2F2F2"
       border-radius="16px"
+      padding=".8em"
     >
       <DashImgContainer padding="1em">
         <Image
           src={user?.profileImage}
-          width="137px"
-          height="137px"
+          width="50%"
+          height="50%"
           variant="circle"
           border
           style={{ margin: '0' }}
         />
-        <Typography variant="h2" fontSize="2rem" margin="0.5em 0 0 0.5em">
+        <Typography variant="h3" fontWeight={500} fontSize="1rem" margin="0.5em 0 0 0.5em">
           {`${user?.firstName}  ${user?.lastName}`}
         </Typography>
       </DashImgContainer>
       <Container
         direction="column"
         align-items="flex-start"
-        justify-content="space-between"
-        margin-bottom="1em"
-        min-height="150px"
-        padding="1em"
+        gap="10px"
+        // justify-content="space-between"
+        margin-bottom=".1em"
+        // min-height="150px"
+        padding=".8rem"
       >
         <NavLink to="#" onClick={isActive}>
           My Orders
