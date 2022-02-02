@@ -21,7 +21,7 @@ export const FlexCenter = styled.div`
 export const FlexColumn = styled.div`
   width: 40%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   text-align: left;
   @media (max-width: 800px) {
     width: 100%;
@@ -114,7 +114,6 @@ export const WrapperImageHero = styled.div`
   @media screen and (max-width: 500px) {
     width: 100%;
     height: auto;
-
   }
   & img {
     width: 100%;

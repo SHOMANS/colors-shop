@@ -94,7 +94,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
       </Content>
 
       <FlexButton>
-        <Button
+        {/* <Button
           height="62px"
           background="#F2F2F2"
           width="25%"
@@ -102,7 +102,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
           margin-left="0 6%"
         >
           <BsBookmark size="24px" />
-        </Button>
+        </Button> */}
         <Button
           width="65.3%"
           background="#F2F2F2"

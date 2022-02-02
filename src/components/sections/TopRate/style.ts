@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Column, Container, InnerSection, Row } from '../..';
+import styled from "styled-components";
+import { Column, Container, InnerSection, Row } from "../..";
 
 export const RowWithRadius = styled(Container)`
   border: 1px solid #fcdd06;
@@ -11,6 +11,13 @@ export const RowWithRadius = styled(Container)`
   width: 100%;
   opacity: 1;
   height: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+  & > div {
+    border-radius: 0;
+    margin: 0;
+    width: 33.33%;
+  }
   @media (max-width: 1200px) {
     width: 100%;
     flex-direction: column;

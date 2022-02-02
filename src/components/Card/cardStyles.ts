@@ -60,8 +60,8 @@ export const MainCard = styled("div")<IstyleMainCard>(
     alignItems = "baseline",
     alignContent = "baseline",
     boxShadow = "none",
-    width = "33.3%",
-    margin = "0 1rem 1rem 0 ",
+    width = "33%",
+    margin = "0",
     padding = "none",
     ...props
   }: IstyleMainCard) => ({
