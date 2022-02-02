@@ -19,24 +19,25 @@ const ProfileInfo = ({ user }: IProfileDashboard) => {
   return (
     <InfoContainer
       align-items="flex-start"
-      width="70%"
-      flex-wrap="wrap"
-      height="528px"
+      width="80%"
+      // flex-wrap="wrap"
+      // height="60%"
       background="#F2F2F2"
       border-radius="16px"
       padding="2em"
+
     >
       <InfoBoxContainer direction="column" width="60%">
-        <Typography variant="h2" fontSize="2rem" margin-bottom="2em">
+        <Typography variant="h2" fontSize="2rem" >
           My Profile
         </Typography>
-        <InfoDetailsContainer margin-bottom="2em">
+        <InfoDetailsContainer margin-bottom="2em" padding="1em">
           <Container
             direction="column"
             align-items="flex-start"
             justify-content="space-between"
-            min-height="150px"
-            max-width="50%"
+            // min-height="150px"
+            // max-width="50%"
           >
             <SpanTitle>First Name</SpanTitle>
             <SpanTitle>Last Name</SpanTitle>
@@ -47,8 +48,8 @@ const ProfileInfo = ({ user }: IProfileDashboard) => {
             direction="column"
             align-items="flex-start"
             justify-content="space-between"
-            min-height="150px"
-            max-width="60%"
+            // min-height="150px"
+            // max-width="50%"
           >
             <DataValue>{user?.firstName}</DataValue>
             <DataValue>{user?.lastName}</DataValue>
@@ -67,19 +68,22 @@ const ProfileInfo = ({ user }: IProfileDashboard) => {
       </InfoBoxContainer>
       <ImageContainer
         direction="column"
-        width="40%"
-        justify-content="flex-start"
+        width="30%"
+        justify-content="flex-end"
+
+        alignSelf={"end"}
       >
         <Image
           src={user?.profileImage}
-          width="12em"
-          height="12em"
+          fit='cover'
+          width="10em"
+          height="10em"
           variant="circle"
         />
         <Button
           background="#FCDD06"
           fontSize="13px"
-          style={{ margin: '2em auto' }}
+          margin="5px 0px 0px 0px"
           padding="1em"
         >
           Upload new photo

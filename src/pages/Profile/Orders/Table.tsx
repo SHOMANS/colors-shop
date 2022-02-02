@@ -24,7 +24,7 @@ export default class Table<T> extends React.PureComponent<IProps<T>> {
       <div
         className="ag-theme-alpine"
         style={{
-          marginTop: '1em',
+          // marginTop: '1em',
           height: '100%',
           minWidth: '100%',
         }}

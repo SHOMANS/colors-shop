@@ -79,15 +79,15 @@ const CartList = ({ data }: IProps) => {
           <Typography
             variant="span"
             color="#707070"
-            fontSize="24px"
-            letter-spacing="0.48px"
+            fontSize="15px"
+            margin="20px"
             text-decoration="line-through"
           >
             {product.price}
           </Typography>
         </OldPrice>
       ) : null}
-      <ImgContainer align-items="start" justify-content="space-between">
+      <ImgContainer align-items="start" justify-content="space-between" >
         <Image src={product.images[0]} fit="cover" />
       </ImgContainer>
       <ItemTitle to={`/product/${product._id}`}>
@@ -119,9 +119,10 @@ const CartList = ({ data }: IProps) => {
         <Typography
           children={String(` $${product.discount}`)}
           variant="h2"
-          // fontSize="38px"
+          fontSize="38px"
           // width="auto"
-          // text-align="right"
+          text-align="right"
+          width="30%"
         />
       </div>
     </ItemContainer>
