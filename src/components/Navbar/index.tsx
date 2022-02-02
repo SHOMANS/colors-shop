@@ -38,6 +38,7 @@ import { IUser } from "../../redux/Auth/type";
 import { logoutSuccess } from "../../redux/Auth/action";
 import useTheme from "../../Hoc/UseTheme";
 import { myActionCart } from "../../redux/Cart/action";
+import UpdatedContainer from "../UpdatedContainer";
 
 const Style = {
   color: "#FFF",
@@ -64,72 +65,74 @@ export const Navbar = ({ open, setoggle }) => {
   };
   return (
     <ListNav open={open}>
-      <Logo />
-      <NavBox style={{ margin: "auto" }}>
-        <SearchInput
-          value={value}
-          type="text"
-          style={{ fontFamily: "mulish" }}
-          placeholder="Iphone"
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-        />
-        <SearchButton
-          style={{ fontFamily: "mulish" }}
-          onClick={() => {
-            navigate(`/search${value ? `?keyword=${value}` : ""}`);
-          }}
-        >
-          Search
-        </SearchButton>
-      </NavBox>
-      <NavIcon>
-        <IConsContainer>
-          {user?._id ? (
-            <IconList>
-              <FaUserAlt size="16px" style={Style} />
-              <DropDownLi>
-                <Dropbtn> {user.firstName}</Dropbtn>
-                <DropDownContent>
-                  {" "}
-                  {user.isAdmin && <SubA to="/dashboard">Dashboard</SubA>}
-                  <SubA to="/profile">profile</SubA>
-                  {user.isAdmin && <SubA to="/addproduct">Add Product</SubA>}
-                </DropDownContent>
-              </DropDownLi>
-            </IconList>
-          ) : (
-            <Link
-              to="/login"
-              style={{ textDecoration: "none", fontFamily: "mulish" }}
-            >
+      <div>
+        <Logo />
+        <NavBox style={{ margin: "auto" }}>
+          <SearchInput
+            value={value}
+            type="text"
+            style={{ fontFamily: "mulish" }}
+            placeholder="Iphone"
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+          />
+          <SearchButton
+            style={{ fontFamily: "mulish" }}
+            onClick={() => {
+              navigate(`/search${value ? `?keyword=${value}` : ""}`);
+            }}
+          >
+            Search
+          </SearchButton>
+        </NavBox>
+        <NavIcon>
+          <IConsContainer>
+            {user?._id ? (
               <IconList>
                 <FaUserAlt size="16px" style={Style} />
-                Login/Signup
+                <DropDownLi>
+                  <Dropbtn> {user.firstName}</Dropbtn>
+                  <DropDownContent>
+                    {" "}
+                    {user.isAdmin && <SubA to="/dashboard">Dashboard</SubA>}
+                    <SubA to="/profile">profile</SubA>
+                    {user.isAdmin && <SubA to="/addproduct">Add Product</SubA>}
+                  </DropDownContent>
+                </DropDownLi>
+              </IconList>
+            ) : (
+              <Link
+                to="/login"
+                style={{ textDecoration: "none", fontFamily: "mulish" }}
+              >
+                <IconList>
+                  <FaUserAlt size="16px" style={Style} />
+                  Login/Signup
+                </IconList>
+              </Link>
+            )}
+            <Link
+              to="/cart"
+              style={{ textDecoration: "none", fontFamily: "mulish" }}
+            >
+              <IconList style={{ position: "relative" }}>
+                {!cart.isLoading && cart.success && (
+                  <Badge>{cart?.cart?.items.length}</Badge>
+                )}
+                <BsFillCartFill size="16px" style={Style} />
+                Cart
               </IconList>
             </Link>
-          )}
-          <Link
-            to="/cart"
-            style={{ textDecoration: "none", fontFamily: "mulish" }}
-          >
-            <IconList style={{ position: "relative" }}>
-              {!cart.isLoading && cart.success && (
-                <Badge>{cart?.cart?.items.length}</Badge>
-              )}
-              <BsFillCartFill size="16px" style={Style} />
-              Cart
-            </IconList>
-          </Link>
-          {user?._id && (
-            <IconList onClick={Logout}>
-              <BiLogOut size="16px" style={Style} />
-              Logout
-            </IconList>
-          )}
-        </IConsContainer>
-      </NavIcon>
+            {user?._id && (
+              <IconList onClick={Logout}>
+                <BiLogOut size="16px" style={Style} />
+                Logout
+              </IconList>
+            )}
+          </IConsContainer>
+        </NavIcon>
+      </div>
     </ListNav>
   );
 };
