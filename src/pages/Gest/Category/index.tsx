@@ -1,33 +1,33 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ThunkDispatch } from "redux-thunk";
 import { Container, SpinnerContainer, Typography } from "../../../components";
 import ComplexCard from "../../../components/Card/productCard";
 import { DeviderTitle } from "../../../components/DeviderTitle/deviderTitle";
 import UpdatedContainer from "../../../components/UpdatedContainer";
-import { getProducts } from "../../../redux/Product/action";
+import { getProducts, getCategoryByName } from "../../../redux/Product/action";
 import { TAllActionProduct } from "../../../redux/Product/type";
 import { AppState } from "../../../redux/store";
 import { CardsBox } from "./style";
 
 const SerachPage = () => {
-  const { search } = useLocation();
-  const keyword = (
-    new URLSearchParams(search).get("keyword")
-      ? new URLSearchParams(search).get("keyword")
-      : ""
-  ) as string;
+  const { name } = useParams();
+
   const dispatch =
     useDispatch<ThunkDispatch<AppState, any, TAllActionProduct>>();
-  const allProducts = useSelector(
-    (state: AppState) => state.product.allProducts
+  const categoryProduct = useSelector(
+    (state: AppState) => state.product.categoryProductById
   );
-  useEffect(() => {
-    dispatch(getProducts(keyword));
-  }, [keyword, dispatch]);
 
-  return allProducts.isLoading ? (
+  useEffect(() => {
+    console.log(name, "getCategoryByName");
+    categoryProduct && console.log(categoryProduct, "categoryProduct");
+
+    name && dispatch(getCategoryByName(name as string));
+  }, [name, dispatch]);
+
+  return categoryProduct.isLoading ? (
     <SpinnerContainer />
   ) : (
     <UpdatedContainer>
@@ -46,7 +46,7 @@ const SerachPage = () => {
           <DeviderTitle title="Featured Product" position="center" />
         </Container>
         <CardsBox>
-          {allProducts?.allProduct?.products?.map((product) => (
+          {categoryProduct?.product?.products?.map((product) => (
             <ComplexCard {...product} image={product.images[0] || ""} />
           ))}
         </CardsBox>

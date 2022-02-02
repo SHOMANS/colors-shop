@@ -21,7 +21,7 @@ interface IDivider {
 export const Divider = styled("hr")<IDivider>`
   color: #d3cdcd;
   font-weight: bold;
-  margin: 0px;
+  margin: 0 0 7px;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   color: ${(props) => props.color};
