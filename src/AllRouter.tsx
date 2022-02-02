@@ -14,6 +14,7 @@ const ReviewOrder = Loadable(lazy(() => import("./pages/User/ReviewOrder")));
 const Home = Loadable(lazy(() => import("./pages/Gest/Home")));
 const Search = Loadable(lazy(() => import("./pages/Gest/Search")));
 const Category = Loadable(lazy(() => import("./pages/Gest/Category")));
+const AllProducts = Loadable(lazy(() => import("./pages/Gest/AllProducts")));
 const Cart = Loadable(lazy(() => import("./pages/Cart")));
 const Dashboard = Loadable(lazy(() => import("./pages/DashBoard")));
 const AddNewProduct = Loadable(lazy(() => import("./pages/NewProduct")));
@@ -30,7 +31,7 @@ export const AllRouter = () => {
       <Route path="/Signup" element={<Signup />} />
       <Route path="/product/:id" element={<Product />} />
       <Route path="/category/:name" element={<Category />} />
-
+      <Route path="/allProducts" element={<AllProducts />} />
       <Route path="/search" element={<Search />} />
       {adminRoutes()}
       {userRoutes()}
