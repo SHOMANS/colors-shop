@@ -6,25 +6,24 @@ import { Container, SpinnerContainer, Typography } from "../../../components";
 import ComplexCard from "../../../components/Card/productCard";
 import { DeviderTitle } from "../../../components/DeviderTitle/deviderTitle";
 import UpdatedContainer from "../../../components/UpdatedContainer";
-import { getCategoryByName } from "../../../redux/Product/action";
+import { getProducts } from "../../../redux/Product/action";
 import { TAllActionProduct } from "../../../redux/Product/type";
 import { AppState } from "../../../redux/store";
 import { CardsBox } from "./style";
 
-const CategorayPage = () => {
-  const { name } = useParams();
-
+const AllProducts = () => {
   const dispatch =
     useDispatch<ThunkDispatch<AppState, any, TAllActionProduct>>();
-  const categoryProduct = useSelector(
-    (state: AppState) => state.product.categoryProductById
+
+  const allProduct = useSelector(
+    (state: AppState) => state.product.allProducts
   );
 
   useEffect(() => {
-    name && dispatch(getCategoryByName(name as string));
-  }, [name, dispatch]);
+    dispatch(getProducts());
+  }, [dispatch]);
 
-  return categoryProduct.isLoading ? (
+  return allProduct.isLoading ? (
     <SpinnerContainer />
   ) : (
     <UpdatedContainer>
@@ -40,19 +39,17 @@ const CategorayPage = () => {
           marginBottom="30px"
           alignItems="flex-start"
         >
-          <DeviderTitle
-            title={`${name as string} Products`}
-            position="center"
-          />
+          <DeviderTitle title="All Products" position="center" />
         </Container>
         <CardsBox>
-          {categoryProduct?.product?.products?.map((product) => (
-            <ComplexCard {...product} image={product.images[0] || ""} />
-          ))}
+          {allProduct?.allProduct?.products?.map((product) => {
+            console.log(product, "product");
+            return <ComplexCard {...product} image={product.images[0] || ""} />;
+          })}
         </CardsBox>
       </Container>
     </UpdatedContainer>
   );
 };
 
-export default CategorayPage;
+export default AllProducts;

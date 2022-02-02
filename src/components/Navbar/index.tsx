@@ -78,7 +78,9 @@ export const Navbar = ({ open, setoggle }) => {
         <SearchButton
           style={{ fontFamily: "mulish" }}
           onClick={() => {
-            navigate(`/search${value ? `?keyword=${value}` : ""}`);
+            value
+              ? navigate(`/search${value ? `?keyword=${value}` : ""}`)
+              : navigate("/allProducts");
           }}
         >
           Search
