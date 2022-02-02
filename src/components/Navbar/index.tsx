@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import { FaUserAlt } from 'react-icons/fa';
+import { useEffect, useState } from "react";
+import { FaUserAlt } from "react-icons/fa";
 import {
   BsFillBookmarkDashFill,
   BsFillCartFill,
   BsToggleOff,
   BsToggleOn,
-} from 'react-icons/bs';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { BiLogOut } from 'react-icons/bi';
-import { useDispatch, useSelector } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { FiSettings } from 'react-icons/fi';
-import { ListNavItem } from './ListNavItem';
+} from "react-icons/bs";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { BiLogOut } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { FiSettings } from "react-icons/fi";
+import { ListNavItem } from "./ListNavItem";
 import {
   List,
   StyleObj,
@@ -23,28 +23,32 @@ import {
   IconList,
   NavIcon,
   Hamburger,
+  DropDownLi,
   Badge,
   IConsContainer,
-} from './NavBarStyles';
-import Logo from './Logo/Logo';
-import { useToken } from '../../utils/helper/useToken';
-import { AppState } from '../../redux/store';
-import { ActionCartType } from '../../redux/Cart/type';
-import { IUser } from '../../redux/Auth/type';
-import { logoutSuccess } from '../../redux/Auth/action';
-import useTheme from '../../Hoc/UseTheme';
-import { myActionCart } from '../../redux/Cart/action';
+  Dropbtn,
+  DropDownContent,
+  SubA,
+} from "./NavBarStyles";
+import Logo from "./Logo/Logo";
+import { useToken } from "../../utils/helper/useToken";
+import { AppState } from "../../redux/store";
+import { ActionCartType } from "../../redux/Cart/type";
+import { IUser } from "../../redux/Auth/type";
+import { logoutSuccess } from "../../redux/Auth/action";
+import useTheme from "../../Hoc/UseTheme";
+import { myActionCart } from "../../redux/Cart/action";
 
 const Style = {
-  color: '#FFF',
-  fill: '#FFF',
-  marginRight: '5px',
-  marginBottom: '2px',
-  lineHieght: '1px',
+  color: "#FFF",
+  fill: "#FFF",
+  marginRight: "5px",
+  marginBottom: "2px",
+  lineHieght: "1px",
 };
 
 export const Navbar = ({ open, setoggle }) => {
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState<string>("");
   const navigate = useNavigate();
   const user: IUser = useToken();
   const dispatch = useDispatch<ThunkDispatch<AppState, any, ActionCartType>>();
@@ -56,25 +60,25 @@ export const Navbar = ({ open, setoggle }) => {
 
   const Logout = () => {
     dispatch(logoutSuccess());
-    navigate('/login');
+    navigate("/login");
   };
   return (
     <ListNav open={open}>
       <Logo />
-      <NavBox style={{ margin: 'auto' }}>
+      <NavBox style={{ margin: "auto" }}>
         <SearchInput
           value={value}
           type="text"
-          style={{ fontFamily: 'mulish' }}
+          style={{ fontFamily: "mulish" }}
           placeholder="Iphone"
-          onChange={e => {
+          onChange={(e) => {
             setValue(e.target.value);
           }}
         />
         <SearchButton
-          style={{ fontFamily: 'mulish' }}
+          style={{ fontFamily: "mulish" }}
           onClick={() => {
-            navigate(`/search${value ? `?keyword=${value}` : ''}`);
+            navigate(`/search${value ? `?keyword=${value}` : ""}`);
           }}
         >
           Search
@@ -82,31 +86,23 @@ export const Navbar = ({ open, setoggle }) => {
       </NavBox>
       <NavIcon>
         <IConsContainer>
-          {user.isAdmin ? (
-            <Link
-              to="/dashboard"
-              style={{ textDecoration: 'none', fontFamily: 'mulish' }}
-            >
-              <IconList>
-                <FiSettings size="16px" style={Style} />
-                Admin
-              </IconList>
-            </Link>
-          ) : null}
           {user?._id ? (
-            <Link
-              to="/profile"
-              style={{ textDecoration: 'none', fontFamily: 'mulish' }}
-            >
-              <IconList>
-                <FaUserAlt size="16px" style={Style} />
-                {`${user.firstName} ${user.lastName}`}
-              </IconList>
-            </Link>
+            <IconList>
+              <FaUserAlt size="16px" style={Style} />
+              <DropDownLi>
+                <Dropbtn> {user.firstName}</Dropbtn>
+                <DropDownContent>
+                  {" "}
+                  {user.isAdmin && <SubA to="/dashboard">Dashboard</SubA>}
+                  <SubA to="/profile">profile</SubA>
+                  {user.isAdmin && <SubA to="/addproduct">Add Product</SubA>}
+                </DropDownContent>
+              </DropDownLi>
+            </IconList>
           ) : (
             <Link
               to="/login"
-              style={{ textDecoration: 'none', fontFamily: 'mulish' }}
+              style={{ textDecoration: "none", fontFamily: "mulish" }}
             >
               <IconList>
                 <FaUserAlt size="16px" style={Style} />
@@ -116,9 +112,9 @@ export const Navbar = ({ open, setoggle }) => {
           )}
           <Link
             to="/cart"
-            style={{ textDecoration: 'none', fontFamily: 'mulish' }}
+            style={{ textDecoration: "none", fontFamily: "mulish" }}
           >
-            <IconList style={{ position: 'relative' }}>
+            <IconList style={{ position: "relative" }}>
               {!cart.isLoading && cart.success && (
                 <Badge>{cart?.cart?.items.length}</Badge>
               )}
