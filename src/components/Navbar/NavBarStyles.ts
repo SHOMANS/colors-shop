@@ -168,6 +168,7 @@ export const SearchInput = styled.input`
   text-indent: 15px;
   height: 100%;
   width: 100%;
+  outline: none;
 
   &::placeholder {
     color: gray;

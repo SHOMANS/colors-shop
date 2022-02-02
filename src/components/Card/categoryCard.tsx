@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Image } from "..";
 import { IGetAllCategory } from "../../redux/Product/type";
 import Typography from "../Typography";
@@ -10,7 +11,14 @@ const CategoryCard = ({ image, name }: IGetAllCategory) => {
         <Images src={image} />
       </CategoryoneImage>
       <Content margin="10px auto">
-        <h4>{name}</h4>
+        <h4>
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to={`/category/${name}`}
+          >
+            {name}
+          </Link>
+        </h4>
       </Content>
     </CategoryImage>
   );
