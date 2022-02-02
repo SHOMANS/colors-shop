@@ -203,6 +203,7 @@ export const ProductReducer = (
         },
       };
     case EnumProductsAction.ADD_REVIEW_TO_PRODUCT_FILL:
+      console.log( action.payload.error)
       return {
         ...state,
         addReview: {
