@@ -63,6 +63,7 @@ export const Parent = styled.div`
 display:flex; 
 margin-top:50px; 
 gap:20px; 
+padding-bottom:.8em;
   @media only screen and (max-width: 767px) {
     
     width: 100%;

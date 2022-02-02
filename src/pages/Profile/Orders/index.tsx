@@ -38,8 +38,8 @@ export default function OrdersProduct() {
     <InfoContainer
       align-items="flex-start"
       width="70%"
+      height="400px"
       flex-wrap="wrap"
-      height="528px"
       background="#F2F2F2"
       border-radius="16px"
       padding="2em"
