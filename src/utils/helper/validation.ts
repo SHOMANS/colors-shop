@@ -102,7 +102,10 @@ export interface IAddProductSchema {
   price: number;
   colors: Array<string>;
 }
-
+export interface IAddReview {
+  comment: string;
+  rating: number;
+}
 export const AddProductSchema = (): Yup.SchemaOf<IAddProductSchema> => {
   return Yup.object().shape({
     id: Yup.string().optional(),
@@ -121,5 +124,17 @@ export const AddProductSchema = (): Yup.SchemaOf<IAddProductSchema> => {
     price: Yup.number().required("Please enter product price").positive(),
     colors: Yup.array().required("Please enter product colors"),
     categories: Yup.array().required("Please enter product categories"),
+  });
+};
+export const AddReviewSchema = (): Yup.SchemaOf<IAddReview> => {
+  return Yup.object().shape({
+    comment: Yup.string()
+      .required("Review is required")
+      .min(5, "Too Short Review!")
+      .max(500, "Too Long Review!"),
+      rating: Yup.number()
+      .required("rate is required")
+      .min(1, "Rate Should Be More than 0")
+      .max(5, "Rate Should Be Less than 6"),
   });
 };

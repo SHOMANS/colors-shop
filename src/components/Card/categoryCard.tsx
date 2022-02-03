@@ -16,9 +16,12 @@ const CategoryCard = ({ image, name }: IGetAllCategory) => {
         <Images src={image} />
       </CategoryoneImage>
       <Content margin="10px auto">
-        <Typography>
-          <CateLink to={`/category/${name}`}>{name}</CateLink>
-        </Typography>
+        <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to={`/category/${name}`}
+        >
+          <Typography > {name}</Typography>
+        </Link>
       </Content>
     </CategoryImage>
   );

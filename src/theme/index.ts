@@ -8,6 +8,12 @@ export const GlobalStyle = createGlobalStyle<DefaultTheme>`
     font-family: 'Open Sans',mulish; 
     background-color: ${(props) => props.theme.background.default};
   }
+  body {
+    padding-top: 58px;
+    background: ${(props) => props.theme.background.default};
+    color: ${(props) => props.textColors.primary};
+    scroll-behavior: smooth;
+  }
 `;
 
 export const lightTheme: DefaultTheme = {

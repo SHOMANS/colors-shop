@@ -1,3 +1,4 @@
+import { Field } from "formik";
 import styled from "styled-components";
 import { Image } from "../../../../components";
 
@@ -41,7 +42,7 @@ export const Discount = styled.div`
 `;
 
 export const CardsSection = styled.div`
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.background.paper};
   width: 100%;
   padding: 1rem;
 `;
@@ -57,4 +58,42 @@ export const Title = styled.div`
 
 export const Padding = styled.div`
   padding: 0.4rem;
+`;
+export const Input = styled(Field)`
+  padding: 0.5rem 2rem;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #000;
+  font-size: 14px;
+  width: 100%;
+  background: #ccc;
+
+  outline: none;
+`;
+export const Errors = styled.h6`
+  color: red;
+  font-size: 12px;
+  margin: 5px;
+`;
+
+export const Label = styled.label`
+  color: #000;
+  font-size: 16px;
+  letter-spacing: 0.88px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+`;
+interface IProps {
+  fullWidth?: boolean;
+  width?: string;
+}
+export const FlexInput = styled.div<IProps>`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  // width: ${(props) => (props.fullWidth ? "100%" : props.width)};
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;

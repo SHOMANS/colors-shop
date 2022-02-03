@@ -45,7 +45,7 @@ const ProductScreen: React.FC = () => {
             <PathNavigate name={product?.name} />
             <ProductOverview {...(product as IProducts)} />
 
-            <Review reviews={product!.reviews || []} />
+            <Review reviews={product!.reviews || []} productById={id as string} />
           </>
         )}
       </UpdatedContainer>
