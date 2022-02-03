@@ -60,8 +60,8 @@ export const MainCard = styled("div")<IstyleMainCard>(
     alignItems = "baseline",
     alignContent = "baseline",
     boxShadow = "none",
-    width = "33.3%",
-    margin = "0 1rem 1rem 0 ",
+    width = "auto",
+    margin = "0",
     padding = "none",
     ...props
   }: IstyleMainCard) => ({
@@ -77,12 +77,13 @@ export const MainCard = styled("div")<IstyleMainCard>(
     display: "flex",
     flexDirection: `${(props.flexDirection as "row") || ("column" as const)}`,
     borderRadius: `${props.borderRadius || "10px"}`,
-    backgroundColor: `${props.backgroundColor || "white"}`,
     flexWrap: "wrap",
   })
 );
 
 export const StyleMainCard = styled(MainCard)`
+  background: ${(props) => props.theme.background.default};
+  overflow: hidden;
   @media (max-width: 800px) {
     display: flex;
     width: 100%;

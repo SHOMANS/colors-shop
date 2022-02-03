@@ -1,31 +1,31 @@
-import React, { useEffect } from 'react';
-import { useFormik } from 'formik';
-import { ThunkDispatch } from 'redux-thunk';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Container, PathNavigate } from '../../components';
-import { ProductContainer } from './style';
+import React, { useEffect } from "react";
+import { useFormik } from "formik";
+import { ThunkDispatch } from "redux-thunk";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { Container, PathNavigate } from "../../components";
+import { ProductContainer } from "./style";
 import {
   AddProductSchema as validationSchema,
   IAddProductSchema,
-} from '../../utils/helper/validation';
-import ProductImages from './Sections/ProductImages';
-import { Button } from '../../components/Button/ButtonStyle';
-import ProductDetails from './Sections/ProductDetails';
-import { AppState } from '../../redux/store';
-import { TAllActionProduct } from '../../redux/Product/type';
-import { addProduct, updateProduct } from '../../redux/Admin/action';
-import { getAlCategory, getProductById } from '../../redux/Product/action';
+} from "../../utils/helper/validation";
+import ProductImages from "./Sections/ProductImages";
+import { Button } from "../../components/Button/ButtonStyle";
+import ProductDetails from "./Sections/ProductDetails";
+import { AppState } from "../../redux/store";
+import { TAllActionProduct } from "../../redux/Product/type";
+import { addProduct, updateProduct } from "../../redux/Admin/action";
+import { getAlCategory, getProductById } from "../../redux/Product/action";
 
 function NewProduct() {
   const { id } = useParams<{ id?: string }>();
   const dispatch =
     useDispatch<ThunkDispatch<AppState, any, TAllActionProduct>>();
   const allCategory = useSelector(
-    (state: AppState) => state.product.allCategory,
+    (state: AppState) => state.product.allCategory
   );
   const product = useSelector(
-    (state: AppState) => state.product.getProductById,
+    (state: AppState) => state.product.getProductById
   );
   const { categories } = allCategory;
 
@@ -39,12 +39,12 @@ function NewProduct() {
   const navigation = useNavigate();
 
   const initialValues: IAddProductSchema = {
-    id: product.product?._id || '',
+    id: product.product?._id || "",
     images: product.product?.images || [],
-    name: product.product?.name || '',
-    brand: product.product?.brand || '',
+    name: product.product?.name || "",
+    brand: product.product?.brand || "",
     categories: categories || [],
-    description: product.product?.description || '',
+    description: product.product?.description || "",
     countInStock: product.product?.countInStock || 0,
     price: product.product?.price || 0,
     colors: product.product?.colors || [],
@@ -54,8 +54,7 @@ function NewProduct() {
     initialValues,
     // validationSchema,
     enableReinitialize: true,
-    onSubmit: async values => {
-      console.log('test valies', values);
+    onSubmit: async (values) => {
       if (id) {
         dispatch(
           updateProduct(
@@ -71,8 +70,8 @@ function NewProduct() {
               name: values.name,
               description: values.description,
             },
-            () => navigation(`/product/${id}`),
-          ),
+            () => navigation(`/product/${id}`)
+          )
         );
       }
 
@@ -89,16 +88,16 @@ function NewProduct() {
             name: values.name,
             description: values.description,
           },
-          () => navigation(`/`),
-        ),
+          () => navigation(`/`)
+        )
       );
     },
   });
 
   return (
     <ProductContainer direction="column" padding-left="15%" margin-top="100px">
-      <PathNavigate name={id ? `update Product ${id}` : 'Create New Product'} />
-      <form style={{ width: '100%' }} onSubmit={formik.handleSubmit}>
+      <PathNavigate name={id ? `update Product ${id}` : "Create New Product"} />
+      <form style={{ width: "100%" }} onSubmit={formik.handleSubmit}>
         <Container direction="column" align-Items="flex-end" width="71%">
           <Container
             align-Items="flex-start"
@@ -124,7 +123,7 @@ function NewProduct() {
             padding="1em"
             borderRadius="6px"
           >
-            {id ? 'Update Product' : 'Create New Product'}
+            {id ? "Update Product" : "Create New Product"}
           </Button>
         </Container>
       </form>

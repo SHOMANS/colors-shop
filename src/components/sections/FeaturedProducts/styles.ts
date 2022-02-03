@@ -59,6 +59,12 @@ export const FeaturedProduc = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
+  justify-content: space-between;
+
+  & > div {
+    width: 30%;
+  }
+
   @media (max-width: 800px) {
     width: 100%;
     display: flex;

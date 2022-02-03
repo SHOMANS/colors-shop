@@ -1,13 +1,13 @@
-import { Dispatch } from 'redux';
-import { toast } from 'react-toastify';
-import { ICart } from '../User/type';
+import { Dispatch } from "redux";
+import { toast } from "react-toastify";
+import { ICart } from "../User/type";
 
-import { AppState } from '../store';
+import { AppState } from "../store";
 
-import { ActionCartType } from './type';
+import { ActionCartType } from "./type";
 
-import { EnumCartAction } from './constant';
-import Api from '../../utils/Api/axios';
+import { EnumCartAction } from "./constant";
+import Api from "../../utils/Api/axios";
 
 interface AddItemPayload {
   productId?: string;
@@ -17,7 +17,7 @@ interface AddItemPayload {
 // eslint-disable-next-line @typescript-eslint/ban-types
 export const upduteActionCart = (data: AddItemPayload, fun?: Function) => {
   return async (
-    dispatch: Dispatch<ActionCartType>,
+    dispatch: Dispatch<ActionCartType>
     // getState: () => AppState,
   ) => {
     dispatch({
@@ -29,8 +29,8 @@ export const upduteActionCart = (data: AddItemPayload, fun?: Function) => {
       // const oldNumber = getState();
 
       const response = await Api.update<AddItemPayload>(
-        '/users/profile/cart',
-        data,
+        "/users/profile/cart",
+        data
       );
 
       // if (response.status === 200) {
@@ -44,7 +44,7 @@ export const upduteActionCart = (data: AddItemPayload, fun?: Function) => {
       fun?.();
     } catch (e: any) {
       toast(JSON.stringify(e?.response?.data?.message), {
-        position: 'top-right',
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -74,14 +74,14 @@ export const deleteActionCart = (id: string) => {
           productId: id,
         },
       });
-      if (response.status === 200) {
-        dispatch({
-          type: EnumCartAction.DELETE_ITEM_SUCCESS,
-          payload: {
-            _id: id,
-          },
-        });
-      }
+      // if (response.status === 200) {
+      dispatch({
+        type: EnumCartAction.DELETE_ITEM_SUCCESS,
+        payload: {
+          _id: id,
+        },
+      });
+      // }
     } catch (e: any) {
       dispatch({
         type: EnumCartAction.DELETE_ITEM_FILL,

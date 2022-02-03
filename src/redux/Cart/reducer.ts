@@ -1,9 +1,9 @@
-import { ICart } from '../User/type';
-import { IUser } from '../Auth/type';
-import { EnumCartAction } from './constant';
-import { ActionCartType, ICartState } from './type';
+import { ICart } from "../User/type";
+import { IUser } from "../Auth/type";
+import { EnumCartAction } from "./constant";
+import { ActionCartType, ICartState } from "./type";
 
-const temp = localStorage.getItem('user');
+const temp = localStorage.getItem("user");
 const cart = (temp ? JSON.parse(temp).cart : {}) as ICart;
 
 const initialState: ICartState = {
@@ -14,12 +14,12 @@ const initialState: ICartState = {
   },
   success: false,
   isLoading: false,
-  error: '',
+  error: "",
 };
 
 export const CartReducer = (
   state = initialState,
-  action: ActionCartType,
+  action: ActionCartType
 ): ICartState => {
   switch (action.type) {
     case EnumCartAction.UPDATE_ITEM_START:
@@ -64,6 +64,13 @@ export const CartReducer = (
     case EnumCartAction.DELETE_ITEM_SUCCESS:
       return {
         ...state,
+        cart: {
+          ...state.cart,
+          totalQty: state.cart.totalQty - 1,
+          items: state.cart.items.filter(
+            (item) => item.product._id !== action.payload._id
+          ),
+        },
         isLoading: false,
         success: true,
       };

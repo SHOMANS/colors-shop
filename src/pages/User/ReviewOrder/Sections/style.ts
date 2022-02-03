@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { Column, Container, Divider, Typography } from '../../../../components';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { Column, Container, Divider, Typography } from "../../../../components";
 
 export const ReviewText = styled(Typography)`
   font-family: normal normal 900 32px/15px Mulish;
@@ -12,10 +12,10 @@ export const OrderDetailsText = styled(ReviewText)`
   font-size: 2rem;
   font-weight: bold;
 `;
-export const TextFooter = styled('p')`
+export const TextFooter = styled("p")`
   font-size: 16px;
   letter-spacing: 0.32px;
-  color: ${props => props.theme?.background?.darkGrey};
+  color: ${(props) => props.theme?.background?.darkGrey};
   opacity: 1;
 `;
 export const ChangeText = styled(Link)`
@@ -30,7 +30,7 @@ export const ChangeText = styled(Link)`
 interface IBoxNumber {
   isActive: boolean;
 }
-export const BoxNumber = styled('div')<IBoxNumber>`
+export const BoxNumber = styled("div")<IBoxNumber>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,11 +39,11 @@ export const BoxNumber = styled('div')<IBoxNumber>`
   font-weight: bold;
   margin-right: 9px;
   height: 2em;
-  background: ${props =>
+  background: ${(props) =>
     props.isActive
-      ? `${props.theme?.primary?.lightYallow}; 0% 0% no-repeat padding-box`
-      : '#707070 0% 0% no-repeat padding-box'};
-  color: ${props => (props.isActive ? '#242424' : '#FFFFFF ')};
+      ? `${props.theme.colors.primary}; 0% 0% no-repeat padding-box`
+      : "#707070 0% 0% no-repeat padding-box"};
+  color: ${(props) => (props.isActive ? "#242424" : "#FFFFFF ")};
 `;
 
 export const TextActive = styled(Typography)<IBoxNumber>`
@@ -51,10 +51,10 @@ export const TextActive = styled(Typography)<IBoxNumber>`
   font-family: normal normal bold 22px/15px Mulish;
   letter-spacing: 0.88px;
   width: auto;
-  color: ${props => (props.isActive ? '#242424' : '#707070')};
+  color: ${(props) => (props.isActive ? "#242424" : "#707070")};
 `;
 
-export const WrapperReviewRow = styled('div')`
+export const WrapperReviewRow = styled("div")`
   display: flex;
   margin-top: 0.8rem;
   /* align-items: center; */
@@ -80,7 +80,7 @@ export const DividerFull = styled(Divider)`
   position: relative;
 `;
 
-export const WrapperCard = styled('div')`
+export const WrapperCard = styled("div")`
   display: flex;
   width: 100%;
   background: none;
@@ -126,7 +126,7 @@ export const OrfferSection = styled(Column)`
     height: auto;
   }
 `;
-export const LeftSection = styled('div')`
+export const LeftSection = styled("div")`
   background: #f2f2f2;
   border-radius: 16px;
   opacity: 1;
@@ -190,7 +190,7 @@ export const ShapeAddress = styled(Typography)`
   color: #242424;
 `;
 
-export const ColumWrapper = styled('div')`
+export const ColumWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -229,7 +229,7 @@ export const WrapperRowInput = styled(Container)`
   }
 `;
 
-export const HeaderTitleRight = styled('div')`
+export const HeaderTitleRight = styled("div")`
   flex-direction: row;
   width: 100%;
   display: flex;
@@ -242,7 +242,7 @@ export const HeaderTitleRight = styled('div')`
     margin: auto;
   }
 `;
-export const FooterTitleRight = styled('div')`
+export const FooterTitleRight = styled("div")`
   flex-direction: row;
   width: 100%;
   display: flex;
@@ -263,7 +263,7 @@ export const ImageCard = styled.img`
   object-fit: cover;
 `;
 
-export const OrderItemsWrapper = styled('div')`
+export const OrderItemsWrapper = styled("div")`
   flex-direction: row;
   width: 100%;
   display: flex;
@@ -276,7 +276,7 @@ export const OrderItemsWrapper = styled('div')`
   }
 `;
 
-export const OrderPriceWrapper = styled('div')`
+export const OrderPriceWrapper = styled("div")`
   flex-direction: row;
   width: 100%;
   display: flex;
@@ -296,7 +296,7 @@ export const TextTitle = styled(Typography)`
 export const PriceText = styled(Typography)`
   font-size: 1rem;
   letter-spacing: 0.44px;
-  color: ${props => props.theme?.background?.darkGrey};
+  color: ${(props) => props.theme?.background?.darkGrey};
   padding-left: 10px;
   font-family: mulish;
 `;
@@ -322,7 +322,7 @@ export const CountText = styled(Typography)`
 export const RevieworderButton = styled.button`
   /* width: 324px;
   height: 62px; */
-  background: ${props => props.theme?.primary?.lightYallow};
+  background: #FCDD06;
   border-radius: 10px;
   padding: .8em 1em;
   opacity: 1;

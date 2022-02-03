@@ -6,4 +6,5 @@ export const ButtonKeep = styled(ButtonHero)`
   color: white;
   height: 50px;
   border-radius: 5px;
+  align-self:flex-end;
 `;

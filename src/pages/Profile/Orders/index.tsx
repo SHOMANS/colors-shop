@@ -1,27 +1,27 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { SpinnerContainer, Typography } from '../../../components';
-import { IColumn } from '../../../@types/table';
-import Table from './Table';
-import { AppState } from '../../../redux/store';
-import { getOrders } from '../../../redux/Order/action';
-import { InfoContainer } from '../style';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { SpinnerContainer, Typography } from "../../../components";
+import { IColumn } from "../../../@types/table";
+import Table from "./Table";
+import { AppState } from "../../../redux/store";
+import { getOrders } from "../../../redux/Order/action";
+import { InfoContainer } from "../style";
 
 const columns: IColumn[] = [
   {
-    name: 'user.firstName',
+    name: "user.firstName",
   },
   {
-    name: 'shippingPrice',
+    name: "shippingPrice",
   },
   {
-    name: 'totalPrice',
+    name: "totalPrice",
   },
   {
-    name: 'isPaid',
+    name: "isPaid",
   },
   {
-    name: 'isDelivered',
+    name: "isDelivered",
   },
 ];
 
@@ -33,7 +33,6 @@ export default function OrdersProduct() {
   useEffect(() => {
     dispatch(getOrders());
   }, [dispatch]);
-  console.log('orders', order);
   return (
     <InfoContainer
       align-items="flex-start"

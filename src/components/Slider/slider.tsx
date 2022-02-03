@@ -41,6 +41,7 @@ export const Slider = ({ data }: IProps) => {
     data.length &&
     data.map((item) => (
       <SliderItem
+        key={"wh" + item._id}
         _id={item._id}
         name={item.name}
         price={item.price}
@@ -67,6 +68,7 @@ export const Slider = ({ data }: IProps) => {
           .fill(0)
           .map((x, index) => (
             <Dot
+              key={"Slider" + index}
               width="14px"
               isGrey={sliderIndex !== index}
               onClick={() => setSliderIndex(index)}

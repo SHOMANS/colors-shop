@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { CSSProperties } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { Column } from '../Col';
-import { FlexBox } from '../Row';
-import { Container } from '..';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { CSSProperties } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { Column } from "../Col";
+import { FlexBox } from "../Row";
+import { Container } from "..";
 
 interface Props {
   open: boolean;
@@ -16,31 +16,54 @@ export const InnerSection = styled(Column)`
   width: 100%;
 `;
 export const ListNav = styled(Container)<Props>`
-  background-color: ${props => props.theme.common?.black || '#242424'};
-  height: 50px;
-  z-index: 999;
-  padding: 7px 5%;
-  @media (max-width: 768px) {
-    flex-flow: column wrap;
-    background-color: #242424;
-    position: fixed;
-    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
-    top: 0;
-    right: 0;
-    height: 100vh;
-    z-index: 10;
-    list-style: none;
-    display: flex;
-    width: 100%;
-    padding-top: 3.5rem;
-    transition: transform 0.3s ease-in-out;
-    align-items: center;
-    flex-direction: column;
-  }
+  background-color: ${(props) => props.theme.common?.black || "#242424"};
+  display: flex;
+  justify-content: center;
+  height: 60px;
   position: fixed;
   top: 0;
+  z-index: 999;
+  margin-top: 0;
+
+  & > div {
+    padding: 7px 0;
+
+    width: 75%;
+    margin: auto;
+    display: flex;
+    @media screen and (max-width: 1500px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 1200px) {
+      width: 85%;
+    }
+    @media screen and (max-width: 1000px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 800px) {
+      width: 95%;
+    }
+
+    @media (max-width: 768px) {
+      flex-flow: column wrap;
+      background-color: #242424;
+      position: fixed;
+      transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+      top: 0;
+      right: 0;
+      height: 100vh;
+      z-index: 10;
+      list-style: none;
+      display: flex;
+      width: 100%;
+      padding-top: 3.5rem;
+      transition: transform 0.3s ease-in-out;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
 `;
-export const Badge = styled('div')`
+export const Badge = styled("div")`
   background: #fcdd06;
   border-radius: 50%;
   color: #242424;
@@ -70,11 +93,11 @@ export const SearchButton = styled.div`
   height: 100%;
   font-size: 15px;
 `;
-export const StyledSearchIcon = styled('div')`
+export const StyledSearchIcon = styled("div")`
   font-size: 18;
 `;
 
-export const NavBox = styled('div')`
+export const NavBox = styled("div")`
   display: flex;
   height: 30px;
   justify-content: space-between;
@@ -85,7 +108,7 @@ export const NavBox = styled('div')`
     display: none;
   }
 `;
-export const NavIcon = styled('div')`
+export const NavIcon = styled("div")`
   display: flex;
   border-radius: 6px;
   justify-content: center;
@@ -98,13 +121,13 @@ export const CustomLink = styled(Link)`
   text-decoration: none;
 `;
 
-export const Logo = styled('img')`
+export const Logo = styled("img")`
   height: 50px;
   object-fit: cover;
   opacity: 1;
   width: 180px;
 `;
-export const IconList = styled('li')`
+export const IconList = styled("li")`
   font-size: 12px;
   cursor: pointer;
   display: inline;
@@ -139,6 +162,7 @@ export const IconList = styled('li')`
     flex-direction: row;
     width: 10rem;
     justify-content: center;
+    margin: 1rem 0 0;
   }
 `;
 export const Hamburger = styled.div`
@@ -168,12 +192,13 @@ export const SearchInput = styled.input`
   text-indent: 15px;
   height: 100%;
   width: 100%;
+  outline: none;
 
   &::placeholder {
     color: gray;
   }
 `;
-export const List = styled('ul')`
+export const List = styled("ul")`
   text-decoration: none;
 
   align-items: center;
@@ -181,8 +206,8 @@ export const List = styled('ul')`
   flex-direction: row;
   justify-content: space-between;
 `;
-export const ListItem = styled('li')`
-  color: ${props => props.theme.primary?.darkYallow};
+export const ListItem = styled("li")`
+  color: ${(props) => props.theme.colors.primary};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -198,16 +223,16 @@ export const ListItem = styled('li')`
 
 export const StyleObj: CSSProperties = {
   fontSize: 22,
-  color: '#FCDD06',
-  fill: '#FFF',
-  margin: '0px auto',
-  display: 'flex',
-  alignItems: 'center',
-  alignContent: 'space-between',
-  marginBottom: '10px',
+  color: "#FCDD06",
+  fill: "#FFF",
+  margin: "0px auto",
+  display: "flex",
+  alignItems: "center",
+  alignContent: "space-between",
+  marginBottom: "10px",
 };
 
-export const IConsContainer = styled('div')`
+export const IConsContainer = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -216,5 +241,46 @@ export const IConsContainer = styled('div')`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+`;
+
+export const StyledLi = styled.li`
+  float: left;
+`;
+
+export const Dropbtn = styled.div`
+  display: inline-block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+`;
+
+export const DropDownContent = styled.div`
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+`;
+
+export const DropDownLi = styled(StyledLi)`
+  display: inline-block;
+  &:hover {
+    // background-color: #fcdd06;
+  }
+  &:hover ${DropDownContent} {
+    display: block;
+  }
+`;
+
+export const SubA = styled(Link)`
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  &:hover {
+    background-color: #fcdd06;
   }
 `;

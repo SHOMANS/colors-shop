@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Container, Typography } from '../../../components';
 import { Button } from '../../../components/Button/ButtonStyle';
 import { ButtonHero } from '../../../components/Slider/SliderStyle';
+import { AppState } from '../../../redux/store';
 import { ButtonKeep } from './style';
 
 interface IDetailProps {
@@ -11,6 +13,7 @@ interface IDetailProps {
 }
 
 const Detail = ({ orderNumber, shippingAddress, orderItem }: IDetailProps) => {
+  const getOrder = useSelector((state: AppState) => state.order.orderById);
   return (
     <>
       <Container
@@ -35,12 +38,24 @@ const Detail = ({ orderNumber, shippingAddress, orderItem }: IDetailProps) => {
           >
             Payment Success !
           </Typography>
-          {/* <Typography variant="h3" bold fontFamily="mulish">
-            Order number
+          <Typography variant="p" bold fontFamily="mulish">
+            Shipping Adress
+          </Typography>
+          <Typography variant="p" bold fontFamily="mulish">
+            {getOrder?.orders?.shippingAddress?.address}
           </Typography>
           <Typography variant="h3" bold fontFamily="mulish">
-            Shipping address
-          </Typography> */}
+            order number
+          </Typography>
+          <Typography variant="p" bold fontFamily="mulish">
+            {
+              getOrder?.orders?.orderItems?.map((item) => (
+                <div>
+                  {item?.product?._id}
+                </div>
+              ))
+            }
+          </Typography>
           <Typography
             variant="p"
             width="50%"
@@ -57,21 +72,17 @@ const Detail = ({ orderNumber, shippingAddress, orderItem }: IDetailProps) => {
           height="115px"
           margin-top="65px"
         >
-          {/* <Typography variant="p" font-size="16px" fontFamily="mulish">
-            61f5b5562d7c5e0004f10ec3
-          </Typography>
-          <Typography variant="p" font-size="16px" fontFamily="mulish">
-            Palestine - Gaza
-          </Typography> */}
+
+        </Container>
+        <Container padding="1em .5em" style={{ alignSelf: "flex-end" }} >
+          <ButtonKeep to="/">
+            {/* <Typography font-size="20px" fontFamily="mulish"> */}
+            Keep Shopping
+            {/* </Typography> */}
+          </ButtonKeep>
         </Container>
       </Container>
-      <Container padding="0" width="14%" float="right" margin-right="7.5%">
-        <ButtonKeep to="/">
-          <Typography font-size="20px" fontFamily="mulish">
-            Keep Shopping
-          </Typography>
-        </ButtonKeep>
-      </Container>
+
     </>
   );
 };
