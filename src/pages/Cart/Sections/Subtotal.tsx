@@ -1,9 +1,9 @@
-import React, { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Container, Divider, Typography } from '../../../components';
-import ButtonComponent from '../../../components/Button';
-import { ICart } from '../../../redux/Auth/type';
-import { IItemCart } from '../../../redux/User/type';
+import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button, Container, Divider, Typography } from "../../../components";
+import ButtonComponent from "../../../components/Button";
+import { ICart } from "../../../redux/Auth/type";
+import { IItemCart } from "../../../redux/User/type";
 
 interface Props {
   data: ICart;
@@ -15,8 +15,8 @@ const Subtotal = ({ data }: Props) => {
       data.totalPrice -
         data.items.reduce(
           (acc, { product }: IItemCart) => product.discount + acc,
-          0,
-        ),
+          0
+        )
     ).toFixed(2);
   }, [data.items, data.totalPrice]);
 
@@ -44,7 +44,7 @@ const Subtotal = ({ data }: Props) => {
         {allDiscount}$
       </Typography>
       {/* </Container> */}
-      <Divider width="100%" />
+      {/* <Divider  width="100%" /> */}
       <Button
         as={Link}
         brand

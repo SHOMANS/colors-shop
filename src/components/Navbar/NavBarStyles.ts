@@ -207,7 +207,7 @@ export const List = styled("ul")`
   justify-content: space-between;
 `;
 export const ListItem = styled("li")`
-  color: ${(props) => props.theme.primary?.darkYallow};
+  color: ${(props) => props.theme.colors.primary};
   display: flex;
   flex-direction: column;
   justify-content: center;

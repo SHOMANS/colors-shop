@@ -1,24 +1,24 @@
-import styled from 'styled-components';
-import { IStyleButton } from './IStyleButton';
+import styled from "styled-components";
+import { IStyleButton } from "./IStyleButton";
 
 // normal normal bold 16px/20px
 
 export const ButtonStyle = styled.button<IStyleButton>(
   ({
-    width = 'none',
-    height = 'none',
-    padding = '.3em',
-    borderRadius = '10px',
-    border = 'none',
-    fontWeight = 'bold',
+    width = "none",
+    height = "none",
+    padding = ".3em",
+    borderRadius = "10px",
+    border = "none",
+    fontWeight = "bold",
     background,
-    color = '#242424',
-    fontSize = '16px / 220px',
-    cursor = 'pointer',
-    letterSpace = '0px',
-    margin = 'none',
+    color = "#242424",
+    fontSize = "16px / 220px",
+    cursor = "pointer",
+    letterSpace = "0px",
+    margin = "none",
     brand = false,
-    type = 'button',
+    type = "button",
     ...props
   }) => ({
     width: `${width}`,
@@ -30,18 +30,16 @@ export const ButtonStyle = styled.button<IStyleButton>(
 
     background: `${
       background ||
-      (brand
-        ? props.theme.primary?.lightYallow
-        : props.theme.background?.lightGrey)
+      (brand ? props.theme.colors.primary : props.theme.background?.lightGrey)
     }`,
 
     color: `${color}`,
     fontSize: `${fontSize}`,
     cursor: `${cursor}`,
     letterSpacing: `${letterSpace}`,
-    alignItems: 'baseline',
+    alignItems: "baseline",
     margin: `${margin}`,
-  }),
+  })
 );
 
 export const Button = styled(ButtonStyle)`
