@@ -24,7 +24,7 @@ const Profile = () => {
   ) : (
     <UpdatedContainer
       justifyContent="space-between"
-      // style={{ gap: "20px" }}
+    // style={{ gap: "20px" }}
     >
       <Parent>
         <ProfileDashboard user={useProfile.user} isActive={isActive} />

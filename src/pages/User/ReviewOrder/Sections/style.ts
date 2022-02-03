@@ -57,15 +57,15 @@ export const TextActive = styled(Typography)<IBoxNumber>`
 export const WrapperReviewRow = styled("div")`
   display: flex;
   margin-top: 0.8rem;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
 `;
 export const InnerSection = styled(Column)`
   align-items: start;
   justify-content: start;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   width: 100%;
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
 `;
 
 export const DividerTop = styled(Divider)`
@@ -84,6 +84,7 @@ export const WrapperCard = styled("div")`
   display: flex;
   width: 100%;
   background: none;
+  gap:15px;
   justify-content: space-between;
   margin-top: 1em;
   @media (max-width: 768px) {
@@ -106,8 +107,8 @@ export const ProductContainer = styled.div`
   }
 `;
 export const OrderWrapper = styled(WrapperCard)`
-  width: 90%;
-  margin: 10px auto;
+  /* width: 90%; */
+  /* margin: 10px auto; */
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -118,7 +119,7 @@ export const OrfferSection = styled(Column)`
   width: 90%;
   height: 700px;
   // overflow: auto;
-  margin: 50px auto;
+  /* margin: 50px auto; */
   justify-content: space-between;
   @media (max-width: 768px) {
     width: 90%;
@@ -130,16 +131,17 @@ export const LeftSection = styled("div")`
   border-radius: 16px;
   opacity: 1;
   padding: 25px 17px;
-  width: 100%;
+  width: 70%;
   @media (max-width: 768px) {
     width: 100%;
     padding: 30px;
   }
 `;
 export const RightSection = styled(LeftSection)`
-  margin-left: 30px;
-  width: 40%;
+  /* margin-left: 30px; */
+  width: 30%;
   padding: 0.5rem;
+  height:fit-content;
   @media (max-width: 768px) {
     width: 100%;
     margin: 15px auto;
@@ -166,10 +168,9 @@ export const InnerOverFlow = styled.div`
   width: 100%;
 `;
 export const RightSectionPlace = styled(RightSectionTowReview)`
-  width: 40%;
-
-  height: 90%;
-  @media (max-width: 1500px) {
+  /* width: 60%; */
+  /* height: 90%; */
+  @media (max-width: 1000px) {
     width: 100%;
     padding: 10px;
     height: 240px;
@@ -193,7 +194,7 @@ export const ColumWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex: 1;
   width: 100%;
 `;
@@ -219,7 +220,7 @@ export const WrapperRowInput = styled(Container)`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin: auto;
+  /* margin: auto; */
   justify-content: space-between;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -319,21 +320,19 @@ export const CountText = styled(Typography)`
 `;
 
 export const RevieworderButton = styled.button`
-  width: 324px;
-  height: 62px;
-  background: ${(props) => props.theme.colors.primary};
+  /* width: 324px;
+  height: 62px; */
+  background: #FCDD06;
   border-radius: 10px;
+  padding: .8em 1em;
   opacity: 1;
-  display: flex;
   border: none;
   outline: none;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  float: right;
-  position: absolute;
-  bottom: 1.8rem;
-  right: 6rem;
+  width:10rem;
+align-self:flex-end;
+margin-top:5px;
+  font-size: 1rem;
+
 `;
 
 export const LeftOrderSection = styled(LeftSection)`

@@ -7,8 +7,7 @@ export const FiledWrapper = styled("div")<{ marginLeft?: string }>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* height: 40px; */
-  margin-left: ${(props) => props.marginLeft || 0};
+  margin-left: ${props => props.marginLeft || 0};
   @media (max-width: 768px) {
     margin-left: 0;
   }
@@ -35,9 +34,12 @@ interface IInput {
 }
 export const Input = styled("input")<IInput>`
   width: 100%;
-  border: none;
-  border-left: none;
-  padding-left: 5px;
+  /* height: 60%; */
+  /* border: none; */
+  /* border-left: none;
+  padding-left: 5px; */
+  border:none;
+  padding:.39rem;
   font-size: 12px;
   background-color: white;
 

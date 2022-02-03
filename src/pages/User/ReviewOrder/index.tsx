@@ -30,16 +30,17 @@ import {
   TextActive,
   OrfferSection,
   InnerOverFlow,
-} from "./Sections/style";
-import { OrderDetails } from "./Sections/orderDtails";
-import { InputController } from "../../../components/Form";
-import { ReviewTow } from "./Sections/reviewtow";
-import { AppState } from "../../../redux/store";
-import { ActionOrderType } from "../../../redux/Order/type";
-import { createOrder } from "../../../redux/Order/action";
-import { getProfile } from "../../../redux/User/action";
-import { ActionCartType } from "../../../redux/Cart/type";
-import { myActionCart } from "../../../redux/Cart/action";
+} from './Sections/style';
+import { OrderDetails } from './Sections/orderDtails';
+import { InputController } from '../../../components/Form';
+import { ReviewTow } from './Sections/reviewtow';
+import { AppState } from '../../../redux/store';
+import { ActionOrderType } from '../../../redux/Order/type';
+import { createOrder } from '../../../redux/Order/action';
+import { getProfile } from '../../../redux/User/action';
+import { ActionCartType } from '../../../redux/Cart/type';
+import { myActionCart } from '../../../redux/Cart/action';
+import UpdatedContainer from '../../../components/UpdatedContainer';
 
 const initialValues: IShippingSchema = {
   country: "",
@@ -65,7 +66,7 @@ const ReviewOrder = () => {
   const formik = useFormik<IShippingSchema>({
     initialValues,
     validationSchema: ShippingSchema,
-    onSubmit: async (values) => {
+    onSubmit: async values => {
       const billingDetails = {
         address: values.address,
         city: values.city,
@@ -103,188 +104,200 @@ const ReviewOrder = () => {
   };
 
   return (
-    <OrfferSection>
-      <InnerSection>
-        <Typography variant="h2" font-Family="Mulish">
-          Review Order
-        </Typography>
-        <WrapperReviewRow>
-          <BoxNumber isActive={stepperNumber === 0}>1</BoxNumber>
-          <TextActive isActive={stepperNumber === 0}>
-            Shipping and Payment
-          </TextActive>
-          <DividerTop />
-          <BoxNumber isActive={stepperNumber === 1}>2</BoxNumber>
-          <TextActive isActive={stepperNumber === 1}>Place an Order</TextActive>
-        </WrapperReviewRow>
-        {stepperNumber === 0 && (
-          <Column>
-            <WrapperCard>
-              <LeftSection>
-                <form onSubmit={formik.handleSubmit}>
-                  <Column
-                    style={{
-                      width: "90%",
-                      margin: "auto",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <ShapeAddress>Shipping Address</ShapeAddress>
+    <UpdatedContainer>
+      <OrfferSection>
+        <InnerSection>
+          <Typography variant="h2" font-Family="Mulish">
+            Review Order
+          </Typography>
+          <WrapperReviewRow>
+            <BoxNumber isActive={stepperNumber === 0}>1</BoxNumber>
+            <TextActive isActive={stepperNumber === 0}>
+              Shipping and Payment
+            </TextActive>
+            <DividerTop />
+            <BoxNumber isActive={stepperNumber === 1}>2</BoxNumber>
+            <TextActive isActive={stepperNumber === 1}>Place an Order</TextActive>
+          </WrapperReviewRow>
+          {stepperNumber === 0 && (
+            <Column>
+              <WrapperCard>
+                <LeftSection>
+                  <form onSubmit={formik.handleSubmit} id="form">
+                    <Column
+                      style={{
+                        width: "90%",
+                        margin: "auto",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <ShapeAddress>Shipping Address</ShapeAddress>
 
-                    <WrapperRowInput>
-                      <InputController
-                        name="country"
-                        label="Country"
-                        type="text"
-                        placeholder="Palestine"
-                        isRequired
-                        errors={formik.errors?.country}
-                        onBlur={formik.handleBlur}
-                        onChange={formik.handleChange}
-                        value={formik.values.country}
-                        style={{ fontFamily: "mulish" }}
-                      />
-                      <InputController
-                        name="city"
-                        label="City"
-                        type="text"
-                        placeholder="Gaza"
-                        isRequired
-                        errors={formik.errors?.city}
-                        onBlur={formik.handleBlur}
-                        onChange={formik.handleChange}
-                        value={formik.values.city}
-                        marginLeft="10%"
-                        style={{ fontFamily: "mulish" }}
-                      />
-                    </WrapperRowInput>
-                    <WrapperRowInput>
-                      <InputController
-                        name="zip"
-                        label="Zip Code"
-                        type="text"
-                        placeholder="65555"
-                        isRequired
-                        errors={formik.errors?.zip}
-                        onBlur={formik.handleBlur}
-                        onChange={formik.handleChange}
-                        value={formik.values.zip}
-                        style={{ fontFamily: "mulish" }}
-                      />
-                      {/*
+                      <WrapperRowInput>
+                        <InputController
+
+                          name="country"
+                          label="Country"
+                          type="text"
+                          placeholder="Palestine"
+                          isRequired
+                          errors={formik.errors?.country}
+                          onBlur={formik.handleBlur}
+                          onChange={formik.handleChange}
+                          value={formik.values.country}
+                          style={{ fontFamily: 'mulish' }}
+                        />
+                        <InputController
+                          name="city"
+                          label="City"
+                          type="text"
+                          placeholder="Gaza"
+                          isRequired
+                          errors={formik.errors?.city}
+                          onBlur={formik.handleBlur}
+                          onChange={formik.handleChange}
+                          value={formik.values.city}
+                          marginLeft="10%"
+                          style={{ fontFamily: "mulish" }}
+                        />
+                      </WrapperRowInput>
+                      <WrapperRowInput>
+                        <InputController
+                          name="zip"
+                          label="Zip Code"
+                          type="text"
+                          placeholder="65555"
+                          isRequired
+                          errors={formik.errors?.zip}
+                          onBlur={formik.handleBlur}
+                          onChange={formik.handleChange}
+                          value={formik.values.zip}
+                          style={{ fontFamily: "mulish" }}
+                        />
+                        {/*
                         47%
                         */}
-                      <InputController
-                        name="address"
-                        label="Street Address"
-                        type="text"
-                        placeholder="65555"
-                        isRequired
-                        errors={formik.errors?.address}
-                        onBlur={formik.handleBlur}
-                        onChange={formik.handleChange}
-                        value={formik.values.address}
-                        marginLeft="10%"
-                        style={{ fontFamily: "mulish" }}
+                        <InputController
+                          name="address"
+                          label="Street Address"
+                          type="text"
+                          placeholder="65555"
+                          isRequired
+                          errors={formik.errors?.address}
+                          onBlur={formik.handleBlur}
+                          onChange={formik.handleChange}
+                          value={formik.values.address}
+                          marginLeft="10%"
+                          style={{ fontFamily: "mulish" }}
+                        />
+                      </WrapperRowInput>
+                      {/* {/* <ShapeAddress>Payment Details</ShapeAddress> */}
+
+                      <CardElement
+                        options={cardElementOpts as any}
+                        onChange={handleCardDetailsChange}
                       />
-                    </WrapperRowInput>
-                    {/* {/* <ShapeAddress>Payment Details</ShapeAddress> */}
-
-                    <CardElement
-                      options={cardElementOpts as any}
-                      onChange={handleCardDetailsChange}
-                    />
-                    {checkoutError && (
-                      <Typography margin-Top="1rem" color="red">
-                        {checkoutError}
-                      </Typography>
-                    )}
-                    <Row JC="flex-end">
-                      <RevieworderButton
-                        style={{ fontFamily: "mulish" }}
-                        type="submit"
+                      {checkoutError && (
+                        <Typography margin-Top="1rem" color="red">
+                          {checkoutError}
+                        </Typography>
+                      )}
+                      <Row
+                        JC="flex-end"
+                        style={{ marginTop: "20px" }}
                       >
-                        Review order
-                      </RevieworderButton>
-                    </Row>
+
+                      </Row>
+                    </Column >
+                  </form >
+                </LeftSection >
+
+                <RightSection>
+                  <HeaderTitleRight>
+                    <ShapeAddress style={{ fontFamily: "mulish" }}>
+                      Order Details
+                    </ShapeAddress>
+                    <ChangeText style={{ fontFamily: "mulish" }} to="/cahnge">
+                      change
+                    </ChangeText>
+                  </HeaderTitleRight>
+                  <Column>
+                    <InnerOverFlow>
+                      {cart.isLoading ? (
+                        <SpinnerContainer />
+                      ) : (
+                        <>
+                          {cart?.cart?.items?.map((x) => (
+                            <OrderDetails
+                              title={x.product?.name}
+                              image={x.product?.images[0]}
+                              priceItem={x.product.price}
+                              countItem={x.qty}
+                              isHr
+                            />
+                          ))}
+                        </>
+                      )}
+                    </InnerOverFlow>
                   </Column>
-                </form>
-              </LeftSection>
 
-              <RightSection>
-                <HeaderTitleRight>
-                  <ShapeAddress style={{ fontFamily: "mulish" }}>
-                    Order Details
-                  </ShapeAddress>
-                  <ChangeText style={{ fontFamily: "mulish" }} to="/cahnge">
-                    change
-                  </ChangeText>
-                </HeaderTitleRight>
-                <Column>
-                  <InnerOverFlow>
-                    {cart.isLoading ? (
-                      <SpinnerContainer />
-                    ) : (
-                      <>
-                        {cart?.cart?.items?.map((x) => (
-                          <OrderDetails
-                            title={x.product?.name}
-                            image={x.product?.images[0]}
-                            priceItem={x.product.price}
-                            countItem={x.qty}
-                            isHr
-                          />
-                        ))}
-                      </>
-                    )}
-                  </InnerOverFlow>
-                </Column>
+                  <FooterTitleRight>
+                    <TextFooter>Subtotal</TextFooter>
+                    <TextFooter>
+                      {cart?.cart?.items
+                        .reduce(
+                          (acc, item) => acc + item?.product?.price * item?.qty,
+                          0
+                        )
+                        .toFixed(2)}{" "}
+                      $
+                    </TextFooter>
+                  </FooterTitleRight>
+                  <FooterTitleRight>
+                    <TextFooter>Tax</TextFooter>
+                    <TextFooter>0 $</TextFooter>
+                  </FooterTitleRight>
+                  <FooterTitleRight>
+                    <TextFooter>Shipping</TextFooter>
+                    <TextFooter>0 $</TextFooter>
+                  </FooterTitleRight>
+                  <FooterTitleRight>
+                    <TextFooter style={{ fontWeight: "bold" }}>Total</TextFooter>
+                    <TextFooter style={{ fontWeight: "bold" }}>
+                      {cart?.cart?.items
+                        .reduce(
+                          (acc, item) => acc + item?.product?.price * item?.qty,
+                          0
+                        )
+                        .toFixed(2)}{" "}
+                      $
+                    </TextFooter>
+                  </FooterTitleRight>
 
-                <FooterTitleRight>
-                  <TextFooter>Subtotal</TextFooter>
-                  <TextFooter>
-                    {cart?.cart?.items
-                      .reduce(
-                        (acc, item) => acc + item?.product?.price * item?.qty,
-                        0
-                      )
-                      .toFixed(2)}{" "}
-                    $
-                  </TextFooter>
-                </FooterTitleRight>
-                <FooterTitleRight>
-                  <TextFooter>Tax</TextFooter>
-                  <TextFooter>0 $</TextFooter>
-                </FooterTitleRight>
-                <FooterTitleRight>
-                  <TextFooter>Shipping</TextFooter>
-                  <TextFooter>0 $</TextFooter>
-                </FooterTitleRight>
-                <FooterTitleRight>
-                  <TextFooter style={{ fontWeight: "bold" }}>Total</TextFooter>
-                  <TextFooter style={{ fontWeight: "bold" }}>
-                    {cart?.cart?.items
-                      .reduce(
-                        (acc, item) => acc + item?.product?.price * item?.qty,
-                        0
-                      )
-                      .toFixed(2)}{" "}
-                    $
-                  </TextFooter>
-                </FooterTitleRight>
-              </RightSection>
-            </WrapperCard>
-          </Column>
-        )}
-        {stepperNumber === 1 && (
-          <ReviewTow
-            paymentId={paymentId}
-            clientSec={myOrder?.orders?.clientSecret}
-            orderId={myOrder?.orders?._id}
-          />
-        )}
-      </InnerSection>
-    </OrfferSection>
+                </RightSection>
+              </WrapperCard >
+              <RevieworderButton
+                form="form"
+                style={{ fontFamily: 'mulish' }}
+                type="submit"
+
+              >
+                Review order
+              </RevieworderButton>
+            </Column >
+          )}
+          {
+            stepperNumber === 1 && (
+              <ReviewTow
+                paymentId={paymentId}
+                clientSec={myOrder?.orders?.clientSecret}
+                orderId={myOrder?.orders?._id}
+              />
+            )
+          }
+        </InnerSection >
+      </OrfferSection >
+    </UpdatedContainer >
   );
 };
 

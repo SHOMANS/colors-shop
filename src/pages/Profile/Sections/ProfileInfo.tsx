@@ -16,6 +16,7 @@ interface IProfileDashboard {
 }
 
 const ProfileInfo = ({ user }: IProfileDashboard) => {
+
   return (
     <InfoContainer
       align-items="flex-start"

@@ -117,7 +117,7 @@ const CartList = ({ data }: IProps) => {
         />
         {/* </WrapCounter> */}
         <Typography
-          children={String(` $${product.discount}`)}
+          children={String(` $${product.price - product.discount}`)}
           variant="h2"
           fontSize="38px"
           // width="auto"

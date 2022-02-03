@@ -30,9 +30,10 @@ import {
   getMyOrder,
   getOrderById,
   getOrders,
-} from "../../../../redux/Order/action";
-import { SpinnerContainer } from "../../../../components";
-import { myActionCart } from "../../../../redux/Cart/action";
+} from '../../../../redux/Order/action';
+import { SpinnerContainer } from '../../../../components';
+import { myActionCart } from '../../../../redux/Cart/action';
+import UpdatedContainer from '../../../../components/UpdatedContainer';
 
 export const ReviewTow: React.FC<objectType> = ({
   paymentId,
@@ -67,11 +68,11 @@ export const ReviewTow: React.FC<objectType> = ({
     dispatch(getOrderById(orderId));
   }, [dispatch]);
   return (
-    <OrderWrapper>
+    <>
       {getOrder?.isLoading && !getOrder.orders ? (
         <SpinnerContainer />
       ) : (
-        <>
+        <div style={{ display: "flex", width: "100%", marginTop: "16px" }}>
           <LeftOrderSection>
             <Column>
               <ShapeAddress>Shipping Address</ShapeAddress>
@@ -125,7 +126,7 @@ export const ReviewTow: React.FC<objectType> = ({
               </FooterTitleRight>
               <FooterTitleRight>
                 <TextFooter>Tax</TextFooter>
-                <TextFooter>0 $</TextFooter>
+                <TextFooter> {getOrder?.orders?.taxPrice} $</TextFooter>
               </FooterTitleRight>
               <FooterTitleRight>
                 <TextFooter>Shipping</TextFooter>
@@ -140,9 +141,9 @@ export const ReviewTow: React.FC<objectType> = ({
             </Column>
             <RevieworderButton onClick={pay}>Review order</RevieworderButton>
           </RightSectionPlace>
-        </>
+        </div>
       )}
-    </OrderWrapper>
+    </>
   );
 };
 
