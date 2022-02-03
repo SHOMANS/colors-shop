@@ -4,8 +4,7 @@ import ReactStars from "react-rating-stars-component";
 import { useTheme } from "styled-components";
 import { Button, Rating } from "../../../../../../components";
 import ModalAction from "../../../../../../components/Modal/Dialog/ModalAction/ModalAction";
-import FormInput from "../FormInput/inputField";
-import { Errors, FlexInput, Label } from "../../style";
+import { Errors, FlexInput, Input, Label } from "../../style";
 
 interface IProps {
   errors?: any;
@@ -27,7 +26,7 @@ const AddReviewForm = ({
     <Form>
       <FlexInput>
         <Label>Write Your Review</Label>
-        <FormInput
+        <Input
           name="comment"
           errors={errors}
           touched={touched}
@@ -35,6 +34,9 @@ const AddReviewForm = ({
           component="textarea"
           placeholder="Review"
         />
+          {errors["comment"] && touched["comment"] && (
+            <Errors>{errors["comment"]}</Errors>
+          )}
       </FlexInput>
       <br />
       <FlexInput>
@@ -58,6 +60,8 @@ const AddReviewForm = ({
         <Button
           type="submit"
           style={{ fontWeight: "bold" }}
+          padding='1rem'
+
           // backgroundColor={theme.colors.primary}
         >
           Add
@@ -65,6 +69,7 @@ const AddReviewForm = ({
         <Button
           type="button"
           style={{ fontWeight: "bold" }}
+          padding='1rem'
           // backgroundColor={theme.colors.error}
           onClick={() => {
             setModalDisplay && setModalDisplay(false);
