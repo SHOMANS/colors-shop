@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Image } from "..";
 import { IGetAllCategory } from "../../redux/Product/type";
 import Typography from "../Typography";
