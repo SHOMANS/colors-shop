@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom";
 import { Image } from "..";
 import { IGetAllCategory } from "../../redux/Product/type";
 import Typography from "../Typography";
-import { Content, CategoryoneImage, CategoryImage, Images } from "./cardStyles";
+import {
+  Content,
+  CategoryoneImage,
+  CategoryImage,
+  Images,
+  CateLink,
+} from "./cardStyles";
 
 const CategoryCard = ({ image, name }: IGetAllCategory) => {
   return (
@@ -11,14 +16,9 @@ const CategoryCard = ({ image, name }: IGetAllCategory) => {
         <Images src={image} />
       </CategoryoneImage>
       <Content margin="10px auto">
-        <h4>
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to={`/category/${name}`}
-          >
-            {name}
-          </Link>
-        </h4>
+        <Typography>
+          <CateLink to={`/category/${name}`}>{name}</CateLink>
+        </Typography>
       </Content>
     </CategoryImage>
   );

@@ -1,11 +1,10 @@
-import styled from 'styled-components';
-import { Row } from '../../Row';
+import styled from "styled-components";
+import { Row } from "../../Row";
 
-export const Remember = styled('p')`
+export const Remember = styled("p")`
   font-size: 18px;
   letter-spacing: 0.88px;
-  color: #707070;
-  opacity: 0.7;
+  color: ${(props) => props.theme.textColors.primary};
   margin-left: 13px;
 `;
 
@@ -16,7 +15,7 @@ export const WarperCheckBox = styled(Row)`
   align-items: center;
   margin: 8px 0;
 `;
-export const WarperFileBox = styled('label')<{ margin?: string }>`
+export const WarperFileBox = styled("label")<{ margin?: string }>`
   cursor: pointer;
   border-radius: 6px;
   width: 102px;
@@ -25,10 +24,10 @@ export const WarperFileBox = styled('label')<{ margin?: string }>`
   border: 1px dashed #707070;
   justify-content: center;
   align-items: center;
-  margin: ${props => props.margin || 0};
+  margin: ${(props) => props.margin || 0};
 `;
-export const Checkbox = styled('input').attrs({
-  type: 'checkbox',
+export const Checkbox = styled("input").attrs({
+  type: "checkbox",
 })`
   width: 22px;
   height: 22px;
@@ -37,9 +36,9 @@ export const Checkbox = styled('input').attrs({
   display: flex;
   justify-content: center;
 `;
-export const InputFile = styled('input').attrs({
-  type: 'file',
-  accept: 'image/png,image/jpeg',
+export const InputFile = styled("input").attrs({
+  type: "file",
+  accept: "image/png,image/jpeg",
 })`
   display: none;
 `;

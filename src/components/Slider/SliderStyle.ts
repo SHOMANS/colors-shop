@@ -48,16 +48,14 @@ export const ShopeButton = styled(Button)`
   letter-spacing: 0.88px;
   opacity: 1;
   outline: none;
-  font-family: mulish;
   text-transform: uppercase;
   width: 220px;
 `;
 export const PriceText = styled<any>(Typography)`
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   font-size: 24px;
   margin-bottom: 10px;
   letter-spacing: 1.28px;
-  font-family: mulish;
   @media (max-width: 768px) {
     font-size: 1rem;
     margin-bottom: 5px;
@@ -66,14 +64,13 @@ export const PriceText = styled<any>(Typography)`
 `;
 
 export const DescriptionText = styled(PriceText)`
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   font-size: 20px;
-  font-family: mulish;
   margin-bottom: 42px;
 `;
 
 export const NameText = styled(PriceText)`
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -87,8 +84,8 @@ export const ImageSlider = styled(Image)`
 `;
 
 export const ButtonHero = styled(Link)`
-  color: #242424;
-  background: #fcdd06;
+  color: ${(props) => props.theme.textColors.primary};
+  background: ${(props) => props.theme.colors.primary};
   font-size: 22px;
   height: 56px;
   outline: none;
@@ -102,7 +99,6 @@ export const ButtonHero = styled(Link)`
   align-items: center;
   text-decoration: none;
   letter-spacing: 1.28px;
-  font-family: mulish;
   max-width: 220px;
 `;
 
