@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { Container } from '../../components';
-import { Button } from '../../components/Button/ButtonStyle';
+import styled from "styled-components";
+import { Container } from "../../components";
+import { Button } from "../../components/Button/ButtonStyle";
 
-export const ContainAgGrid = styled('div')`
+export const ContainAgGrid = styled("div")`
   height: 500px;
   width: 85.5%;
   margin: 140px auto;
@@ -10,11 +10,12 @@ export const ContainAgGrid = styled('div')`
 `;
 
 export const Btn = styled(Button)`
-  background: #fcdd06;
+  background: ${(props) => props.theme.colors.primary};
   color: #242424;
-  width: 15%;
   float: right;
   margin: 10px 3%;
+  padding: 8px 15px;
+  text-align: center;
 `;
 
 export const DashContainer = styled(Container)`

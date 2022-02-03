@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SpinnerContainer, Typography } from "../../../components";
+import SppinerLoading from "../../../components/SppinerLoading";
 import { IColumn } from "../../../@types/table";
 import Table from "./Table";
 import { AppState } from "../../../redux/store";
@@ -47,7 +48,7 @@ export default function OrdersProduct() {
         My Orders
       </Typography>
       {order.orders.isLoading ? (
-        <SpinnerContainer />
+        <SppinerLoading />
       ) : (
         <Table data={order.orders?.orders?.orders} columns={columns} />
       )}

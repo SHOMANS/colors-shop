@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CartContainer, ListContainer, TotalContainer } from "./styles";
 import EmptyCart from "./Sections/EmptyCart";
 import { PathNavigate, SpinnerContainer } from "../../components";
+import SppinerLoading from "../../components/SppinerLoading/index";
 import CartList from "./Sections/CartList";
 import Subtotal from "./Sections/Subtotal";
 import { AppState } from "../../redux/store";
@@ -27,7 +28,7 @@ const Cart = () => {
     >
       <PathNavigate name="Shopping Cart" />
       {cart.isLoading ? (
-        <SpinnerContainer />
+        <SppinerLoading />
       ) : !cart.cart?.items.length ? (
         <EmptyCart />
       ) : (

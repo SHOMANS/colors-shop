@@ -25,7 +25,7 @@ import { Column } from "../../../../components/Row";
 import { AppState } from "../../../../redux/store";
 import { ActionOrderType } from "../../../../redux/Order/type";
 import { getOrderById } from "../../../../redux/Order/action";
-import { SpinnerContainer } from "../../../../components";
+import SppinerLoading from "../../../../components/SppinerLoading";
 import { myActionCart } from "../../../../redux/Cart/action";
 
 export const ReviewTow: React.FC<objectType> = ({
@@ -59,7 +59,7 @@ export const ReviewTow: React.FC<objectType> = ({
   return (
     <>
       {getOrder?.isLoading && !getOrder.orders ? (
-        <SpinnerContainer />
+        <SppinerLoading />
       ) : (
         <div style={{ display: "flex", width: "100%", marginTop: "16px" }}>
           <LeftOrderSection>
@@ -80,7 +80,7 @@ export const ReviewTow: React.FC<objectType> = ({
               <Column style={{ width: "100%" }}>
                 <ProductContainer>
                   {getOrder.isLoading ? (
-                    <SpinnerContainer />
+                    <SppinerLoading />
                   ) : (
                     <>
                       {getOrder.orders?.orderItems?.map((x) => (

@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
-import { Container } from '../../components';
+import { Link } from "react-router-dom";
+import styled, { createGlobalStyle } from "styled-components";
+import { Container } from "../../components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -22,8 +22,11 @@ export const NavLink = styled(Link)`
   }
 `;
 
-export const OutLink = styled(NavLink)`
-  padding: .2em;
+export const OutLink = styled("p")`
+  padding: 0.2em;
+  cursor: pointer;
+  /* color: ${(props) => props.theme.colors.primary}; */
+  color: red;
 `;
 
 export const SpanTitle = styled.span`
@@ -39,6 +42,7 @@ export const SpanTitle = styled.span`
 export const DataValue = styled.h4`
   font-size: 1rem;
   font-weight: 500;
+
     /* margin-top:.5em; */
     margin-bottom:1em ;
     color: ${(props) => props.theme.textColors.primary};
@@ -49,7 +53,6 @@ export const DataValue = styled.h4`
 `;
 
 export const ProfileContainer = styled(Container)`
-
   @media only screen and (max-width: 767px) {
     width: 100%;
     flex-direction: column;
@@ -59,23 +62,19 @@ export const ProfileContainer = styled(Container)`
     margin-top: 0;
   }
 `;
-export const Parent = styled.div` 
-display:flex; 
-margin-top:50px; 
-gap:20px; 
-padding-bottom:.8em;
+export const Parent = styled.div`
+  display: flex;
+  margin-top: 50px;
+  gap: 20px;
+  padding-bottom: 0.8em;
   @media only screen and (max-width: 767px) {
-    
     width: 100%;
-    display:flex; 
-    flex-direction:column;
-   
+    display: flex;
+    flex-direction: column;
   }
-
-`
+`;
 
 export const DashboardContainer = styled(Container)`
-
   @media only screen and (max-width: 767px) {
     margin-bottom: 2em;
     width: 100%;
@@ -94,8 +93,8 @@ export const DashImgContainer = styled(Container)`
 
 export const InfoContainer = styled(Container)`
   /* margin-left: 2em; */
-  display:flex; 
-  justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
   @media only screen and (max-width: 767px) {
     flex-direction: column;
     width: 100%;
@@ -113,11 +112,10 @@ export const InfoBoxContainer = styled(Container)`
 `;
 
 export const InfoDetailsContainer = styled(Container)`
-
-display:grid;
-grid-template-columns: 1fr 1fr ;
-margin-top:1em;
-/* gap:50px; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1em;
+  /* gap:50px; */
   @media only screen and (max-width: 767px) {
     flex-wrap: nowrap;
     margin-top: 0;

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { Container, SpinnerContainer } from "../../../components";
+import SppinerLoading from "../../../components/SppinerLoading/index";
 import ComplexCard from "../../../components/Card/productCard";
 import { DeviderTitle } from "../../../components/DeviderTitle/deviderTitle";
 import UpdatedContainer from "../../../components/UpdatedContainer";
@@ -23,7 +24,7 @@ const AllProducts = () => {
   }, [dispatch]);
 
   return allProduct.isLoading ? (
-    <SpinnerContainer />
+    <SppinerLoading />
   ) : (
     <UpdatedContainer>
       <Container
