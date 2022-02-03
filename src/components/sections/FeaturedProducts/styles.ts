@@ -43,7 +43,7 @@ export const TitleCard = styled("h3")`
 `;
 
 export const Featured = styled.div`
-  background: #f7f8fc;
+  background: ${(props) => props.theme.background.secondary};
 `;
 export const CatProduct = styled.div`
   display: flex;
@@ -59,6 +59,12 @@ export const FeaturedProduc = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
+  justify-content: space-between;
+
+  & > div {
+    width: 30%;
+  }
+
   @media (max-width: 800px) {
     width: 100%;
     display: flex;

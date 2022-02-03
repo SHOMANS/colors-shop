@@ -1,7 +1,7 @@
-import { Action } from 'redux';
-import { IProducts } from '../Product/type';
-import { IUser } from '../Auth/type';
-import { EnumUserAction } from './constant';
+import { Action } from "redux";
+import { IProducts } from "../Product/type";
+import { IUser } from "../Auth/type";
+import { EnumUserAction } from "./constant";
 
 export interface IUserProfile {
   _id: string;
@@ -24,7 +24,7 @@ export interface IItemCart {
   itemTotalPrice: number;
   product: IProducts;
   qty: number;
-  id?: string;
+  _id?: string;
 }
 
 export interface IStateUser {

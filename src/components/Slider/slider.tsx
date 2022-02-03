@@ -2,7 +2,7 @@
 import React, { useState, CSSProperties } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { SliderItem } from "./SliderItem";
-import { Arrow, Dot, SliderSection, FlexCenter } from "./SliderStyle";
+import { Arrow, Dot, SliderSection, FlexCenter, SwiperWrapper } from "./SliderStyle";
 import { Container } from "..";
 
 import { IProducts } from "../../redux/Product/type";
@@ -10,7 +10,6 @@ import { IProducts } from "../../redux/Product/type";
 const cssStyle: CSSProperties = {
   position: "relative",
   width: "100%",
-  backgroundColor: "#f2f2f2",
 };
 
 interface ProductItem {
@@ -41,6 +40,7 @@ export const Slider = ({ data }: IProps) => {
     data.length &&
     data.map((item) => (
       <SliderItem
+        key={"wh" + item._id}
         _id={item._id}
         name={item.name}
         price={item.price}
@@ -50,7 +50,7 @@ export const Slider = ({ data }: IProps) => {
     ));
 
   return (
-    <Container direction="column" background="#F2F2F2" overflow="hidden">
+    <SwiperWrapper>
       <SliderSection>
         <SwipeableViews
           index={sliderIndex}
@@ -67,6 +67,7 @@ export const Slider = ({ data }: IProps) => {
           .fill(0)
           .map((x, index) => (
             <Dot
+              key={"Slider" + index}
               width="14px"
               isGrey={sliderIndex !== index}
               onClick={() => setSliderIndex(index)}
@@ -74,6 +75,6 @@ export const Slider = ({ data }: IProps) => {
           ))}
         <Arrow onClick={handleRight}>&#x3e;</Arrow>
       </FlexCenter>
-    </Container>
+    </SwiperWrapper>
   );
 };

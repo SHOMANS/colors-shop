@@ -1,19 +1,19 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export interface IProps {
-  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  flexDirection?: "row" | "column" | "row-reverse" | "column-reverse";
   flexWrap?: boolean;
-  justifyContent?: 'center' | 'space-between' | 'flex-start' | 'flex-end';
-  alignItems?: 'center' | 'flex-start' | 'flex-end' | 'stretch';
+  justifyContent?: "center" | "space-between" | "flex-start" | "flex-end";
+  alignItems?: "center" | "flex-start" | "flex-end" | "stretch";
 }
 export const Wrapper = styled.div<IProps>`
   width: 75%;
   margin: auto;
   display: flex;
-  flex-direction: ${props => props.flexDirection || 'row'};
-  flex-wrap: ${props => (props.flexWrap ? 'wrap' : 'no-wrap')};
-  justify-content: ${props => props.justifyContent || 'space-between'};
-  align-items: ${props => props.alignItems || 'center'};
+  flex-direction: ${(props) => props.flexDirection || "row"};
+  flex-wrap: ${(props) => (props.flexWrap ? "wrap" : "no-wrap")};
+  justify-content: ${(props) => props.justifyContent || "space-between"};
+  align-items: ${(props) => props.alignItems || "center"};
   @media screen and (max-width: 1500px) {
     width: 90%;
   }
@@ -28,5 +28,15 @@ export const Wrapper = styled.div<IProps>`
   }
   @media screen and (max-width: 500px) {
     width: 97%;
+  }
+`;
+export const LogoWrapper = styled.div`
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 9999;
   }
 `;

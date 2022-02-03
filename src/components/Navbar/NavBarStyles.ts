@@ -17,28 +17,51 @@ export const InnerSection = styled(Column)`
 `;
 export const ListNav = styled(Container)<Props>`
   background-color: ${(props) => props.theme.common?.black || "#242424"};
-  height: 50px;
-  z-index: 999;
-  padding: 7px 5%;
-  @media (max-width: 768px) {
-    flex-flow: column wrap;
-    background-color: #242424;
-    position: fixed;
-    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
-    top: 0;
-    right: 0;
-    height: 100vh;
-    z-index: 10;
-    list-style: none;
-    display: flex;
-    width: 100%;
-    padding-top: 3.5rem;
-    transition: transform 0.3s ease-in-out;
-    align-items: center;
-    flex-direction: column;
-  }
+  display: flex;
+  justify-content: center;
+  height: 60px;
   position: fixed;
   top: 0;
+  z-index: 999;
+  margin-top: 0;
+
+  & > div {
+    padding: 7px 0;
+
+    width: 75%;
+    margin: auto;
+    display: flex;
+    @media screen and (max-width: 1500px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 1200px) {
+      width: 85%;
+    }
+    @media screen and (max-width: 1000px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 800px) {
+      width: 95%;
+    }
+
+    @media (max-width: 768px) {
+      flex-flow: column wrap;
+      background-color: #242424;
+      position: fixed;
+      transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+      top: 0;
+      right: 0;
+      height: 100vh;
+      z-index: 10;
+      list-style: none;
+      display: flex;
+      width: 100%;
+      padding-top: 3.5rem;
+      transition: transform 0.3s ease-in-out;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
 `;
 export const Badge = styled("div")`
   background: #fcdd06;
@@ -139,6 +162,7 @@ export const IconList = styled("li")`
     flex-direction: row;
     width: 10rem;
     justify-content: center;
+    margin: 1rem 0 0;
   }
 `;
 export const Hamburger = styled.div`
@@ -168,6 +192,7 @@ export const SearchInput = styled.input`
   text-indent: 15px;
   height: 100%;
   width: 100%;
+  outline: none;
 
   &::placeholder {
     color: gray;
@@ -182,7 +207,7 @@ export const List = styled("ul")`
   justify-content: space-between;
 `;
 export const ListItem = styled("li")`
-  color: ${(props) => props.theme.primary?.darkYallow};
+  color: ${(props) => props.theme.colors.primary};
   display: flex;
   flex-direction: column;
   justify-content: center;

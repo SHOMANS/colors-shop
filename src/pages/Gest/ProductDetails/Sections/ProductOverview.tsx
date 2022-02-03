@@ -38,7 +38,6 @@ const ProductOverview: React.FC<IProducts> = (props) => {
         () => navigation("/cart")
       )
     );
-    console.log("count", count);
   }, [dispatch, upduteActionCart, count]);
 
   const handleImageClick = (index: number) => {

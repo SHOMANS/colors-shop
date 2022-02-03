@@ -1,12 +1,12 @@
-import React, { useCallback, useState } from 'react';
-import { GrFormClose } from 'react-icons/gr';
-import { useDispatch, useSelector } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { Counter, Image, Typography } from '../../../components';
-import { deleteActionCart, upduteActionCart } from '../../../redux/Cart/action';
-import { ActionCartType } from '../../../redux/Cart/type';
-import { AppState } from '../../../redux/store';
-import { IItemCart } from '../../../redux/User/type';
+import React, { useCallback, useState } from "react";
+import { GrFormClose } from "react-icons/gr";
+import { useDispatch, useSelector } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { Counter, Image, Typography } from "../../../components";
+import { deleteActionCart, upduteActionCart } from "../../../redux/Cart/action";
+import { ActionCartType } from "../../../redux/Cart/type";
+import { AppState } from "../../../redux/store";
+import { IItemCart } from "../../../redux/User/type";
 import {
   CloseIcon,
   OldPrice,
@@ -14,7 +14,7 @@ import {
   WrapCounter,
   ItemContainer,
   ImgContainer,
-} from '../styles';
+} from "../styles";
 
 interface IProps {
   data: IItemCart;
@@ -52,12 +52,12 @@ const CartList = ({ data }: IProps) => {
 
   const handleIncress = useCallback(() => {
     dispatch(upduteActionCart({ productId: product._id, qty: count + 1 }));
-    setCount(prev => prev + 1);
+    setCount((prev) => prev + 1);
   }, [count]);
 
   const handleDecress = useCallback(() => {
     dispatch(upduteActionCart({ productId: product._id, qty: count - 1 }));
-    setCount(prev => prev - 1);
+    setCount((prev) => prev - 1);
   }, [count]);
 
   return (
@@ -87,7 +87,7 @@ const CartList = ({ data }: IProps) => {
           </Typography>
         </OldPrice>
       ) : null}
-      <ImgContainer align-items="start" justify-content="space-between" >
+      <ImgContainer align-items="start" justify-content="space-between">
         <Image src={product.images[0]} fit="cover" />
       </ImgContainer>
       <ItemTitle to={`/product/${product._id}`}>
@@ -102,9 +102,9 @@ const CartList = ({ data }: IProps) => {
       {/* <WrapCounter> */}
       <div
         style={{
-          display: 'flex',
-          alignSelf: 'center',
-          gap: '4rem',
+          display: "flex",
+          alignSelf: "center",
+          gap: "4rem",
         }}
       >
         <Counter

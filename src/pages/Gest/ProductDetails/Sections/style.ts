@@ -42,7 +42,7 @@ export const Discount = styled.div`
 `;
 
 export const CardsSection = styled.div`
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.background.paper};
   width: 100%;
   padding: 1rem;
 `;

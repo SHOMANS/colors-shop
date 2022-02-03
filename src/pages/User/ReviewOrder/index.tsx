@@ -1,16 +1,16 @@
-import { useFormik } from 'formik';
-import { useEffect, useState } from 'react';
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { ThunkDispatch } from 'redux-thunk';
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { json } from 'stream/consumers';
-import logo from '../../../assets/Images/card.png';
-import { Column, Row, SpinnerContainer, Typography } from '../../../components';
+import { useFormik } from "formik";
+import { useEffect, useState } from "react";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { ThunkDispatch } from "redux-thunk";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { json } from "stream/consumers";
+import logo from "../../../assets/Images/card.png";
+import { Column, Row, SpinnerContainer, Typography } from "../../../components";
 import {
   IShippingSchema,
   ShippingSchema,
-} from '../../../utils/helper/validation';
+} from "../../../utils/helper/validation";
 
 import {
   FooterTitleRight,
@@ -30,22 +30,22 @@ import {
   TextActive,
   OrfferSection,
   InnerOverFlow,
-} from './Sections/style';
-import { OrderDetails } from './Sections/orderDtails';
-import { InputController } from '../../../components/Form';
-import { ReviewTow } from './Sections/reviewtow';
-import { AppState } from '../../../redux/store';
-import { ActionOrderType } from '../../../redux/Order/type';
-import { createOrder } from '../../../redux/Order/action';
-import { getProfile } from '../../../redux/User/action';
-import { ActionCartType } from '../../../redux/Cart/type';
-import { myActionCart } from '../../../redux/Cart/action';
+} from "./Sections/style";
+import { OrderDetails } from "./Sections/orderDtails";
+import { InputController } from "../../../components/Form";
+import { ReviewTow } from "./Sections/reviewtow";
+import { AppState } from "../../../redux/store";
+import { ActionOrderType } from "../../../redux/Order/type";
+import { createOrder } from "../../../redux/Order/action";
+import { getProfile } from "../../../redux/User/action";
+import { ActionCartType } from "../../../redux/Cart/type";
+import { myActionCart } from "../../../redux/Cart/action";
 
 const initialValues: IShippingSchema = {
-  country: '',
-  city: '',
-  zip: '',
-  address: '',
+  country: "",
+  city: "",
+  zip: "",
+  address: "",
 };
 
 const ReviewOrder = () => {
@@ -65,7 +65,7 @@ const ReviewOrder = () => {
   const formik = useFormik<IShippingSchema>({
     initialValues,
     validationSchema: ShippingSchema,
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       const billingDetails = {
         address: values.address,
         city: values.city,
@@ -74,10 +74,9 @@ const ReviewOrder = () => {
       };
       try {
         dispatch(createOrder(billingDetails));
-        console.log('myOrder', myOrder);
         const paymentElement = elements?.getElement(CardElement);
         const paymentMethodReq = await stripe.createPaymentMethod({
-          type: 'card',
+          type: "card",
           card: paymentElement,
           // billing_details: billingDetails,
         });
@@ -86,7 +85,7 @@ const ReviewOrder = () => {
         setstepperNumber(1);
       } catch (error: any) {
         toast(JSON.stringify(error.message), {
-          position: 'top-right',
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -125,9 +124,9 @@ const ReviewOrder = () => {
                 <form onSubmit={formik.handleSubmit}>
                   <Column
                     style={{
-                      width: '90%',
-                      margin: 'auto',
-                      justifyContent: 'space-between',
+                      width: "90%",
+                      margin: "auto",
+                      justifyContent: "space-between",
                     }}
                   >
                     <ShapeAddress>Shipping Address</ShapeAddress>
@@ -143,7 +142,7 @@ const ReviewOrder = () => {
                         onBlur={formik.handleBlur}
                         onChange={formik.handleChange}
                         value={formik.values.country}
-                        style={{ fontFamily: 'mulish' }}
+                        style={{ fontFamily: "mulish" }}
                       />
                       <InputController
                         name="city"
@@ -156,7 +155,7 @@ const ReviewOrder = () => {
                         onChange={formik.handleChange}
                         value={formik.values.city}
                         marginLeft="10%"
-                        style={{ fontFamily: 'mulish' }}
+                        style={{ fontFamily: "mulish" }}
                       />
                     </WrapperRowInput>
                     <WrapperRowInput>
@@ -170,7 +169,7 @@ const ReviewOrder = () => {
                         onBlur={formik.handleBlur}
                         onChange={formik.handleChange}
                         value={formik.values.zip}
-                        style={{ fontFamily: 'mulish' }}
+                        style={{ fontFamily: "mulish" }}
                       />
                       {/*
                         47%
@@ -186,7 +185,7 @@ const ReviewOrder = () => {
                         onChange={formik.handleChange}
                         value={formik.values.address}
                         marginLeft="10%"
-                        style={{ fontFamily: 'mulish' }}
+                        style={{ fontFamily: "mulish" }}
                       />
                     </WrapperRowInput>
                     {/* {/* <ShapeAddress>Payment Details</ShapeAddress> */}
@@ -202,7 +201,7 @@ const ReviewOrder = () => {
                     )}
                     <Row JC="flex-end">
                       <RevieworderButton
-                        style={{ fontFamily: 'mulish' }}
+                        style={{ fontFamily: "mulish" }}
                         type="submit"
                       >
                         Review order
@@ -214,10 +213,10 @@ const ReviewOrder = () => {
 
               <RightSection>
                 <HeaderTitleRight>
-                  <ShapeAddress style={{ fontFamily: 'mulish' }}>
+                  <ShapeAddress style={{ fontFamily: "mulish" }}>
                     Order Details
                   </ShapeAddress>
-                  <ChangeText style={{ fontFamily: 'mulish' }} to="/cahnge">
+                  <ChangeText style={{ fontFamily: "mulish" }} to="/cahnge">
                     change
                   </ChangeText>
                 </HeaderTitleRight>
@@ -227,7 +226,7 @@ const ReviewOrder = () => {
                       <SpinnerContainer />
                     ) : (
                       <>
-                        {cart?.cart?.items?.map(x => (
+                        {cart?.cart?.items?.map((x) => (
                           <OrderDetails
                             title={x.product?.name}
                             image={x.product?.images[0]}
@@ -247,9 +246,9 @@ const ReviewOrder = () => {
                     {cart?.cart?.items
                       .reduce(
                         (acc, item) => acc + item?.product?.price * item?.qty,
-                        0,
+                        0
                       )
-                      .toFixed(2)}{' '}
+                      .toFixed(2)}{" "}
                     $
                   </TextFooter>
                 </FooterTitleRight>
@@ -262,14 +261,14 @@ const ReviewOrder = () => {
                   <TextFooter>0 $</TextFooter>
                 </FooterTitleRight>
                 <FooterTitleRight>
-                  <TextFooter style={{ fontWeight: 'bold' }}>Total</TextFooter>
-                  <TextFooter style={{ fontWeight: 'bold' }}>
+                  <TextFooter style={{ fontWeight: "bold" }}>Total</TextFooter>
+                  <TextFooter style={{ fontWeight: "bold" }}>
                     {cart?.cart?.items
                       .reduce(
                         (acc, item) => acc + item?.product?.price * item?.qty,
-                        0,
+                        0
                       )
-                      .toFixed(2)}{' '}
+                      .toFixed(2)}{" "}
                     $
                   </TextFooter>
                 </FooterTitleRight>
@@ -293,28 +292,28 @@ export default ReviewOrder;
 
 const iframeStyles = {
   base: {
-    iconColor: '#0F1112',
-    color: '#0F1112',
-    fontWeight: '500',
-    fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-    fontSize: '16px',
-    fontSmoothing: 'antialiased',
-    border: '1px solid #4D4D4D',
-    ':-webkit-autofill': {
-      color: '#fce883',
+    iconColor: "#0F1112",
+    color: "#0F1112",
+    fontWeight: "500",
+    fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+    fontSize: "16px",
+    fontSmoothing: "antialiased",
+    border: "1px solid #4D4D4D",
+    ":-webkit-autofill": {
+      color: "#fce883",
     },
-    '::placeholder': {
-      color: '#4D4D4D',
+    "::placeholder": {
+      color: "#4D4D4D",
     },
-    '::-webkit-input-placeholder': {
-      color: '#4D4D4D',
-      border: '1px solid #4D4D4D',
+    "::-webkit-input-placeholder": {
+      color: "#4D4D4D",
+      border: "1px solid #4D4D4D",
     },
   },
 };
 
 const cardElementOpts = {
-  iconStyle: 'solid',
+  iconStyle: "solid",
   style: iframeStyles,
   hidePostalCode: true,
 };

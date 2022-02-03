@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { Container, Typography } from '../../../components';
+import styled from "styled-components";
+import { Container, Typography } from "../../../components";
 
-export const WrapperRemmber = styled('div')`
+export const WrapperRemmber = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,18 +17,18 @@ export const LoginText = styled(Typography)`
   margin-bottom: 25px;
   font-family: mulish;
 `;
-export const LoginSubText = styled('p')`
+export const LoginSubText = styled("p")`
   font-size: 25px;
   color: #70707070;
   font-family: mulish;
   margin-bottom: 30px;
 `;
 
-export const LeftLogin = styled('div')`
+export const LeftLogin = styled("div")`
   display: flex;
   flex: 1;
 `;
-export const RightLogin = styled('div')`
+export const RightLogin = styled("div")`
   display: flex;
   flex: 3;
   margin-left: 174px;
@@ -43,16 +43,16 @@ export const ImageShape = styled.img`
   justify-content: center;
 `;
 
-export const Wrapper = styled('div')`
+export const Wrapper = styled("div")`
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 `;
 
-export const Remmber = styled('p')`
+export const Remmber = styled("p")`
   font-size: 22px;
   letter-spacing: 0.88px;
   color: #707070;
@@ -68,7 +68,7 @@ export const ForgotPassword = styled(Typography)`
   margin-bottom: 1rem auto;
 `;
 
-export const ButtonSuginup = styled('button')`
+export const ButtonSuginup = styled("button")`
   cursor: pointer;
   width: 200px;
   height: 56px;
@@ -85,11 +85,11 @@ export const ButtonSuginup = styled('button')`
   align-self: center;
   margin-top: 1rem;
 `;
-export const ButtonLogin = styled('button')`
+export const ButtonLogin = styled("button")`
   cursor: pointer;
   width: 100%;
   min-height: 40px;
-  border: 3px solid ${props => props.theme?.primary?.lightYallow};
+  border: 3px solid ${(props) => props.theme.colors.primary};
   border-radius: 20px;
   opacity: 1;
   font-size: 22px;

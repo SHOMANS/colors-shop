@@ -54,8 +54,9 @@ const ComplexCard = ({ ...props }: IProducts) => {
       )}
       <ContentAction onClick={() => navigate(`/product/${props._id}`)}>
         <Image
+          width="100%"
+          height="300px"
           src={props.image}
-          variant="square"
           size="lg"
           style={{
             flexShrink: 0,
@@ -94,7 +95,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
       </Content>
 
       <FlexButton>
-        <Button
+        {/* <Button
           height="62px"
           background="#F2F2F2"
           width="25%"
@@ -102,10 +103,9 @@ const ComplexCard = ({ ...props }: IProducts) => {
           margin-left="0 6%"
         >
           <BsBookmark size="24px" />
-        </Button>
+        </Button> */}
         <Button
           width="65.3%"
-          background="#F2F2F2"
           fontSize="15px"
           margin="0 5%"
           onClick={handelAddCart}

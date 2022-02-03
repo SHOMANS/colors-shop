@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
+import { Link } from "react-router-dom";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -30,11 +30,12 @@ export const OldPrice = styled.div`
 `;
 
 export const ItemTitle = styled(Link)`
-width:30%;
+  width: 30%;
   /* width: 60%; */
   text-decoration: none;
   color: #242424;
-  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
   font-size: 0.8rem;
   @media only screen and (max-width: 767px) {
     width: 100%;
@@ -54,6 +55,8 @@ export const CartContainer = styled.div`
   display: flex;
   /* algin-items: center; */
   gap: 20px;
+  width: 100%;
+  justify-content: space-between;
 
   @media only screen and (max-width: 767px) {
     flex-direction: column;
@@ -63,8 +66,9 @@ export const CartContainer = styled.div`
 
 export const ListContainer = styled.div`
   display: flex;
-  flex-direction:column;
-  gap:10px;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
   @media only screen and (max-width: 767px) {
     width: 100%;
     display: flex;
@@ -76,11 +80,12 @@ export const ListContainer = styled.div`
 export const ItemContainer = styled.div`
   display: flex;
   background: #f2f2f2;
-  padding: .5em .8em;
+  padding: 0.5em 0.8em;
 
-    border-radius: 16px;
+  border-radius: 16px;
   position: relative;
- 
+  height: 200px;
+  width: 100%;
   @media only screen and (max-width: 767px) {
     width: 100%;
     display: flex;
@@ -90,8 +95,12 @@ export const ItemContainer = styled.div`
 export const ImgContainer = styled.div`
   over-flow: hidden;
   /* max-height:60%; */
-width:30%;
-object-fit:cover;
+  width: 30%;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   @media only screen and (max-width: 767px) {
     flex-direction: column;
@@ -103,7 +112,7 @@ object-fit:cover;
 export const TotalContainer = styled.div`
   background: #f2f2f2;
   border-radius: 16px;
-  height:40%;
+  height: 40%;
   padding: 1em 2em;
   display: flex;
   flex-direction: column;

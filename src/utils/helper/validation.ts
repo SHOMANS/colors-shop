@@ -15,7 +15,12 @@ export const schemaValidationLogin =
         .min(5, "Too Short!")
         .max(50, "Too Long!")
         .required("Required email"),
-      password: Yup.string().min(4, "Too Short!").required("Required"),
+      password: Yup.string()
+        .required("Password is required")
+        .matches(
+          /^(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#$%./^&*()_+<>,~`"':;]{8,}$/,
+          `Password should be 8 digits length at least, contains at least one Capital letter, contains at least one number.)`
+        ),
       ischeckbox: Yup.boolean().optional(),
     });
   };

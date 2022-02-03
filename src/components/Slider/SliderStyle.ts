@@ -21,7 +21,7 @@ export const FlexCenter = styled.div`
 export const FlexColumn = styled.div`
   width: 40%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   text-align: left;
   @media (max-width: 800px) {
     width: 100%;
@@ -66,14 +66,14 @@ export const PriceText = styled<any>(Typography)`
 `;
 
 export const DescriptionText = styled(PriceText)`
-  color: #242424;
-  font-size: 20px;
+color: ${(props) => props.theme.textColors.primary};
+font-size: 20px;
   font-family: mulish;
   margin-bottom: 42px;
 `;
 
 export const NameText = styled(PriceText)`
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -114,7 +114,6 @@ export const WrapperImageHero = styled.div`
   @media screen and (max-width: 500px) {
     width: 100%;
     height: auto;
-
   }
   & img {
     width: 100%;
@@ -138,7 +137,9 @@ export const Dot = styled("div")<IDot>`
   margin: 0 0.3rem;
   cursor: pointer;
 `;
-
+export const SwiperWrapper = styled("div")`
+  background: ${(props) => props.theme.background.secondary};
+`;
 export const CategDots = styled(Dot)`
   @media (max-width: 1200px) {
     display: none;

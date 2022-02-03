@@ -33,7 +33,6 @@ const Home: React.FC = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  console.log("allCatogory", allCatogory);
   return (
     <>
       {topProducts.isLoading ? (
