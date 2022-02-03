@@ -28,12 +28,11 @@ export const ButtonStyle = styled.button<IStyleButton>(
     border: `${border}`,
     fontWeight: `${fontWeight}`,
 
-    background: `${
-      background ||
-      (brand ? props.theme.colors.primary : props.theme.background?.lightGrey)
-    }`,
+    background: `${background ? background : props.theme.colors.primary}`,
 
-    color: `${color}`,
+    color: `   ${(props) =>
+      props.color ? props.color : props.theme.common.black}
+    `,
     fontSize: `${fontSize}`,
     cursor: `${cursor}`,
     letterSpacing: `${letterSpace}`,
