@@ -1,4 +1,4 @@
-import styled, { DefaultTheme } from 'styled-components';
+import styled, { DefaultTheme } from "styled-components";
 
 interface IDividerProps extends DefaultTheme {
   width?: string;
@@ -8,19 +8,19 @@ interface IDividerProps extends DefaultTheme {
   theme?: DefaultTheme;
 }
 
-const Divider = styled('hr')<IDividerProps>(
+const Divider = styled("hr")<IDividerProps>(
   ({
-    width = '100%',
-    thick = '0',
-    margin = '0px',
+    width = "100%",
+    thick = "0",
+    margin = "0px",
     ...props
   }: IDividerProps) => ({
     margin: `${margin}`,
     width: `${width}`,
     height: `${thick}`,
-    backgroundColor: `${props.theme?.primary?.darkYallow}`,
-    borderRadius: '4px',
-  }),
+    backgroundColor: `${props.theme?.colors.primary}`,
+    borderRadius: "4px",
+  })
 );
 
 export default Divider;

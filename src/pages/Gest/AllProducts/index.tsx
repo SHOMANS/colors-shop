@@ -43,7 +43,6 @@ const AllProducts = () => {
         </Container>
         <CardsBox>
           {allProduct?.allProduct?.products?.map((product) => {
-            console.log(product, "product");
             return <ComplexCard {...product} image={product.images[0] || ""} />;
           })}
         </CardsBox>

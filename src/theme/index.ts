@@ -1,4 +1,4 @@
-import { createGlobalStyle, DefaultTheme } from 'styled-components';
+import { createGlobalStyle, DefaultTheme } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle<DefaultTheme>`
   * {
@@ -9,48 +9,61 @@ export const GlobalStyle = createGlobalStyle<DefaultTheme>`
 
   }
 `;
+
 export const lightTheme: DefaultTheme = {
-  common: {
-    black: '#242424',
-    white: '#ffffff',
+  type: "light",
+  colors: {
+    primary: "#FCDD06",
+    secondary: "#FFC727",
+    error: "#ef5350",
+    success: "#4caf50",
+    warning: "#ff9800",
+    info: "#03a9f4",
   },
-  primary: {
-    lightYallow: '#FCDD06',
-    darkYallow: 'red',
-    disCount: '#FC4059',
+  textColors: {
+    primary: "#242424",
+    secondary: "#707070",
+    disabled: "#00000061",
+    counterColor: "#a29d9d",
+    divider: "rgba(1, 15, 30, 0.1)",
   },
   background: {
-    grey: '#979797',
-    lightGrey: '#F2F2F2',
-    darkGrey: '#707070',
-    border: '#EDEAE3',
+    paper: "#F7F8FC",
+    default: "#ffffff",
+    secondary: "#f2f2f2",
+    header: "#242424",
   },
-
-  Typography: {
-    color: '#242424',
-    fontFamily: 'mulish',
+  common: {
+    black: "#000000",
+    white: "#ffffff",
   },
 };
 
 export const darkTheme: DefaultTheme = {
-  common: {
-    black: '#242424',
-    white: '#ffffff',
+  type: "dark",
+  colors: {
+    primary: "#FFC727",
+    secondary: "#FCDD06",
+    error: "#ef5350",
+    success: "#4caf50",
+    warning: "#ff9800",
+    info: "#03a9f4",
   },
-  primary: {
-    lightYallow: '#FCDD06',
-    darkYallow: '#FCDD06',
-    disCount: '#FC4059',
+  textColors: {
+    primary: "#efeeff",
+    secondary: "#ddd",
+    disabled: "##FFFFFF80",
+    counterColor: "#a29d9d",
+    divider: "rgba(255, 255, 255, 0.2)",
   },
   background: {
-    grey: '#979797',
-    lightGrey: '#F2F2F2',
-    darkGrey: '#707070',
-    border: '#EDEAE3',
+    paper: "#1e252b",
+    default: "#0a1929",
+    secondary: "#123",
+    header: "#121518",
   },
-
-  Typography: {
-    color: '#242424',
-    fontFamily: 'mulish',
+  common: {
+    black: "#000000",
+    white: "#ffffff",
   },
 };

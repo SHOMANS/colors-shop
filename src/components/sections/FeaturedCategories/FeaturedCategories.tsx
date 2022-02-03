@@ -48,7 +48,6 @@ export const FeaturedCategories = ({ data }: IProps) => {
     return chunks.map((i: any, inx: number) => (
       <CatProduct key={inx}>
         {i.map((item, index) => {
-          console.log(item.name, "item.name");
           return (
             <CategoryCard
               name={item.name}

@@ -77,12 +77,12 @@ export const MainCard = styled("div")<IstyleMainCard>(
     display: "flex",
     flexDirection: `${(props.flexDirection as "row") || ("column" as const)}`,
     borderRadius: `${props.borderRadius || "10px"}`,
-    backgroundColor: `${props.backgroundColor || "white"}`,
     flexWrap: "wrap",
   })
 );
 
 export const StyleMainCard = styled(MainCard)`
+  background: ${(props) => props.theme.background.default};
   @media (max-width: 800px) {
     display: flex;
     width: 100%;

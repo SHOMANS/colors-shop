@@ -31,7 +31,7 @@ const App: React.FC = () => {
                 <Logo />
               </LogoWrapper>
               <Burger open={open} setOpen={setstate} />
-              <Navbar open={open} setoggle={undefined} />
+              <Navbar open={open} setoggle={setToggle} />
               <Container height="3rem" />
               <AllRouter />
             </ErrorBoundary>

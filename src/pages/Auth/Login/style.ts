@@ -89,7 +89,7 @@ export const ButtonLogin = styled("button")`
   cursor: pointer;
   width: 100%;
   min-height: 40px;
-  border: 3px solid ${(props) => props.theme?.primary?.lightYallow};
+  border: 3px solid ${(props) => props.theme.colors.primary};
   border-radius: 20px;
   opacity: 1;
   font-size: 22px;
