@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { StyledImage, StyledImageWrapper } from "./style";
-import img from "../../assets/Images/defaultProduct.png";
 
 interface IProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   width?: string;
