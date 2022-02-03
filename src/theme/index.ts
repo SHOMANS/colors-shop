@@ -6,14 +6,16 @@ export const GlobalStyle = createGlobalStyle<DefaultTheme>`
     margin: 0;
     padding: 0;
     font-family: 'Open Sans',mulish; 
-    background-color: ${(props) => props.theme.background.default};
+    /* color: ${(props) => props.theme.textColors.primary}; */
+    transition: color 0.5s, background-color 0.5s ease-in-out;
   }
   body {
     padding-top: 58px;
     background: ${(props) => props.theme.background.default};
-    color: ${(props) => props.textColors.primary};
+    /* color: ${(props) => props.textColors.primary}; */
     scroll-behavior: smooth;
   }
+
 `;
 
 export const lightTheme: DefaultTheme = {

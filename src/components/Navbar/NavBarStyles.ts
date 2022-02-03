@@ -16,7 +16,7 @@ export const InnerSection = styled(Column)`
   width: 100%;
 `;
 export const ListNav = styled(Container)<Props>`
-  background-color: "#242415";
+  background-color: #242424;
   display: flex;
   justify-content: center;
   height: 60px;
