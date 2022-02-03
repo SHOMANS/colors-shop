@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Img } from "react-image";
 
 type sizes = "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
 
@@ -41,15 +40,10 @@ const getImageHeight = (size: sizes) => {
   }
 };
 
-export const StyledImage = styled(Img)<any>`
+export const StyledImageWrapper = styled.div<any>`
   width: ${(props) =>
     props.width || (props?.size && getImageWidth(props.size)) || "100%"};
   height: ${(props) => props.height || "auto"};
-  /* height: 240px; */
-  object-position: center;
-  display: block;
-  object-fit: cover;
-  /* max-width: 100%; */
 
   border: ${(props) => props?.border && "1px solid #F2F2F2"};
   border-radius: ${(props) =>
@@ -58,22 +52,16 @@ export const StyledImage = styled(Img)<any>`
       : props.variant === "square"
       ? "12px"
       : "0"};
-  max-height: ${(props) =>
-    props.maxHeight || (props?.size && getImageHeight(props.size)) || "100%"};
+  /* max-height: ${(props) =>
+    props.maxHeight ||
+    (props?.size && getImageHeight(props.size)) ||
+    "100%"}; */
   margin: 0;
-  ${(props) =>
-    props.loading === "eager" &&
-    `
-  &:not([src]):not([srcset]):not([sizes]) {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-    background-image: url(${props.src});
-    background-size: cover;
-    background-position: center;
-  }
-`}
-  @media (max-width: 768px) {
-    /* display: ${(props) => (props.responsive ? "none" : "block")}; */
-  }
+  overflow: hidden;
+`;
+
+export const StyledImage = styled.img<any>`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
