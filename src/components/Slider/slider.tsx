@@ -2,8 +2,13 @@
 import React, { useState, CSSProperties } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { SliderItem } from "./SliderItem";
-import { Arrow, Dot, SliderSection, FlexCenter, SwiperWrapper } from "./SliderStyle";
-import { Container } from "..";
+import {
+  Arrow,
+  Dot,
+  SliderSection,
+  FlexCenter,
+  SwiperWrapper,
+} from "./SliderStyle";
 
 import { IProducts } from "../../redux/Product/type";
 
@@ -12,13 +17,13 @@ const cssStyle: CSSProperties = {
   width: "100%",
 };
 
-interface ProductItem {
-  _id: string;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-}
+// interface ProductItem {
+//   _id: string;
+//   name: string;
+//   price: number;
+//   description: string;
+//   image: string;
+// }
 interface IProps {
   data?: IProducts[];
 }

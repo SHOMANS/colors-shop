@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { CSSProperties } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 import { Column } from "../Col";
-import { FlexBox } from "../Row";
 import { Container } from "..";
 
 interface Props {

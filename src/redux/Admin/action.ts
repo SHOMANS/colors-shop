@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable no-underscore-dangle */
-import { AxiosResponse } from 'axios';
-import { Dispatch } from 'redux';
-import { AppState } from '../store';
-import Api from '../../utils/Api/axios';
-import { EnumAdminAction } from './constant';
-import { ICreateProduct, IProducts, TAllActionAdmin } from './type';
-import { formDataCstom } from '../../utils/helper/formData';
+import { AxiosResponse } from "axios";
+import { Dispatch } from "redux";
+import { AppState } from "../store";
+import Api from "../../utils/Api/axios";
+import { EnumAdminAction } from "./constant";
+import { ICreateProduct, TAllActionAdmin } from "./type";
+import { formDataCstom } from "../../utils/helper/formData";
 
 //  ?keyword=iphone&pageNumber=1
 export const getAllUser = (pageNumber?: number) => {
@@ -14,7 +14,7 @@ export const getAllUser = (pageNumber?: number) => {
     dispatch({
       type: EnumAdminAction.GET_ALL_USER_START,
     });
-    let search = '';
+    let search = "";
     if (pageNumber) {
       search = `?pageNumber=${pageNumber}`;
     }
@@ -54,7 +54,7 @@ export const getUserById = (id: string) => {
           },
         });
       } else {
-        throw new Error('some  error habbend  in the Top  reated  peoduct');
+        throw new Error("some  error habbend  in the Top  reated  peoduct");
       }
 
       //   history.push('/profile');
@@ -85,7 +85,7 @@ export const deleteUserById = (id: string) => {
           },
         });
       } else {
-        throw new Error('some  error habbend  in the Top  reated  peoduct');
+        throw new Error("some  error habbend  in the Top  reated  peoduct");
       }
 
       //   history.push('/profile');
@@ -107,18 +107,18 @@ export const addProduct = (product: ICreateProduct, fun?: Function) => {
     });
 
     try {
-      const imageUpload = product.images.map(image => {
-        return Api.post('/upload', formDataCstom(image));
+      const imageUpload = product.images.map((image) => {
+        return Api.post("/upload", formDataCstom(image));
       });
       const imagesUrl = await Promise.all<AxiosResponse>(imageUpload);
-      const images = imagesUrl.map(x => x.data) as Array<string>;
+      const images = imagesUrl.map((x) => x.data) as Array<string>;
 
       const data = {
         ...product,
         images,
       };
 
-      const response = await Api.post<any>('/products', data);
+      const response = await Api.post<any>("/products", data);
       dispatch({
         type: EnumAdminAction.DELETE_USER_START_SUCCESS,
         payload: {
@@ -140,7 +140,7 @@ export const addProduct = (product: ICreateProduct, fun?: Function) => {
 export const updateProduct = (
   id: string,
   product: ICreateProduct,
-  fun?: Function,
+  fun?: Function
 ) => {
   return async (dispatch: Dispatch<TAllActionAdmin>) => {
     dispatch({
@@ -148,18 +148,18 @@ export const updateProduct = (
     });
 
     try {
-      const responseData = await Api.get(`/products/${id}`);
-      const imageNeeedUpdated = (responseData.data.images as Array<any>).filter(
-        x => typeof x !== 'string',
-      );
-      const imageString: Array<string> = (
-        responseData.data.images as Array<any>
-      ).filter(x => typeof x === 'string');
-      const imageUpload = product.images.map(image => {
-        return Api.post('/upload', formDataCstom(image));
+      // const responseData = await Api.get(`/products/${id}`);
+      // const imageNeeedUpdated = (responseData.data.images as Array<any>).filter(
+      //   (x) => typeof x !== "string"
+      // );
+      // const imageString: Array<string> = (
+      //   responseData.data.images as Array<any>
+      // ).filter((x) => typeof x === "string");
+      const imageUpload = product.images.map((image) => {
+        return Api.post("/upload", formDataCstom(image));
       });
       const imagesUrl = await Promise.all<AxiosResponse>(imageUpload);
-      const images = imagesUrl.map(x => x.data) as Array<string>;
+      const images = imagesUrl.map((x) => x.data) as Array<string>;
       const data = {
         ...product,
         images,
@@ -186,7 +186,7 @@ export const updateProduct = (
 export const delateProduct = (id: string) => {
   return async (
     dispatch: Dispatch<TAllActionAdmin>,
-    getState: () => AppState,
+    getState: () => AppState
   ) => {
     dispatch({
       type: EnumAdminAction.DELETE_PRODUCTS_START,
@@ -205,7 +205,7 @@ export const delateProduct = (id: string) => {
         dispatch({
           type: EnumAdminAction.DELETE_PRODUCTS_FILL,
           payload: {
-            error: 'item  not  found ',
+            error: "item  not  found ",
           },
         });
       }

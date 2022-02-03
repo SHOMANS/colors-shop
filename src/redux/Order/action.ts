@@ -1,8 +1,5 @@
 import { Dispatch } from "redux";
-import { IProducts } from "../Product/type";
-import { AppState } from "../store";
 import { ActionOrderType, IShippingAddress } from "./type";
-import { ICart } from "../User/type";
 import { EnumOrderAction } from "./constant";
 import Api from "../../utils/Api/axios";
 

@@ -1,16 +1,11 @@
 /* eslint-disable import/extensions */
 import React, { useState, CSSProperties } from "react";
 import SwipeableViews from "react-swipeable-views";
-import { CategoryCard, Container } from "../..";
+import { CategoryCard } from "../..";
 import { Divider, Title } from "../../DeviderTitle/style";
 import { CategDots } from "../../Slider/SliderStyle";
-import {
-  FeaturedProduc,
-  CatProduct,
-  WrapperDots,
-  Featured,
-} from "../FeaturedProducts/styles";
-import { IGetAllCategory, IProducts } from "../../../redux/Product/type";
+import { CatProduct, WrapperDots } from "../FeaturedProducts/styles";
+import { IGetAllCategory } from "../../../redux/Product/type";
 import UpdatedContainer from "../../UpdatedContainer";
 
 const cssStyle: CSSProperties = {
@@ -46,7 +41,7 @@ export const FeaturedCategories = ({ data }: IProps) => {
       return i;
     });
     return chunks.map((i: any, inx: number) => (
-      <CatProduct key={inx}>
+      <CatProduct key={"fds" + inx}>
         {i.map((item, index) => {
           return (
             <CategoryCard
@@ -77,6 +72,7 @@ export const FeaturedCategories = ({ data }: IProps) => {
                 <CategDots
                   style={DotsStyles}
                   width="14px"
+                  key={"dfasdf" + i}
                   isGrey={sliderIndex !== i}
                   onClick={() => setSliderIndex(i)}
                 />

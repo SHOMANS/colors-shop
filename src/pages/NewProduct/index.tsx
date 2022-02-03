@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useFormik } from "formik";
 import { ThunkDispatch } from "redux-thunk";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, PathNavigate } from "../../components";
 import { ProductContainer } from "./style";
-import {
-  AddProductSchema as validationSchema,
-  IAddProductSchema,
-} from "../../utils/helper/validation";
+import { IAddProductSchema } from "../../utils/helper/validation";
 import ProductImages from "./Sections/ProductImages";
 import { Button } from "../../components/Button/ButtonStyle";
 import ProductDetails from "./Sections/ProductDetails";
@@ -34,7 +31,7 @@ function NewProduct() {
     if (id) {
       dispatch(getProductById(id));
     }
-  }, []);
+  }, [dispatch, id]);
 
   const navigation = useNavigate();
 

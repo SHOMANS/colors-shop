@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import StarRatingComponent from "react-star-rating-component";
-import { Button, Container, Rating, Typography } from "../../../../components";
+import { Button, Container, Typography } from "../../../../components";
 
-import UpdatedContainer from "../../../../components/UpdatedContainer";
 import { IUser } from "../../../../redux/Auth/type";
 import { IReview } from "../../../../redux/Product/type";
 import { AppState } from "../../../../redux/store";
@@ -18,7 +17,7 @@ interface IProps {
 const ReviewSection = ({ reviews, productById }: IProps) => {
   const [uploadImagedModalDisplay, setUploadImagedModalDisplay] =
     useState<boolean>(false);
-    const user: IUser = useToken();
+  const user: IUser = useToken();
 
   const handleOpenReviewDialog = () => {
     setUploadImagedModalDisplay(true);
@@ -64,7 +63,7 @@ const ReviewSection = ({ reviews, productById }: IProps) => {
             </Container>
           );
         })}
-        {user.isAdmin  && (
+        {user.isAdmin && (
           <Button
             brand
             padding=".8em"

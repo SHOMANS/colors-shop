@@ -2,10 +2,7 @@ import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { addReview } from "../../../../../../redux/Product/action";
-import {
-  IReview,
-  TAllActionProduct,
-} from "../../../../../../redux/Product/type";
+import { TAllActionProduct } from "../../../../../../redux/Product/type";
 import { AppState } from "../../../../../../redux/store";
 import {
   AddReviewSchema,
@@ -39,7 +36,6 @@ const Index = ({
           ...values,
           name: `${auth.user.firstName} ${auth.user.lastName}`,
           createdAt: new Date().toString(),
-       
         };
         dispatch(addReview(productId, review));
         setModalDisplay(false);

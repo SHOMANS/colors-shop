@@ -1,5 +1,4 @@
 import { ICart } from "../User/type";
-import { IUser } from "../Auth/type";
 import { EnumCartAction } from "./constant";
 import { ActionCartType, ICartState } from "./type";
 

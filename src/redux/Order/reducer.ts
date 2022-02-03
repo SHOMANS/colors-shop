@@ -1,40 +1,34 @@
-import { EnumOrderAction } from './constant';
-import {
-  ActionOrderType,
-  IMyOrder,
-  IOrders,
-  IOrderState,
-  IShippingAddress,
-} from './type';
+import { EnumOrderAction } from "./constant";
+import { ActionOrderType, IMyOrder, IOrders, IOrderState } from "./type";
 
 const initialState: IOrderState = {
   myOrder: {
     orders: {} as IMyOrder,
-    error: '',
+    error: "",
     isLoading: false,
     success: false,
   },
   orders: {
     orders: {} as IMyOrder,
-    error: '',
+    error: "",
     isLoading: false,
     success: false,
   },
   deliver: {
     orders: {} as IOrders,
-    error: '',
+    error: "",
     isLoading: false,
     success: false,
   },
   orderById: {
     orders: {} as IOrders,
-    error: '',
+    error: "",
     isLoading: false,
     success: false,
   },
   createOrder: {
     orders: {} as IOrders,
-    error: '',
+    error: "",
     isLoading: false,
     success: false,
   },
@@ -42,7 +36,7 @@ const initialState: IOrderState = {
 
 export const OrderReducer = (
   state = initialState,
-  action: ActionOrderType,
+  action: ActionOrderType
 ): IOrderState => {
   switch (action.type) {
     case EnumOrderAction.GET_MY_ORDERS_START:

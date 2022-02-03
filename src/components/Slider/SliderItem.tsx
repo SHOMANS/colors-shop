@@ -1,7 +1,3 @@
-/* eslint-disable import/extensions */
-import { Container } from "..";
-import { Column } from "../Col";
-import { Row } from "../Row";
 import UpdatedContainer from "../UpdatedContainer";
 import {
   PriceText,

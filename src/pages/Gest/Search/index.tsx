@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ThunkDispatch } from "redux-thunk";
-import { Container, SpinnerContainer, Typography } from "../../../components";
+import { Container, SpinnerContainer } from "../../../components";
 import ComplexCard from "../../../components/Card/productCard";
 import { DeviderTitle } from "../../../components/DeviderTitle/deviderTitle";
 import UpdatedContainer from "../../../components/UpdatedContainer";

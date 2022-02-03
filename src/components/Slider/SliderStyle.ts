@@ -1,10 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Button } from "../Button/ButtonStyle";
-import { FlexBox, Row, Column } from "../Row";
+import { FlexBox, Row } from "../Row";
 import { ContainerWrapper } from "../Container/style";
 import { Container, Image, Typography } from "..";
-import { IPropTypography } from "../Typography/interface";
 
 export const SectionSlider = styled(FlexBox)`
   background: #f2f2f2;
@@ -64,8 +63,8 @@ export const PriceText = styled<any>(Typography)`
 `;
 
 export const DescriptionText = styled(PriceText)`
-color: ${(props) => props.theme.textColors.primary};
-font-size: 20px;
+  color: ${(props) => props.theme.textColors.primary};
+  font-size: 20px;
   font-family: mulish;
   margin-bottom: 42px;
 `;

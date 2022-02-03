@@ -1,5 +1,5 @@
-import { Image } from '../../../../components';
-import { Column, Row } from '../../../../components/Row';
+import { Image } from "../../../../components";
+import { Column, Row } from "../../../../components/Row";
 import {
   OrderItemsWrapper,
   DividerFull,
@@ -7,9 +7,8 @@ import {
   OrderPriceWrapper,
   TotalPriceText,
   PriceText,
-  ImageCard,
   TextTitle,
-} from './style';
+} from "./style";
 
 interface Props {
   image: string;

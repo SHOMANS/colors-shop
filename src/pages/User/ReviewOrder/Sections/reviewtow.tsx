@@ -1,8 +1,8 @@
 // import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ThunkDispatch } from "redux-thunk";
 import { useDispatch, useSelector } from "react-redux";
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useStripe } from "@stripe/react-stripe-js";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import {
@@ -17,23 +17,16 @@ import {
   RightSectionPlace,
   OrderDetailsText,
   LeftOrderSection,
-  OrderWrapper,
   ProductContainer,
 } from "./style";
 import { OrderDetails } from "./orderDtails";
-import { Column, Row } from "../../../../components/Row";
+import { Column } from "../../../../components/Row";
 // @ts-ignore
-import logo from "../../../../assets/Images/card.png";
 import { AppState } from "../../../../redux/store";
-import { ActionOrderType, IMyOrder } from "../../../../redux/Order/type";
-import {
-  getMyOrder,
-  getOrderById,
-  getOrders,
-} from '../../../../redux/Order/action';
-import { SpinnerContainer } from '../../../../components';
-import { myActionCart } from '../../../../redux/Cart/action';
-import UpdatedContainer from '../../../../components/UpdatedContainer';
+import { ActionOrderType } from "../../../../redux/Order/type";
+import { getOrderById } from "../../../../redux/Order/action";
+import { SpinnerContainer } from "../../../../components";
+import { myActionCart } from "../../../../redux/Cart/action";
 
 export const ReviewTow: React.FC<objectType> = ({
   paymentId,
@@ -59,14 +52,10 @@ export const ReviewTow: React.FC<objectType> = ({
 
   const dispatch = useDispatch<ThunkDispatch<AppState, any, ActionOrderType>>();
   const getOrder = useSelector((state: AppState) => state.order.orderById);
-  const createdorder = useSelector(
-    (state: AppState) => state.order.createOrder
-  );
-  const cart = useSelector((state: AppState) => state.cart);
   useEffect(() => {
     dispatch(myActionCart());
     dispatch(getOrderById(orderId));
-  }, [dispatch]);
+  }, [dispatch, orderId]);
   return (
     <>
       {getOrder?.isLoading && !getOrder.orders ? (

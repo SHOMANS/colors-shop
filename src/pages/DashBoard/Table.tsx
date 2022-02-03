@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import "./style.css";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { ThunkDispatch } from "redux-thunk";
 import { AgGridColumn } from "ag-grid-react/lib/shared/agGridColumn";
-import { columnDefs, defaultColDef, rowStyle, getRowStyle } from "./data";
+import { defaultColDef, rowStyle, getRowStyle } from "./data";
 import { ContainAgGrid } from "./style";
 import { StyledDelete, StyledEdit } from "./Icons";
 import { IProducts } from "../../redux/Product/type";
-import { AppState } from "../../redux/store";
-import { delateProduct } from "../../redux/Admin/action";
-import { TAllActionAdmin } from "../../redux/Admin/type";
-import { getProducts } from "../../redux/Product/action";
 
 interface IProps {
   data?: IProducts[];

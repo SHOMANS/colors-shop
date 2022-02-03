@@ -3,8 +3,7 @@
 /* eslint-disable no-underscore-dangle */
 import { useState, CSSProperties } from "react";
 import SwipeableViews from "react-swipeable-views";
-import { Featured, RowInnerSlider, FeaturedProduc } from "./styles";
-import { Container } from "../..";
+import { Featured, FeaturedProduc } from "./styles";
 import ComplexCard from "../../Card/productCard";
 import { Dot } from "../../Slider/SliderStyle";
 import { DeviderTitle } from "../../DeviderTitle/deviderTitle";
@@ -36,11 +35,11 @@ interface IProps {
 }
 export const FeaturedProduct = ({ data }: IProps) => {
   const [sliderIndex, setSliderIndex] = useState<number>(0);
-  const [width, setWidth] = useState(window.innerWidth);
-  const handleSize = () => {
-    setWidth(window.innerWidth);
-    setSliderIndex(0);
-  };
+  // const [width, setWidth] = useState(window.innerWidth);
+  // const handleSize = () => {
+  //   setWidth(window.innerWidth);
+  //   setSliderIndex(0);
+  // };
 
   const chunkSize =
     window.innerWidth > 1100 ? 3 : window.innerWidth > 1100 ? 2 : 1;

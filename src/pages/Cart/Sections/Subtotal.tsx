@@ -1,7 +1,6 @@
-import React, { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Button, Container, Divider, Typography } from "../../../components";
-import ButtonComponent from "../../../components/Button";
+import { Button, Typography } from "../../../components";
 import { ICart } from "../../../redux/Auth/type";
 import { IItemCart } from "../../../redux/User/type";
 

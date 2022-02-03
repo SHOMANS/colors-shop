@@ -2,8 +2,6 @@ import { Dispatch } from "redux";
 import { toast } from "react-toastify";
 import { ICart } from "../User/type";
 
-import { AppState } from "../store";
-
 import { ActionCartType } from "./type";
 
 import { EnumCartAction } from "./constant";
@@ -69,7 +67,7 @@ export const deleteActionCart = (id: string) => {
     });
 
     try {
-      const response = await Api.delate(`/users/profile/cart`, {
+      await Api.delate(`/users/profile/cart`, {
         params: {
           productId: id,
         },
@@ -101,7 +99,7 @@ export const myActionCart = () => {
 
     try {
       const response = await Api.get(`/users/profile`);
-      console.log(response.data.cart)
+      console.log(response.data.cart);
       dispatch({
         type: EnumCartAction.MY_CART_SUCCESS,
         payload: {

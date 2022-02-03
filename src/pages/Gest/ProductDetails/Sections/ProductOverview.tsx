@@ -1,5 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { BsBookmarks } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -21,8 +21,9 @@ import { ProductImage, ImageSections, Imagefirst, Discount } from "./style";
 const ProductOverview: React.FC<IProducts> = (props) => {
   const { id } = useParams<{ id: string }>();
 
-  const { images, colors, _id } = props;
+  const { images, colors } = props;
   const [colorActive, setColorActive] = useState(colors?.[0] || "");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [currentImages, setImages] = useState<string[]>(images || []);
   const [count, setCount] = useState<number>(1);
 
@@ -38,15 +39,15 @@ const ProductOverview: React.FC<IProducts> = (props) => {
         () => navigation("/cart")
       )
     );
-  }, [dispatch, upduteActionCart, count]);
+  }, [dispatch, id, count, navigation]);
 
-  const handleImageClick = (index: number) => {
-    setImages([
-      images[index],
-      ...images.slice(0, index),
-      ...images.slice(index + 1),
-    ]);
-  };
+  // const handleImageClick = (index: number) => {
+  //   setImages([
+  //     images[index],
+  //     ...images.slice(0, index),
+  //     ...images.slice(index + 1),
+  //   ]);
+  // };
   return (
     <Container
       align-Items="flex-start"
