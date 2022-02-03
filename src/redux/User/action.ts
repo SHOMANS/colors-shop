@@ -1,7 +1,7 @@
-import { Dispatch } from 'redux';
-import Api from '../../utils/Api/axios';
-import { EnumUserAction } from './constant';
-import { TAllActionUser } from './type';
+import { Dispatch } from "redux";
+import Api from "../../utils/Api/axios";
+import { EnumUserAction } from "./constant";
+import { TAllActionUser } from "./type";
 
 export const getProfile = () => {
   return async (dispatch: Dispatch<TAllActionUser>) => {
@@ -12,7 +12,6 @@ export const getProfile = () => {
     try {
       const response = await Api.get(`/users/profile`);
       if (response.status === 200) {
-        console.log('GET_PROFILE_USER_SUCCESS', response.data);
         dispatch({
           type: EnumUserAction.GET_PROFILE_USER_SUCCESS,
           payload: {
@@ -49,9 +48,9 @@ export const updateUser = (data: InterfaceUpdateUser) => {
 
     try {
       const formData = new FormData();
-      formData.append('image', data.profileImage);
+      formData.append("image", data.profileImage);
       try {
-        const profileImage = await Api.post('/upload', formData);
+        const profileImage = await Api.post("/upload", formData);
         const dataObj = {
           ...data,
           profileImage: profileImage.data,
@@ -59,7 +58,7 @@ export const updateUser = (data: InterfaceUpdateUser) => {
 
         const response = await Api.update<InterfaceUpdateUser>(
           `/users/profile`,
-          dataObj,
+          dataObj
         );
 
         dispatch({
@@ -68,8 +67,8 @@ export const updateUser = (data: InterfaceUpdateUser) => {
             user: response.data,
           },
         });
-        localStorage.setItem('user', JSON.stringify(response.data));
-        localStorage.setItem('token', JSON.stringify(response.data.token));
+        localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("token", JSON.stringify(response.data.token));
       } catch (e: any) {
         dispatch({
           type: EnumUserAction.GET_PROFILE_USER_FILL,

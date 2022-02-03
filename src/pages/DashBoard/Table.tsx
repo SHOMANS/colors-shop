@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham.css';
-import './style.css';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { AgGridColumn } from 'ag-grid-react/lib/shared/agGridColumn';
-import { columnDefs, defaultColDef, rowStyle, getRowStyle } from './data';
-import { ContainAgGrid } from './style';
-import { StyledDelete, StyledEdit } from './Icons';
-import { IProducts } from '../../redux/Product/type';
-import { AppState } from '../../redux/store';
-import { delateProduct } from '../../redux/Admin/action';
-import { TAllActionAdmin } from '../../redux/Admin/type';
-import { getProducts } from '../../redux/Product/action';
+import React, { useEffect, useState } from "react";
+import { AgGridReact } from "ag-grid-react";
+import "ag-grid-community/dist/styles/ag-grid.css";
+import "ag-grid-community/dist/styles/ag-theme-balham.css";
+import "./style.css";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { AgGridColumn } from "ag-grid-react/lib/shared/agGridColumn";
+import { columnDefs, defaultColDef, rowStyle, getRowStyle } from "./data";
+import { ContainAgGrid } from "./style";
+import { StyledDelete, StyledEdit } from "./Icons";
+import { IProducts } from "../../redux/Product/type";
+import { AppState } from "../../redux/store";
+import { delateProduct } from "../../redux/Admin/action";
+import { TAllActionAdmin } from "../../redux/Admin/type";
+import { getProducts } from "../../redux/Product/action";
 
 interface IProps {
   data?: IProducts[];
@@ -29,12 +29,11 @@ const row = (PRODUCTID, PRODUCTNAME, PRODUCTPRICE, CATEGORY, ACTION) => ({
 });
 
 const Table = ({ data }: IProps) => {
-  console.log('data of table', data);
   const getRowData = () => {
     return (
       data &&
       data.length &&
-      data?.map(e => {
+      data?.map((e) => {
         return row(
           // eslint-disable-next-line no-underscore-dangle
           e?._id,
@@ -47,12 +46,11 @@ const Table = ({ data }: IProps) => {
             </Link>
             <StyledDelete />
             {/* onClick={deleteOnClick(e._id)} */}
-          </>,
+          </>
         );
       })
     );
   };
-  console.log('data of table 455', data);
 
   return (
     <>

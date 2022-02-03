@@ -63,6 +63,13 @@ export const CartReducer = (
     case EnumCartAction.DELETE_ITEM_SUCCESS:
       return {
         ...state,
+        cart: {
+          ...state.cart,
+          totalQty: state.cart.totalQty - 1,
+          items: state.cart.items.filter(
+            (item) => item.product._id !== action.payload._id
+          ),
+        },
         isLoading: false,
         success: true,
       };

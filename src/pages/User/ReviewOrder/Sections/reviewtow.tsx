@@ -1,10 +1,10 @@
 // import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { useEffect, useState } from 'react';
-import { ThunkDispatch } from 'redux-thunk';
-import { useDispatch, useSelector } from 'react-redux';
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { ThunkDispatch } from "redux-thunk";
+import { useDispatch, useSelector } from "react-redux";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import {
   FooterTitleRight,
   TextFooter,
@@ -19,20 +19,20 @@ import {
   LeftOrderSection,
   OrderWrapper,
   ProductContainer,
-} from './style';
-import { OrderDetails } from './orderDtails';
-import { Column, Row } from '../../../../components/Row';
+} from "./style";
+import { OrderDetails } from "./orderDtails";
+import { Column, Row } from "../../../../components/Row";
 // @ts-ignore
-import logo from '../../../../assets/Images/card.png';
-import { AppState } from '../../../../redux/store';
-import { ActionOrderType, IMyOrder } from '../../../../redux/Order/type';
+import logo from "../../../../assets/Images/card.png";
+import { AppState } from "../../../../redux/store";
+import { ActionOrderType, IMyOrder } from "../../../../redux/Order/type";
 import {
   getMyOrder,
   getOrderById,
   getOrders,
-} from '../../../../redux/Order/action';
-import { SpinnerContainer } from '../../../../components';
-import { myActionCart } from '../../../../redux/Cart/action';
+} from "../../../../redux/Order/action";
+import { SpinnerContainer } from "../../../../components";
+import { myActionCart } from "../../../../redux/Cart/action";
 
 export const ReviewTow: React.FC<objectType> = ({
   paymentId,
@@ -47,28 +47,25 @@ export const ReviewTow: React.FC<objectType> = ({
         payment_method: paymentId,
       });
       if (error) throw new Error(error.message);
-      toast('Payment Successful', {
-        type: 'success',
+      toast("Payment Successful", {
+        type: "success",
       });
       navigation(`/paymentSuccess`);
     } catch (error: any) {
-      toast(error.message, { type: 'error' });
+      toast(error.message, { type: "error" });
     }
   };
 
   const dispatch = useDispatch<ThunkDispatch<AppState, any, ActionOrderType>>();
   const getOrder = useSelector((state: AppState) => state.order.orderById);
   const createdorder = useSelector(
-    (state: AppState) => state.order.createOrder,
+    (state: AppState) => state.order.createOrder
   );
   const cart = useSelector((state: AppState) => state.cart);
   useEffect(() => {
     dispatch(myActionCart());
     dispatch(getOrderById(orderId));
   }, [dispatch]);
-  console.log('order created', createdorder);
-  console.log('first--------.', createdorder?.orders?.shippingAddress);
-  console.log('this is id of order', getOrder);
   return (
     <OrderWrapper>
       {getOrder?.isLoading && !getOrder.orders ? (
@@ -84,19 +81,19 @@ export const ReviewTow: React.FC<objectType> = ({
                 {getOrder?.orders?.shippingAddress?.city},
                 {getOrder?.orders?.shippingAddress?.country},
               </Address>
-              <HeaderTitleRight style={{ marginTop: '32px' }}>
-                <ShapeAddress style={{ marginTop: '5px' }}>
+              <HeaderTitleRight style={{ marginTop: "32px" }}>
+                <ShapeAddress style={{ marginTop: "5px" }}>
                   Order Details
                 </ShapeAddress>
                 <ChangeText to="/change">change</ChangeText>
               </HeaderTitleRight>
-              <Column style={{ width: '100%' }}>
+              <Column style={{ width: "100%" }}>
                 <ProductContainer>
                   {getOrder.isLoading ? (
                     <SpinnerContainer />
                   ) : (
                     <>
-                      {getOrder.orders?.orderItems?.map(x => (
+                      {getOrder.orders?.orderItems?.map((x) => (
                         <OrderDetails
                           title={x.product?.name}
                           image={x.product?.images[0]}
@@ -120,7 +117,7 @@ export const ReviewTow: React.FC<objectType> = ({
                   {getOrder.orders?.orderItems
                     ?.reduce(
                       (acc, item) => acc + item?.product?.price * item?.qty,
-                      0,
+                      0
                     )
                     .toFixed(2)}
                   $
@@ -135,8 +132,8 @@ export const ReviewTow: React.FC<objectType> = ({
                 <TextFooter>0 $</TextFooter>
               </FooterTitleRight>
               <FooterTitleRight>
-                <TextFooter style={{ fontWeight: 'bold' }}>Total</TextFooter>
-                <TextFooter style={{ fontWeight: 'bold' }}>
+                <TextFooter style={{ fontWeight: "bold" }}>Total</TextFooter>
+                <TextFooter style={{ fontWeight: "bold" }}>
                   {getOrder?.orders?.totalPrice}
                 </TextFooter>
               </FooterTitleRight>

@@ -1,10 +1,10 @@
-import { Dispatch } from 'redux';
-import { IProducts } from '../Product/type';
-import { AppState } from '../store';
-import { ActionOrderType, IShippingAddress } from './type';
-import { ICart } from '../User/type';
-import { EnumOrderAction } from './constant';
-import Api from '../../utils/Api/axios';
+import { Dispatch } from "redux";
+import { IProducts } from "../Product/type";
+import { AppState } from "../store";
+import { ActionOrderType, IShippingAddress } from "./type";
+import { ICart } from "../User/type";
+import { EnumOrderAction } from "./constant";
+import Api from "../../utils/Api/axios";
 
 export const getOrderById = (id: string) => {
   return async (dispatch: Dispatch<ActionOrderType>) => {
@@ -14,7 +14,6 @@ export const getOrderById = (id: string) => {
 
     try {
       const response = await Api.get(`/orders/${id}`);
-      console.log('GET_ORDER_BY_ID_SUCCESS', response.data);
 
       dispatch({
         type: EnumOrderAction.GET_ORDER_BY_ID_SUCCESS,
@@ -39,7 +38,7 @@ export const getOrders = () => {
     });
 
     try {
-      const response = await Api.get('/orders');
+      const response = await Api.get("/orders");
 
       if (response.status === 200) {
         dispatch({
@@ -67,7 +66,7 @@ export const getMyOrder = () => {
     });
 
     try {
-      const response = await Api.get('/orders/myorders');
+      const response = await Api.get("/orders/myorders");
       if (response.status === 200) {
         dispatch({
           type: EnumOrderAction.GET_MY_ORDERS_SUCCESS,
@@ -94,7 +93,7 @@ export const createOrder = (data: IShippingAddress) => {
     });
 
     try {
-      const response = await Api.post<IShippingAddress>('/orders', data);
+      const response = await Api.post<IShippingAddress>("/orders", data);
       dispatch({
         type: EnumOrderAction.CREATE_ORDER_SUCCESS,
         payload: {
