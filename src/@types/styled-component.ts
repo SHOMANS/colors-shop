@@ -17,11 +17,15 @@ declare module "styled-components" {
       primary: string;
       secondary: string;
       disabled: string;
+      counterColor: string;
+      divider: string;
     };
     background: {
       [key: string]: string;
       paper: string;
       default: string;
+      secondary: string;
+      header: string;
     };
     common: {
       [key: string]: string;

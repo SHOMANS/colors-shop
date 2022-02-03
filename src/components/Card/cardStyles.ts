@@ -83,6 +83,7 @@ export const MainCard = styled("div")<IstyleMainCard>(
 
 export const StyleMainCard = styled(MainCard)`
   background: ${(props) => props.theme.background.default};
+  overflow: hidden;
   @media (max-width: 800px) {
     display: flex;
     width: 100%;

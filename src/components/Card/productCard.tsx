@@ -55,8 +55,8 @@ const ComplexCard = ({ ...props }: IProducts) => {
       <ContentAction onClick={() => navigate(`/product/${props._id}`)}>
         <Image
           width="100%"
+          height="300px"
           src={props.image}
-          variant="square"
           size="lg"
           style={{
             flexShrink: 0,
