@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
-import { Icon } from '..';
-import { Button } from '../Button/ButtonStyle';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { Icon } from "..";
+import { Button } from "../Button/ButtonStyle";
 
 const Count = styled.div`
   width: 8rem;
@@ -16,6 +16,8 @@ const Value = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${(props) => props.theme.textColors.primary};
+
   border: 1px solid #eeeeee;
 `;
 
@@ -32,7 +34,7 @@ const Counter: React.FC<objectType> = ({
     if (number > max && number > 1) {
       return;
     }
-    setNumber(prev => {
+    setNumber((prev) => {
       onFinish(prev + 1);
       return prev + 1;
     });
@@ -43,7 +45,7 @@ const Counter: React.FC<objectType> = ({
     if (number > max && number < 1) {
       return;
     }
-    setNumber(prev => {
+    setNumber((prev) => {
       onFinish(prev - 1);
       return prev - 1;
     });
