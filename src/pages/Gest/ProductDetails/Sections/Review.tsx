@@ -1,13 +1,30 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import StarRatingComponent from "react-star-rating-component";
-import { Container, Rating, Typography } from "../../../../components";
+import { Button, Container, Rating, Typography } from "../../../../components";
+
 import UpdatedContainer from "../../../../components/UpdatedContainer";
+import { IUser } from "../../../../redux/Auth/type";
 import { IReview } from "../../../../redux/Product/type";
+import { AppState } from "../../../../redux/store";
+import { useToken } from "../../../../utils/helper/useToken";
+import AddReview from "./AddReview";
 import { CardsSection, Padding, Review, Title } from "./style";
 
 interface IProps {
   reviews: IReview[];
+  productById: string;
 }
-const ReviewSection = ({ reviews }: IProps) => {
+const ReviewSection = ({ reviews, productById }: IProps) => {
+  const [uploadImagedModalDisplay, setUploadImagedModalDisplay] =
+    useState<boolean>(false);
+    const user: IUser = useToken();
+
+  const handleOpenReviewDialog = () => {
+    setUploadImagedModalDisplay(true);
+  };
+  const { auth } = useSelector((state: AppState) => state);
+  console.log(auth);
   return (
     <Review>
       <Title>
@@ -47,6 +64,26 @@ const ReviewSection = ({ reviews }: IProps) => {
             </Container>
           );
         })}
+        {user.isAdmin  && (
+          <Button
+            brand
+            padding=".8em"
+            width="15em"
+            margin="1rem"
+            onClick={handleOpenReviewDialog}
+          >
+            Add Review
+          </Button>
+        )}
+
+        {uploadImagedModalDisplay && (
+          <AddReview
+            productId={productById}
+            // rate={Math.round(props.rating)}
+            modalDisplay={uploadImagedModalDisplay}
+            setModalDisplay={setUploadImagedModalDisplay}
+          />
+        )}
       </Container>
     </Review>
   );

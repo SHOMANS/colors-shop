@@ -1,6 +1,7 @@
 import styled, { CSSProperties } from "styled-components";
 import { Button } from "../Button/ButtonStyle";
 import { IstyleMainCard, IcontentProp } from "./interface";
+import { Link } from "react-router-dom";
 
 export const SaveBtn = styled(Button)`
   height: 62px;
@@ -37,7 +38,7 @@ export const CategoryoneImage = styled.div`
   padding: 2rem;
   width: 100%;
 
-  background: #f7f8fc;
+  background: ${(props) => props.theme.background.paper};
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -133,6 +134,10 @@ export const ContentAction = styled.div<CSSProperties>(
   })
 );
 
+export const CateLink = styled(Link)`
+  text-decoration: none;
+  color: ${(props) => props.theme.textColors.primary};
+`;
 export const Discount = styled.div`
   display: flex;
   justify-content: center;
@@ -144,6 +149,7 @@ export const Discount = styled.div`
   position: absolute;
   right: 10px;
   top: 10px;
+  font-weight: bold;
 `;
 
 export const Actions = styled.div`

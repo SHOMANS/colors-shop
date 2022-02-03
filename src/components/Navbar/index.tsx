@@ -80,7 +80,7 @@ export const Navbar = ({ open, setoggle }) => {
             value={value}
             type="text"
             style={{ fontFamily: "mulish" }}
-            placeholder="Iphone"
+            placeholder="search"
             onChange={(e) => {
               setValue(e.target.value);
             }}
@@ -91,7 +91,7 @@ export const Navbar = ({ open, setoggle }) => {
               navigate(`/search${value ? `?keyword=${value}` : ""}`);
             }}
           >
-            Search
+        Products
           </SearchButton>
         </NavBox>
         <NavIcon>

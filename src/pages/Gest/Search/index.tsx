@@ -43,7 +43,7 @@ const SerachPage = () => {
           marginBottom="30px"
           alignItems="flex-start"
         >
-          <DeviderTitle title="Featured Product" position="center" />
+          <DeviderTitle title="All Product" position="center" />
         </Container>
         <CardsBox>
           {allProducts?.allProduct?.products?.map((product) => (
