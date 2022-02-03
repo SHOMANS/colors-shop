@@ -9,6 +9,16 @@ export const GlobalStyle = createGlobalStyle<DefaultTheme>`
     /* color: ${(props) => props.theme.textColors.primary}; */
     transition: color 0.5s, background-color 0.5s ease-in-out;
   }
+  .css-ae3ica-control{
+    background-color: ${(props) => props.theme.background.paper} !important;
+  }
+  
+  .css-1pahdxg-control{
+    background-color: ${(props) => props.theme.background.paper} !important;
+    border-color:  none !important;
+  }
+  
+  
   body {
     padding-top: 58px;
     background: ${(props) => props.theme.background.default};

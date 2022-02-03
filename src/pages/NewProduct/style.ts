@@ -43,4 +43,7 @@ export const InputsContainer = styled(Container)`
 export const Textarea = Input.withComponent('textarea');
 export const SelectStyle = styled(Select)`
   width: 100%;
+
+  background: ${(props) => props.theme.background.paper};
+
 `;

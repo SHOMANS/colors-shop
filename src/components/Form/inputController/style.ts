@@ -41,7 +41,8 @@ export const Input = styled("input")<IInput>`
   border:none;
   padding:.39rem;
   font-size: 12px;
-  background-color: white;
+  background: ${(props) => props.theme.background.paper};
+  color: ${(props) => props.theme.textColors.primary};
 
   &:disabled {
     box-shadow: none;

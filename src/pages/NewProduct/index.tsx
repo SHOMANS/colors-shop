@@ -16,6 +16,7 @@ import { AppState } from "../../redux/store";
 import { TAllActionProduct } from "../../redux/Product/type";
 import { addProduct, updateProduct } from "../../redux/Admin/action";
 import { getAlCategory, getProductById } from "../../redux/Product/action";
+import { useTheme } from "styled-components";
 
 function NewProduct() {
   const { id } = useParams<{ id?: string }>();
@@ -37,6 +38,7 @@ function NewProduct() {
   }, []);
 
   const navigation = useNavigate();
+  const theme = useTheme();
 
   const initialValues: IAddProductSchema = {
     id: product.product?._id || "",
@@ -102,7 +104,7 @@ function NewProduct() {
           <Container
             align-Items="flex-start"
             flex-wrap="wrap"
-            background="#F2F2F2"
+            background={theme.background.paper}
             border-radius="16px"
             padding="2em"
             margin-bottom="1em"
