@@ -1,12 +1,12 @@
 /* eslint-disable import/extensions */
-import { RiLockPasswordFill } from 'react-icons/ri';
-import { useFormik, FormikHelpers } from 'formik';
-import { AiOutlineMail } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
-import { GrUserNew } from 'react-icons/gr';
-import { useDispatch } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { useState } from 'react';
+import { RiLockPasswordFill } from "react-icons/ri";
+import { useFormik, FormikHelpers } from "formik";
+import { AiOutlineMail } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import { GrUserNew } from "react-icons/gr";
+import { useDispatch } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { useState } from "react";
 import {
   LoginText,
   LoginSubText,
@@ -15,13 +15,13 @@ import {
   ButtonLogin,
   ContainerLogin,
   FormContainer,
-} from '../Login/style';
+} from "../Login/style";
 import {
   schemaValidationSignUp as validationSchema,
   ISchemaValidationSuginup,
-} from '../../../utils/helper/validation';
+} from "../../../utils/helper/validation";
 // @ts-ignore
-import LoginImage from '../../../assets/Images/singup.png';
+import LoginImage from "../../../assets/Images/singup.png";
 
 import {
   Column,
@@ -30,17 +30,18 @@ import {
   Divider,
   Container,
   Image,
-} from '../../../components';
-import { AuthActions } from '../../../redux/Auth/action';
-import { AppState } from '../../../redux/store';
-import { TAllActionAuth } from '../../../redux/Auth/type';
+} from "../../../components";
+import { AuthActions } from "../../../redux/Auth/action";
+import { AppState } from "../../../redux/store";
+import { TAllActionAuth } from "../../../redux/Auth/type";
+import UpdatedContainer from "../../../components/UpdatedContainer";
 
 const initialValues: ISchemaValidationSuginup = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  password: '',
-  passwordConfirmation: '',
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  passwordConfirmation: "",
 };
 
 const Signup = () => {
@@ -52,7 +53,7 @@ const Signup = () => {
     validationSchema,
     validateOnChange: validateAfterSubmit,
     enableReinitialize: true,
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       dispatch(
         AuthActions.singUpSuccess(
           {
@@ -63,20 +64,21 @@ const Signup = () => {
             passwordConfirmation: values.passwordConfirmation,
           },
           () => {
-            navigate('/');
-          },
-        ),
+            navigate("/");
+          }
+        )
       );
     },
   });
   return (
-    <ContainerLogin>
+    <UpdatedContainer>
       <InnerColSection>
         <Wrapper>
           <Container
             direction="column"
             overflow="hidden"
             justifyContent="space-between"
+            style={{ width: "50%" }}
           >
             <LoginText>Signup.</LoginText>
             <LoginSubText>
@@ -85,7 +87,7 @@ const Signup = () => {
             <FormContainer>
               <form
                 style={{
-                  width: '100%',
+                  width: "100%",
                 }}
                 onSubmit={formik.handleSubmit}
               >
@@ -152,7 +154,7 @@ const Signup = () => {
                 <Column item="center">
                   <Divider thick="2px" width="100%" margin="40px 0px" />
                   <Column item="center">
-                    <Link to="/login" style={{ textDecoration: 'none' }}>
+                    <Link to="/login" style={{ textDecoration: "none" }}>
                       <ForgotPassword>Have an account ? Login</ForgotPassword>
                     </Link>
                   </Column>
@@ -160,7 +162,7 @@ const Signup = () => {
               </form>
             </FormContainer>
           </Container>
-          <Container>
+          <Container style={{ width: "50%" }}>
             <Image
               src={LoginImage}
               alt="image register continer"
@@ -170,7 +172,7 @@ const Signup = () => {
           </Container>
         </Wrapper>
       </InnerColSection>
-    </ContainerLogin>
+    </UpdatedContainer>
   );
 };
 export default Signup;

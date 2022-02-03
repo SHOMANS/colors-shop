@@ -1,7 +1,8 @@
-import { CSSProperties } from 'react';
+import { CSSProperties } from "react";
 
 export interface IContainerProps extends CSSProperties {
   children?: any;
-  direction?: 'row' | 'column';
+  direction?: "row" | "column";
   hideAtMobile?: boolean;
+  style?: any;
 }

@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { RiLockPasswordFill } from 'react-icons/ri';
-import { useFormik, FormikHelpers } from 'formik';
-import { AiOutlineMail } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { toast } from 'react-toastify';
+import { useState } from "react";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { useFormik, FormikHelpers } from "formik";
+import { AiOutlineMail } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { toast } from "react-toastify";
 
 import {
   LoginText,
@@ -16,27 +16,28 @@ import {
   ButtonLogin,
   ContainerLogin,
   FormContainer,
-} from './style';
+} from "./style";
 import {
   IschemaValidationLogin,
   schemaValidationLogin as validationSchema,
-} from '../../../utils/helper/validation';
-import LoginImage from '../../../assets/Images/login.png';
-import { InnerColSection, Row } from '../../../components/Row';
-import Divider from '../../../components/Divider';
-import { CheckBox } from '../../../components/Form/checkBox';
-import { InputController } from '../../../components/Form/inputController';
-import { Container, Image } from '../../../components';
-import { AppState } from '../../../redux/store';
-import { TAllActionAuth } from '../../../redux/Auth/type';
-import { AuthActions } from '../../../redux/Auth/action';
-import { Column } from '../../../components/Col';
+} from "../../../utils/helper/validation";
+import LoginImage from "../../../assets/Images/login.png";
+import { InnerColSection, Row } from "../../../components/Row";
+import Divider from "../../../components/Divider";
+import { CheckBox } from "../../../components/Form/checkBox";
+import { InputController } from "../../../components/Form/inputController";
+import { Container, Image } from "../../../components";
+import { AppState } from "../../../redux/store";
+import { TAllActionAuth } from "../../../redux/Auth/type";
+import { AuthActions } from "../../../redux/Auth/action";
+import { Column } from "../../../components/Col";
+import UpdatedContainer from "../../../components/UpdatedContainer";
 
 const Login = () => {
   const [checked, setChecked] = useState<boolean>(true);
   const initialValues = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     ischeckbox: false,
   };
 
@@ -47,7 +48,7 @@ const Login = () => {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       dispatch(
         AuthActions.loginAction(
           {
@@ -55,17 +56,21 @@ const Login = () => {
             password: values.password,
           },
           () => {
-            navigate('/');
-          },
-        ),
+            navigate("/");
+          }
+        )
       );
     },
   });
   return (
-    <ContainerLogin>
+    <UpdatedContainer>
       <InnerColSection>
         <Wrapper>
-          <Container direction="column" justifyContent="space-between">
+          <Container
+            style={{ width: "50%" }}
+            direction="column"
+            justifyContent="space-between"
+          >
             <LoginText>Login.</LoginText>
             <LoginSubText>
               Login with your data that you entered during registration
@@ -73,7 +78,7 @@ const Login = () => {
             <FormContainer>
               <form
                 style={{
-                  width: '80%',
+                  width: "80%",
                 }}
                 onSubmit={formik.handleSubmit}
               >
@@ -110,28 +115,28 @@ const Login = () => {
                   </ButtonLogin>
                   <Column>
                     <CheckBox label="Remember me" name="Remember me" />
-                    <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Link to="/" style={{ textDecoration: "none" }}>
                       <ForgotPassword
-                        style={{ marginTop: '15px', marginBottom: '15px' }}
+                        style={{ marginTop: "15px", marginBottom: "15px" }}
                       >
                         Forgot your password?
                       </ForgotPassword>
                     </Link>
                   </Column>
                   <Divider thick="2px" width="100%" />
-                  <ButtonSuginup onClick={() => navigate('/signup')}>
+                  <ButtonSuginup onClick={() => navigate("/signup")}>
                     Sign up now
                   </ButtonSuginup>
                 </Container>
               </form>
             </FormContainer>
           </Container>
-          <Container>
+          <Container style={{ width: "50%" }}>
             <Image src={LoginImage} size="xxxl" responsive />
           </Container>
         </Wrapper>
       </InnerColSection>
-    </ContainerLogin>
+    </UpdatedContainer>
   );
 };
 export default Login;

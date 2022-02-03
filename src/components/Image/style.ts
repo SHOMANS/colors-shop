@@ -44,10 +44,12 @@ const getImageHeight = (size: sizes) => {
 export const StyledImage = styled(Img)<any>`
   width: ${(props) =>
     props.width || (props?.size && getImageWidth(props.size)) || "100%"};
-  height: 240px;
+  height: ${(props) => props.height || "auto"};
+  /* height: 240px; */
   object-position: center;
   display: block;
-  max-width: 100%;
+  object-fit: cover;
+  /* max-width: 100%; */
 
   border: ${(props) => props?.border && "1px solid #F2F2F2"};
   border-radius: ${(props) =>

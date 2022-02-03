@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-import { Button, Container, Typography, Image } from '../../../components';
+import { Button, Container, Typography, Image } from "../../../components";
 import {
   InfoContainer,
   InfoBoxContainer,
@@ -7,9 +7,9 @@ import {
   ImageContainer,
   DataValue,
   SpanTitle,
-} from '../style';
-import { IUser } from '../../../redux/Auth/type';
-import { formatDate } from '../../../utils/helper/formatDay';
+} from "../style";
+import { IUser } from "../../../redux/Auth/type";
+import { formatDate } from "../../../utils/helper/formatDay";
 
 interface IProfileDashboard {
   user?: IUser;
@@ -25,10 +25,9 @@ const ProfileInfo = ({ user }: IProfileDashboard) => {
       background="#F2F2F2"
       border-radius="16px"
       padding="2em"
-
     >
       <InfoBoxContainer direction="column" width="60%">
-        <Typography variant="h2" fontSize="2rem" >
+        <Typography variant="h2" fontSize="2rem">
           My Profile
         </Typography>
         <InfoDetailsContainer margin-bottom="2em" padding="1em">
@@ -60,7 +59,7 @@ const ProfileInfo = ({ user }: IProfileDashboard) => {
         <Button
           background="#FCDD06"
           fontSize="13px"
-          style={{ marginBottom: '2em' }}
+          style={{ marginBottom: "2em" }}
           padding="1em"
         >
           Change Password
@@ -70,12 +69,11 @@ const ProfileInfo = ({ user }: IProfileDashboard) => {
         direction="column"
         width="30%"
         justify-content="flex-end"
-
         alignSelf={"end"}
       >
         <Image
           src={user?.profileImage}
-          fit='cover'
+          fit="cover"
           width="10em"
           height="10em"
           variant="circle"
