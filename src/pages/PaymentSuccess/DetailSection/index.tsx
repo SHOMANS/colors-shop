@@ -74,7 +74,7 @@ const Detail = ({ orderNumber, shippingAddress, orderItem }: IDetailProps) => {
         >
 
         </Container>
-        <Container padding="1em .5em" style={{ alignSelf: "flex-end" }} >
+        <Container padding="1em .5em"  >
           <ButtonKeep to="/">
             {/* <Typography font-size="20px" fontFamily="mulish"> */}
             Keep Shopping
