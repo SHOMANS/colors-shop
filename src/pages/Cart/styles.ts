@@ -13,7 +13,8 @@ export const CloseIcon = styled.i`
   position: absolute;
   top: 17px;
   right: 1em;
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
+
   &:hover {
     cursor: pointer;
   }
@@ -79,7 +80,7 @@ export const ListContainer = styled.div`
 
 export const ItemContainer = styled.div`
   display: flex;
-  background: #f2f2f2;
+  background: ${(props) => props.theme.background.paper};
   padding: 0.5em 0.8em;
 
   border-radius: 16px;
@@ -110,7 +111,7 @@ export const ImgContainer = styled.div`
 `;
 
 export const TotalContainer = styled.div`
-  background: #f2f2f2;
+  background: ${(props) => props.theme.background.paper};
   border-radius: 16px;
   height: 40%;
   padding: 1em 2em;
