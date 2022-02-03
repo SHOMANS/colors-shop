@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Typography from '../Typography';
 import { PathLink, PathName, PathWrapper } from './styles';
 
 const PathNavigate = ({ name, ...props }) => {
@@ -7,7 +8,7 @@ const PathNavigate = ({ name, ...props }) => {
   return (
     <PathWrapper {...props}>
       <PathLink onClick={() => navigate(-1)}>Back /</PathLink>
-      <PathName> {name}</PathName>
+      <Typography> {name}</Typography>
     </PathWrapper>
   );
 };
