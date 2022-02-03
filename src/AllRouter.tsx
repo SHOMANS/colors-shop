@@ -6,6 +6,7 @@ import { Navbar } from "./components";
 import Profile from "./pages/Profile";
 import { adminRoutes } from "./Route/Admin";
 import { userRoutes } from "./Route/user";
+import NotFound from "./pages/ErrorPages/NotFound";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const Signup = Loadable(lazy(() => import("./pages/Auth/Signup")));
@@ -36,6 +37,7 @@ export const AllRouter = () => {
       <Route path="/search" element={<Search />} />
       {adminRoutes()}
       {userRoutes()}
+      <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
