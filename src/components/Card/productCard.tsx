@@ -1,23 +1,17 @@
 import ReactStars from "react-rating-stars-component";
-import { BsBookmark } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button/ButtonStyle";
-import img from "../../assets/tow.jpg";
 import Typography from "../Typography";
 import {
-  Actions,
-  AddCart,
   Content,
   ContentAction,
   Discount,
   FlexButton,
-  MainCard,
-  SaveBtn,
   StyleMainCard,
 } from "./cardStyles";
-import { Container, Image } from "..";
+import { Image } from "..";
 import { AppState } from "../../redux/store";
 import { ActionCartType } from "../../redux/Cart/type";
 import { upduteActionCart } from "../../redux/Cart/action";

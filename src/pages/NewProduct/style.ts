@@ -1,8 +1,8 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import Select from 'react-select';
-import { Container } from '../../components';
-import { WarperFileBox } from '../../components/Form/checkBox/style';
-import { Input } from '../../components/Form/inputController/style';
+import styled from "styled-components";
+import Select from "react-select";
+import { Container } from "../../components";
+import { WarperFileBox } from "../../components/Form/checkBox/style";
+import { Input } from "../../components/Form/inputController/style";
 
 export const ProductContainer = styled(Container)`
   @media only screen and (max-width: 767px) {
@@ -40,7 +40,7 @@ export const InputsContainer = styled(Container)`
   }
 `;
 
-export const Textarea = Input.withComponent('textarea');
+export const Textarea = Input.withComponent("textarea");
 export const SelectStyle = styled(Select)`
   width: 100%;
 

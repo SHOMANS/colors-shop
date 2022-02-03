@@ -1,18 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Container, Typography } from '../../../components';
-import { Button } from '../../../components/Button/ButtonStyle';
-import { ButtonHero } from '../../../components/Slider/SliderStyle';
-import { AppState } from '../../../redux/store';
-import { ButtonKeep } from './style';
+import { useSelector } from "react-redux";
+import { Container, Typography } from "../../../components";
+import { AppState } from "../../../redux/store";
+import { ButtonKeep } from "./style";
 
-interface IDetailProps {
-  orderNumber?: string;
-  shippingAddress?: string;
-  orderItem?: string;
-}
+// interface IDetailProps {
+//   orderNumber?: string;
+//   shippingAddress?: string;
+//   orderItem?: string;
+// }
 
-const Detail = ({ orderNumber, shippingAddress, orderItem }: IDetailProps) => {
+const Detail = () => {
   const getOrder = useSelector((state: AppState) => state.order.orderById);
   return (
     <>
@@ -48,13 +45,9 @@ const Detail = ({ orderNumber, shippingAddress, orderItem }: IDetailProps) => {
             order number
           </Typography>
           <Typography variant="p" bold fontFamily="mulish">
-            {
-              getOrder?.orders?.orderItems?.map((item) => (
-                <div>
-                  {item?.product?._id}
-                </div>
-              ))
-            }
+            {getOrder?.orders?.orderItems?.map((item) => (
+              <div>{item?.product?._id}</div>
+            ))}
           </Typography>
           <Typography
             variant="p"
@@ -71,10 +64,8 @@ const Detail = ({ orderNumber, shippingAddress, orderItem }: IDetailProps) => {
           justify-content="space-between"
           height="115px"
           margin-top="65px"
-        >
-
-        </Container>
-        <Container padding="1em .5em"  >
+        ></Container>
+        <Container padding="1em .5em">
           <ButtonKeep to="/">
             {/* <Typography font-size="20px" fontFamily="mulish"> */}
             Keep Shopping
@@ -82,7 +73,6 @@ const Detail = ({ orderNumber, shippingAddress, orderItem }: IDetailProps) => {
           </ButtonKeep>
         </Container>
       </Container>
-
     </>
   );
 };

@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { GrFormClose } from "react-icons/gr";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { Counter, Image, Typography } from "../../../components";
 import { deleteActionCart, upduteActionCart } from "../../../redux/Cart/action";
@@ -11,7 +11,6 @@ import {
   CloseIcon,
   OldPrice,
   ItemTitle,
-  WrapCounter,
   ItemContainer,
   ImgContainer,
 } from "../styles";
@@ -38,7 +37,7 @@ interface IProps {
  *  
  */
 const CartList = ({ data }: IProps) => {
-  const { product, qty, itemTotalPrice } = data;
+  const { product, qty } = data;
   const [count, setCount] = useState<number>(qty);
   const dispatch = useDispatch<ThunkDispatch<AppState, any, ActionCartType>>();
   // const handleRemoveFormCart = (id: string) => {
@@ -48,17 +47,17 @@ const CartList = ({ data }: IProps) => {
     dispatch(deleteActionCart(product._id));
     // dispatch(upduteActionCart({ productId: product._id, qty: 0 }));
     setCount(0);
-  }, [count]);
+  }, [dispatch, product._id]);
 
   const handleIncress = useCallback(() => {
     dispatch(upduteActionCart({ productId: product._id, qty: count + 1 }));
     setCount((prev) => prev + 1);
-  }, [count]);
+  }, [count, dispatch, product._id]);
 
   const handleDecress = useCallback(() => {
     dispatch(upduteActionCart({ productId: product._id, qty: count - 1 }));
     setCount((prev) => prev - 1);
-  }, [count]);
+  }, [count, dispatch, product._id]);
 
   return (
     <ItemContainer

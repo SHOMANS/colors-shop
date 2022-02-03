@@ -1,15 +1,14 @@
-import { log } from 'console';
-import { Dispatch } from 'redux';
-import Api from '../../utils/Api/axios';
-import { EnumProductsAction } from './constant';
-import { IAddReviewPayload, TAllActionProduct } from './type';
+import { Dispatch } from "redux";
+import Api from "../../utils/Api/axios";
+import { EnumProductsAction } from "./constant";
+import { IAddReviewPayload, TAllActionProduct } from "./type";
 
 export const getProducts = (keyword?: string, pageNumber?: number) => {
   return async (dispatch: Dispatch<TAllActionProduct>) => {
     dispatch({
       type: EnumProductsAction.GET_ALL_PRODUCTS_START,
     });
-    let search = '';
+    let search = "";
     if (keyword && pageNumber) {
       search = `?keyword=${keyword}&pageNumber=${pageNumber}`;
     } else if (keyword) {
@@ -59,7 +58,7 @@ export const getProductById = (id: string) => {
           },
         });
       } else {
-        throw new Error('some  error habbend  in the Top  reated  peoduct');
+        throw new Error("some  error habbend  in the Top  reated  peoduct");
       }
     } catch (e: any) {
       dispatch({
@@ -84,7 +83,7 @@ export const getTopProducts = () => {
     });
 
     try {
-      const response = await Api.get('/products/top');
+      const response = await Api.get("/products/top");
 
       dispatch({
         type: EnumProductsAction.GET_TOP_PRODUCTS_SUCCESS,
@@ -116,7 +115,7 @@ export const getAlCategory = () => {
     });
 
     try {
-      const response = await Api.get('/products/category/all');
+      const response = await Api.get("/products/category/all");
       dispatch({
         type: EnumProductsAction.GET_ALL_CATEGORY_SUCCESS,
         payload: response.data.categories || [],
@@ -181,7 +180,7 @@ export const getCategoryByName = (name: string) => {
           },
         });
       } else {
-        throw new Error('some  error habbend  in the Top  reated  peoduct');
+        throw new Error("some  error habbend  in the Top  reated  peoduct");
       }
     } catch (e: any) {
       dispatch({
@@ -195,7 +194,7 @@ export const getCategoryByName = (name: string) => {
 };
 
 export const addReview = (productId: string, review: IAddReviewPayload) => {
-  console.log(productId)
+  console.log(productId);
   return async (dispatch: Dispatch<TAllActionProduct>) => {
     dispatch({
       type: EnumProductsAction.ADD_REVIEW_TO_PRODUCT_START,
@@ -212,7 +211,7 @@ export const addReview = (productId: string, review: IAddReviewPayload) => {
           },
         });
       } else {
-        throw new Error('some  error habbend  in the Top  reated  peoduct');
+        throw new Error("some  error habbend  in the Top  reated  peoduct");
       }
     } catch (e: any) {
       dispatch({

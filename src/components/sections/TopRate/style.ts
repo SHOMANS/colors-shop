@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Container, InnerSection, Row } from "../..";
+import { Column, Container, InnerSection } from "../..";
 
 export const RowWithRadius = styled(Container)`
   border: 1px solid #fcdd06;

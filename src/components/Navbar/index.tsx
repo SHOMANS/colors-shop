@@ -1,29 +1,18 @@
 import { useEffect, useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
-import {
-  BsFillBookmarkDashFill,
-  BsFillCartFill,
-  BsToggleOff,
-  BsToggleOn,
-} from "react-icons/bs";
+import { BsFillCartFill } from "react-icons/bs";
 
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
-import { FiSettings } from "react-icons/fi";
-import { ListNavItem } from "./ListNavItem";
 import {
-  List,
-  StyleObj,
   NavBox,
-  StyledSearchIcon,
   SearchButton,
   SearchInput,
   ListNav,
   IconList,
   NavIcon,
-  Hamburger,
   DropDownLi,
   Badge,
   IConsContainer,
@@ -39,7 +28,6 @@ import { IUser } from "../../redux/Auth/type";
 import { logoutSuccess } from "../../redux/Auth/action";
 
 import { myActionCart } from "../../redux/Cart/action";
-import UpdatedContainer from "../UpdatedContainer";
 import SVGICON from "../HeaderIcons/headerIcons";
 import { useTheme } from "styled-components";
 
@@ -91,7 +79,7 @@ export const Navbar = ({ open, setoggle }) => {
               navigate(`/search${value ? `?keyword=${value}` : ""}`);
             }}
           >
-        Products
+            Products
           </SearchButton>
         </NavBox>
         <NavIcon>

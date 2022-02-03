@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import { RiLockPasswordFill } from "react-icons/ri";
-import { useFormik, FormikHelpers } from "formik";
+import { useFormik } from "formik";
 import { AiOutlineMail } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { GrUserNew } from "react-icons/gr";
@@ -13,7 +13,6 @@ import {
   Wrapper,
   ForgotPassword,
   ButtonLogin,
-  ContainerLogin,
   FormContainer,
 } from "../Login/style";
 import {
@@ -47,6 +46,7 @@ const initialValues: ISchemaValidationSuginup = {
 const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<ThunkDispatch<AppState, any, TAllActionAuth>>();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [validateAfterSubmit, setValidateAfterSubmit] = useState(false);
   const formik = useFormik<ISchemaValidationSuginup>({
     initialValues,

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
-import { Container, SpinnerContainer } from "../../../components";
+import { SpinnerContainer } from "../../../components";
 import { FeaturedCategories } from "../../../components/sections/FeaturedCategories/FeaturedCategories";
 import { FeaturedProduct } from "../../../components/sections/FeaturedProducts/FeaturedProducts";
 import { TopRate } from "../../../components/sections/TopRate/TopRate";

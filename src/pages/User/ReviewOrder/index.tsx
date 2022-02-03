@@ -4,8 +4,6 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { ThunkDispatch } from "redux-thunk";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { json } from "stream/consumers";
-import logo from "../../../assets/Images/card.png";
 import { Column, Row, SpinnerContainer, Typography } from "../../../components";
 import {
   IShippingSchema,
@@ -30,17 +28,14 @@ import {
   TextActive,
   OrfferSection,
   InnerOverFlow,
-} from './Sections/style';
-import { OrderDetails } from './Sections/orderDtails';
-import { InputController } from '../../../components/Form';
-import { ReviewTow } from './Sections/reviewtow';
-import { AppState } from '../../../redux/store';
-import { ActionOrderType } from '../../../redux/Order/type';
-import { createOrder } from '../../../redux/Order/action';
-import { getProfile } from '../../../redux/User/action';
-import { ActionCartType } from '../../../redux/Cart/type';
-import { myActionCart } from '../../../redux/Cart/action';
-import UpdatedContainer from '../../../components/UpdatedContainer';
+} from "./Sections/style";
+import { OrderDetails } from "./Sections/orderDtails";
+import { InputController } from "../../../components/Form";
+import { ReviewTow } from "./Sections/reviewtow";
+import { AppState } from "../../../redux/store";
+import { createOrder } from "../../../redux/Order/action";
+import { myActionCart } from "../../../redux/Cart/action";
+import UpdatedContainer from "../../../components/UpdatedContainer";
 
 const initialValues: IShippingSchema = {
   country: "",
@@ -66,7 +61,7 @@ const ReviewOrder = () => {
   const formik = useFormik<IShippingSchema>({
     initialValues,
     validationSchema: ShippingSchema,
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       const billingDetails = {
         address: values.address,
         city: values.city,
@@ -117,7 +112,9 @@ const ReviewOrder = () => {
             </TextActive>
             <DividerTop />
             <BoxNumber isActive={stepperNumber === 1}>2</BoxNumber>
-            <TextActive isActive={stepperNumber === 1}>Place an Order</TextActive>
+            <TextActive isActive={stepperNumber === 1}>
+              Place an Order
+            </TextActive>
           </WrapperReviewRow>
           {stepperNumber === 0 && (
             <Column>
@@ -135,7 +132,6 @@ const ReviewOrder = () => {
 
                       <WrapperRowInput>
                         <InputController
-
                           name="country"
                           label="Country"
                           type="text"
@@ -145,7 +141,7 @@ const ReviewOrder = () => {
                           onBlur={formik.handleBlur}
                           onChange={formik.handleChange}
                           value={formik.values.country}
-                          style={{ fontFamily: 'mulish' }}
+                          style={{ fontFamily: "mulish" }}
                         />
                         <InputController
                           name="city"
@@ -202,15 +198,10 @@ const ReviewOrder = () => {
                           {checkoutError}
                         </Typography>
                       )}
-                      <Row
-                        JC="flex-end"
-                        style={{ marginTop: "20px" }}
-                      >
-
-                      </Row>
-                    </Column >
-                  </form >
-                </LeftSection >
+                      <Row JC="flex-end" style={{ marginTop: "20px" }}></Row>
+                    </Column>
+                  </form>
+                </LeftSection>
 
                 <RightSection>
                   <HeaderTitleRight>
@@ -262,7 +253,9 @@ const ReviewOrder = () => {
                     <TextFooter>0 $</TextFooter>
                   </FooterTitleRight>
                   <FooterTitleRight>
-                    <TextFooter style={{ fontWeight: "bold" }}>Total</TextFooter>
+                    <TextFooter style={{ fontWeight: "bold" }}>
+                      Total
+                    </TextFooter>
                     <TextFooter style={{ fontWeight: "bold" }}>
                       {cart?.cart?.items
                         .reduce(
@@ -273,31 +266,27 @@ const ReviewOrder = () => {
                       $
                     </TextFooter>
                   </FooterTitleRight>
-
                 </RightSection>
-              </WrapperCard >
+              </WrapperCard>
               <RevieworderButton
                 form="form"
-                style={{ fontFamily: 'mulish' }}
+                style={{ fontFamily: "mulish" }}
                 type="submit"
-
               >
                 Review order
               </RevieworderButton>
-            </Column >
+            </Column>
           )}
-          {
-            stepperNumber === 1 && (
-              <ReviewTow
-                paymentId={paymentId}
-                clientSec={myOrder?.orders?.clientSecret}
-                orderId={myOrder?.orders?._id}
-              />
-            )
-          }
-        </InnerSection >
-      </OrfferSection >
-    </UpdatedContainer >
+          {stepperNumber === 1 && (
+            <ReviewTow
+              paymentId={paymentId}
+              clientSec={myOrder?.orders?.clientSecret}
+              orderId={myOrder?.orders?._id}
+            />
+          )}
+        </InnerSection>
+      </OrfferSection>
+    </UpdatedContainer>
   );
 };
 

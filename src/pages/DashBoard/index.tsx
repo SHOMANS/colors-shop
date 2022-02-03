@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { Link } from 'react-router-dom';
-import { Container, SpinnerContainer, Typography } from '../../components';
-import Table from './Table';
-import { Btn, DashContainer } from './style';
-import { AppState } from '../../redux/store';
-import { TAllActionProduct } from '../../redux/Product/type';
-import { getProducts } from '../../redux/Product/action';
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
+import { Link } from "react-router-dom";
+import { Container, SpinnerContainer, Typography } from "../../components";
+import Table from "./Table";
+import { Btn, DashContainer } from "./style";
+import { AppState } from "../../redux/store";
+import { TAllActionProduct } from "../../redux/Product/type";
+import { getProducts } from "../../redux/Product/action";
 
 const DashBoard = () => {
   const dispatch =
     useDispatch<ThunkDispatch<AppState, any, TAllActionProduct>>();
 
   const allProduct = useSelector(
-    (state: AppState) => state.product.allProducts,
+    (state: AppState) => state.product.allProducts
   );
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -32,7 +32,7 @@ const DashBoard = () => {
           Products
         </Typography>
         <Btn>
-          <Link to="/addproduct" style={{ textDecoration: 'none' }}>
+          <Link to="/addproduct" style={{ textDecoration: "none" }}>
             <Typography font-size="20px">New Product</Typography>
           </Link>
         </Btn>

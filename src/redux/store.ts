@@ -26,5 +26,5 @@ const Store = createStore(
 );
 export type AppDispatch = typeof Store.dispatch;
 export type AppState = ReturnType<typeof reducers>;
-// (window as any).store = Store;
+(window as any).store = Store;
 export default Store;

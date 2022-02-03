@@ -1,7 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Typography from '../Typography';
-import { PathLink, PathName, PathWrapper } from './styles';
+import { useNavigate } from "react-router-dom";
+import Typography from "../Typography";
+import { PathLink, PathWrapper } from "./styles";
 
 const PathNavigate = ({ name, ...props }) => {
   const navigate = useNavigate();

@@ -1,8 +1,7 @@
-import { FormikErrors, FormikTouched } from 'formik';
+import { FormikErrors, FormikTouched } from "formik";
 
-import { BiErrorAlt } from 'react-icons/bi';
-import { Row, Typography } from '../..';
-import { ErrorWrapper } from './style';
+import { BiErrorAlt } from "react-icons/bi";
+import { Row, Typography } from "../..";
 
 interface Props {
   touched?:

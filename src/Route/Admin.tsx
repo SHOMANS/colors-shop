@@ -1,17 +1,17 @@
-import { Outlet, Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 
-import { lazy } from 'react';
+import { lazy } from "react";
 
-import Loadable from '../components/Loadable';
+import Loadable from "../components/Loadable";
 
-const Dashboard = Loadable(lazy(() => import('../pages/DashBoard')));
-const AddNewProduct = Loadable(lazy(() => import('../pages/NewProduct')));
+const Dashboard = Loadable(lazy(() => import("../pages/DashBoard")));
+const AddNewProduct = Loadable(lazy(() => import("../pages/NewProduct")));
 
-export const adminRoutes = () => {
-  const role = Boolean(localStorage.getItem('role'));
+export const adminRoutes = (rule: boolean) => {
+  // const role = Boolean(localStorage.getItem("role"));
   return (
     <>
-      {role && (
+      {rule && (
         <>
           <Route path="/dashboard" element={<Dashboard />} />
 

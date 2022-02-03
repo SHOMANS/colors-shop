@@ -1,8 +1,6 @@
 import { Form, FormikProps } from "formik";
-import { useEffect } from "react";
 import ReactStars from "react-rating-stars-component";
-import { useTheme } from "styled-components";
-import { Button, Rating } from "../../../../../../components";
+import { Button } from "../../../../../../components";
 import ModalAction from "../../../../../../components/Modal/Dialog/ModalAction/ModalAction";
 import { Errors, FlexInput, Input, Label } from "../../style";
 
@@ -19,9 +17,6 @@ const AddReviewForm = ({
   setFieldValue,
   values,
 }: IProps & FormikProps<any>) => {
-
-
-
   return (
     <Form>
       <FlexInput>
@@ -34,9 +29,9 @@ const AddReviewForm = ({
           component="textarea"
           placeholder="Review"
         />
-          {errors["comment"] && touched["comment"] && (
-            <Errors>{errors["comment"]}</Errors>
-          )}
+        {errors["comment"] && touched["comment"] && (
+          <Errors>{errors["comment"]}</Errors>
+        )}
       </FlexInput>
       <br />
       <FlexInput>
@@ -60,7 +55,7 @@ const AddReviewForm = ({
         <Button
           type="submit"
           style={{ fontWeight: "bold" }}
-          padding='1rem'
+          padding="1rem"
 
           // backgroundColor={theme.colors.primary}
         >
@@ -69,7 +64,7 @@ const AddReviewForm = ({
         <Button
           type="button"
           style={{ fontWeight: "bold" }}
-          padding='1rem'
+          padding="1rem"
           // backgroundColor={theme.colors.error}
           onClick={() => {
             setModalDisplay && setModalDisplay(false);
