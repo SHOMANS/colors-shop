@@ -35,7 +35,7 @@ const AllProducts = () => {
       >
         <Container
           direction="row"
-          width="85.4%"
+          width="100%"
           marginBottom="30px"
           alignItems="flex-start"
         >

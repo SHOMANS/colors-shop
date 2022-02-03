@@ -22,6 +22,11 @@ export const CardsBox = styled(FlexRow)`
   width: 90vw;
   max-width: 1800px; */
   display: grid;
+  width: 100%;
+  gap: 2rem;
+  & > div {
+    box-shadow: 2px 2px 10px 2px #f2f2f2;
+  }
   grid-template-columns: 1fr 1fr 1fr;
   @media screen and (max-width: 950px) {
     grid-template-columns: 1fr 1fr;
