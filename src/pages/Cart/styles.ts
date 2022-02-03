@@ -94,8 +94,7 @@ export const ItemContainer = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-  over-flow: hidden;
-  /* max-height:60%; */
+  overflow: hidden;
   width: 30%;
   & img {
     width: 100%;

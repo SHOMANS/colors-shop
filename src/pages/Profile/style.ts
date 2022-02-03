@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const NavLink = styled(Link)`
   font-size: 16px;
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   text-decoration: none;
   &:hover {
     color: rgba(36, 36, 36, 0.7);
@@ -31,8 +31,8 @@ export const OutLink = styled("p")`
 
 export const SpanTitle = styled.span`
   font-size: 1rem;
-  color: #707070;
-  margin-bottom: 1em;
+  color: ${(props) => props.theme.textColors.primary};
+  margin-bottom:1em ;
   /* margin-top:.5em; */
   @media only screen and (max-width: 767px) {
     font-size: 18px;
@@ -42,10 +42,11 @@ export const SpanTitle = styled.span`
 export const DataValue = styled.h4`
   font-size: 1rem;
   font-weight: 500;
-  /* margin-top:.5em; */
-  margin-bottom: 1em;
-  color: #000000;
-  overflow-wrap: anywhere;
+
+    /* margin-top:.5em; */
+    margin-bottom:1em ;
+    color: ${(props) => props.theme.textColors.primary};
+    overflow-wrap: anywhere;
   @media only screen and (max-width: 767px) {
     font-size: 18px;
   }

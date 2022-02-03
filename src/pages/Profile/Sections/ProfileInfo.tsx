@@ -10,12 +10,14 @@ import {
 } from "../style";
 import { IUser } from "../../../redux/Auth/type";
 import { formatDate } from "../../../utils/helper/formatDay";
+import { useTheme } from "styled-components";
 
 interface IProfileDashboard {
   user?: IUser;
 }
 
 const ProfileInfo = ({ user }: IProfileDashboard) => {
+  const theme = useTheme();
 
   return (
     <InfoContainer
@@ -23,7 +25,7 @@ const ProfileInfo = ({ user }: IProfileDashboard) => {
       width="80%"
       // flex-wrap="wrap"
       // height="60%"
-      background="#F2F2F2"
+      background={theme.background.paper}
       border-radius="16px"
       padding="2em"
     >
