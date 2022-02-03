@@ -7,11 +7,11 @@ export default function Logo() {
     <LogoSt as={Link} to="/">
       <Typography
         style={{ fontWeight: "bold" }}
-        color="#FCDD06"
         variant="h4"
         font-family="mulish"
       >
-        Color<span style={{ color: "white" }}>Shop</span>
+        <span style={{ color: "#FCDD06" }}>Color</span>
+        <span style={{ color: "white" }}>Shop</span>
       </Typography>
     </LogoSt>
   );

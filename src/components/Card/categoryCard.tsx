@@ -21,7 +21,7 @@ const CategoryCard = ({ image, name }: IGetAllCategory) => {
           style={{ textDecoration: "none", color: "black" }}
           to={`/category/${name}`}
         >
-          <Typography > {name}</Typography>
+          <Typography> {name}</Typography>
         </Link>
       </Content>
     </CategoryImage>
