@@ -3,6 +3,7 @@ import { Typography } from "..";
 import { Column } from "../Row/index";
 
 export const Title = styled(Typography)`
+  color: ${(props) => props.theme.textColors.primary};
   font-size: 24px;
   font-weight: bold;
   text-transform: uppercase;

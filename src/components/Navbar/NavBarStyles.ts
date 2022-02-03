@@ -16,7 +16,7 @@ export const InnerSection = styled(Column)`
   width: 100%;
 `;
 export const ListNav = styled(Container)<Props>`
-  background-color: ${(props) => props.theme.common?.black || "#242424"};
+  background-color: "#242415";
   display: flex;
   justify-content: center;
   height: 60px;
@@ -66,7 +66,7 @@ export const ListNav = styled(Container)<Props>`
 export const Badge = styled("div")`
   background: #fcdd06;
   border-radius: 50%;
-  color: #242424;
+  color: white;
   text-align: center;
   font-family: normal normal normal 10px/13px Muli;
   height: 15px;

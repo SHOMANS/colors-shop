@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom";
 import { Image } from "..";
 import { IGetAllCategory } from "../../redux/Product/type";
 import Typography from "../Typography";
-import { Content, CategoryoneImage, CategoryImage, Images } from "./cardStyles";
+import {
+  Content,
+  CategoryoneImage,
+  CategoryImage,
+  Images,
+  CateLink,
+} from "./cardStyles";
 
 const CategoryCard = ({ image, name }: IGetAllCategory) => {
   return (

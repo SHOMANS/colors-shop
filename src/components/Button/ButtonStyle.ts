@@ -43,6 +43,9 @@ export const ButtonStyle = styled.button<IStyleButton>(
 
 export const Button = styled(ButtonStyle)`
   text-decoration: none;
+  color: ${(props) => props.theme.textColors.primary};
+  background-color: ${(props) => props.theme.colors.primary};
+
   &:hover {
     color: white;
     background: #fcdd06;

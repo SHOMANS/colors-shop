@@ -13,13 +13,13 @@ export const WrapperRemmber = styled("div")`
 export const LoginText = styled(Typography)`
   font-size: 35px;
   font-weight: bold;
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   margin-bottom: 25px;
   font-family: mulish;
 `;
 export const LoginSubText = styled("p")`
   font-size: 25px;
-  color: #70707070;
+  color: ${(props) => props.theme.textColors.primary};
   font-family: mulish;
   margin-bottom: 30px;
 `;
@@ -62,7 +62,7 @@ export const Remmber = styled("p")`
 export const ForgotPassword = styled(Typography)`
   font-size: 18px;
   letter-spacing: 0.88px;
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   text-align: center;
   font-family: mulish;
   margin-bottom: 1rem auto;
@@ -80,7 +80,7 @@ export const ButtonSuginup = styled("button")`
   align-items: center;
   background: none;
   letter-spacing: 0.88px;
-  color: #242424;
+  color: ${(props) => props.theme.textColors.primary};
   outline: none;
   align-self: center;
   margin-top: 1rem;

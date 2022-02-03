@@ -46,11 +46,7 @@ const ComplexCard = ({ ...props }: IProducts) => {
   return (
     <StyleMainCard>
       {props?.discount > 0 && (
-        <Discount>
-          <Typography width="none" color="white" fontSize="24px">
-            {Math.round((100 * props.discount) / props.price)}%
-          </Typography>
-        </Discount>
+        <Discount>{Math.round((100 * props.discount) / props.price)}%</Discount>
       )}
       <ContentAction onClick={() => navigate(`/product/${props._id}`)}>
         <Image
