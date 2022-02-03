@@ -1,3 +1,4 @@
+import React, { FC } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ThunkDispatch } from "redux-thunk";
@@ -12,6 +13,7 @@ import {
   NavLink,
   OutLink,
 } from "../style";
+import { useTheme } from "styled-components";
 
 interface IProfileDashboard {
   user?: IUser;
@@ -20,6 +22,8 @@ interface IProfileDashboard {
 
 const ProfileDashboard = ({ user, isActive }: IProfileDashboard) => {
   const navigation = useNavigate();
+  const theme = useTheme();
+
   const dispatch = useDispatch<ThunkDispatch<AppState, any, TAllActionAuth>>();
   const handleLoagout = () => {
     dispatch(
@@ -33,7 +37,7 @@ const ProfileDashboard = ({ user, isActive }: IProfileDashboard) => {
       direction="column"
       align-items="flex-start"
       width="30%"
-      background="#F2F2F2"
+      background={theme.background.paper}
       border-radius="16px"
       padding=".8em"
     >
