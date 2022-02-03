@@ -40,6 +40,7 @@ import { createOrder } from '../../../redux/Order/action';
 import { getProfile } from '../../../redux/User/action';
 import { ActionCartType } from '../../../redux/Cart/type';
 import { myActionCart } from '../../../redux/Cart/action';
+import UpdatedContainer from '../../../components/UpdatedContainer';
 
 const initialValues: IShippingSchema = {
   country: '',
@@ -64,7 +65,7 @@ const ReviewOrder = () => {
 
   const formik = useFormik<IShippingSchema>({
     initialValues,
-    validationSchema: ShippingSchema,
+    // validationSchema: ShippingSchema,
     onSubmit: async values => {
       const billingDetails = {
         address: values.address,
@@ -104,6 +105,7 @@ const ReviewOrder = () => {
   };
 
   return (
+    <UpdatedContainer> 
     <OrfferSection>
       <InnerSection>
         <Typography variant="h2" font-Family="Mulish">
@@ -122,7 +124,7 @@ const ReviewOrder = () => {
           <Column>
             <WrapperCard>
               <LeftSection>
-                <form onSubmit={formik.handleSubmit}>
+                  <form onSubmit={formik.handleSubmit} id="form">
                   <Column
                     style={{
                       width: '90%',
@@ -134,6 +136,7 @@ const ReviewOrder = () => {
 
                     <WrapperRowInput>
                       <InputController
+
                         name="country"
                         label="Country"
                         type="text"
@@ -143,7 +146,7 @@ const ReviewOrder = () => {
                         onBlur={formik.handleBlur}
                         onChange={formik.handleChange}
                         value={formik.values.country}
-                        style={{ fontFamily: 'mulish' }}
+                          style={{ fontFamily: 'mulish' }}
                       />
                       <InputController
                         name="city"
@@ -200,13 +203,11 @@ const ReviewOrder = () => {
                         {checkoutError}
                       </Typography>
                     )}
-                    <Row JC="flex-end">
-                      <RevieworderButton
-                        style={{ fontFamily: 'mulish' }}
-                        type="submit"
+                      <Row
+                        JC="flex-end"
+                        style={{ marginTop: "20px" }}
                       >
-                        Review order
-                      </RevieworderButton>
+
                     </Row>
                   </Column>
                 </form>
@@ -272,9 +273,18 @@ const ReviewOrder = () => {
                       .toFixed(2)}{' '}
                     $
                   </TextFooter>
-                </FooterTitleRight>
+                  </FooterTitleRight>
+
               </RightSection>
-            </WrapperCard>
+              </WrapperCard>
+              <RevieworderButton
+                form="form"
+                style={{ fontFamily: 'mulish' }}
+                type="submit"
+
+              >
+                Review order
+              </RevieworderButton>
           </Column>
         )}
         {stepperNumber === 1 && (
@@ -285,7 +295,8 @@ const ReviewOrder = () => {
           />
         )}
       </InnerSection>
-    </OrfferSection>
+      </OrfferSection>
+    </UpdatedContainer>
   );
 };
 

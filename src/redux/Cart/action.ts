@@ -33,7 +33,6 @@ export const upduteActionCart = (data: AddItemPayload, fun?: Function) => {
         data,
       );
 
-      console.log('response data', response.data);
       // if (response.status === 200) {
       dispatch({
         type: EnumCartAction.UPDATE_ITEM_SUCCESS,
@@ -102,6 +101,7 @@ export const myActionCart = () => {
 
     try {
       const response = await Api.get(`/users/profile`);
+      console.log(response.data.cart)
       dispatch({
         type: EnumCartAction.MY_CART_SUCCESS,
         payload: {

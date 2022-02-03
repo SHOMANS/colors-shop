@@ -25,7 +25,6 @@ const Profile = () => {
 
       <UpdatedContainer
         justifyContent='space-between'
-          // style={{ gap: "20px" }}
 
       >
         <Parent>

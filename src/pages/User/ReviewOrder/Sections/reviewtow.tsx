@@ -33,6 +33,7 @@ import {
 } from '../../../../redux/Order/action';
 import { SpinnerContainer } from '../../../../components';
 import { myActionCart } from '../../../../redux/Cart/action';
+import UpdatedContainer from '../../../../components/UpdatedContainer';
 
 export const ReviewTow: React.FC<objectType> = ({
   paymentId,
@@ -70,11 +71,11 @@ export const ReviewTow: React.FC<objectType> = ({
   console.log('first--------.', createdorder?.orders?.shippingAddress);
   console.log('this is id of order', getOrder);
   return (
-    <OrderWrapper>
+    <>
       {getOrder?.isLoading && !getOrder.orders ? (
         <SpinnerContainer />
       ) : (
-        <>
+          <div style={{ display: "flex", width: "100%", marginTop: "16px" }}>
           <LeftOrderSection>
             <Column>
               <ShapeAddress>Shipping Address</ShapeAddress>
@@ -143,9 +144,9 @@ export const ReviewTow: React.FC<objectType> = ({
             </Column>
             <RevieworderButton onClick={pay}>Review order</RevieworderButton>
           </RightSectionPlace>
-        </>
+        </div>
       )}
-    </OrderWrapper>
+    </>
   );
 };
 
