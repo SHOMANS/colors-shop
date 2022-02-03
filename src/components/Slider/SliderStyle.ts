@@ -64,8 +64,9 @@ export const PriceText = styled<any>(Typography)`
 `;
 
 export const DescriptionText = styled(PriceText)`
-  color: ${(props) => props.theme.textColors.primary};
-  font-size: 20px;
+color: ${(props) => props.theme.textColors.primary};
+font-size: 20px;
+  font-family: mulish;
   margin-bottom: 42px;
 `;
 
@@ -133,7 +134,9 @@ export const Dot = styled("div")<IDot>`
   margin: 0 0.3rem;
   cursor: pointer;
 `;
-
+export const SwiperWrapper = styled("div")`
+  background: ${(props) => props.theme.background.secondary};
+`;
 export const CategDots = styled(Dot)`
   @media (max-width: 1200px) {
     display: none;

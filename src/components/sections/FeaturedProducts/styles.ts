@@ -43,7 +43,7 @@ export const TitleCard = styled("h3")`
 `;
 
 export const Featured = styled.div`
-  background: #f7f8fc;
+  background: ${(props) => props.theme.background.secondary};
 `;
 export const CatProduct = styled.div`
   display: flex;

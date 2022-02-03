@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import { adminRoutes } from "./Route/Admin";
 import { userRoutes } from "./Route/user";
 import NotFound from "./pages/ErrorPages/NotFound";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const Signup = Loadable(lazy(() => import("./pages/Auth/Signup")));
 const Login = Loadable(lazy(() => import("./pages/Auth/Login")));
@@ -36,7 +37,8 @@ export const AllRouter = () => {
       <Route path="/search" element={<Search />} />
       {adminRoutes()}
       {userRoutes()}
-      <Route path="*" element={<NotFound />} />
+      <Route path="/404" element={<NotFound />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

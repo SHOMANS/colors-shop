@@ -38,7 +38,7 @@ export const CategoryoneImage = styled.div`
   padding: 2rem;
   width: 100%;
 
-  background: #f7f8fc;
+  background: ${(props) => props.theme.background.paper};
   border-radius: 10px;
   overflow: hidden;
   display: flex;

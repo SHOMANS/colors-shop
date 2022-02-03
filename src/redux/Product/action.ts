@@ -195,6 +195,7 @@ export const getCategoryByName = (name: string) => {
 };
 
 export const addReview = (productId: string, review: IAddReviewPayload) => {
+  console.log(productId)
   return async (dispatch: Dispatch<TAllActionProduct>) => {
     dispatch({
       type: EnumProductsAction.ADD_REVIEW_TO_PRODUCT_START,
