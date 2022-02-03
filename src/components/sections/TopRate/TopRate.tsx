@@ -8,7 +8,7 @@ import { TAllActionProduct } from "../../../redux/Product/type";
 import ComplexCard from "../../Card/productCard";
 import { getTopProducts } from "../../../redux/Product/action";
 import { AppState } from "../../../redux/store";
-import { SpinnerContainer } from "../../SpinnerContainer";
+import SppinerLoading from "../../SppinerLoading/index";
 import UpdatedContainer from "../../UpdatedContainer";
 
 interface Props {
@@ -34,7 +34,7 @@ export const TopRate = ({ title = "TOP RATE PRODUCTS" }: Props) => {
     >
       <DeviderTitle position="start" title={title} />
       {topProducts.isLoading ? (
-        <SpinnerContainer />
+        <SppinerLoading />
       ) : (
         <RowWithRadius direction="row">
           {topProducts.product?.map((item, i) => (

@@ -7,7 +7,7 @@ import ProfileDashboard from "./Sections/ProfileDashboard";
 import { getProfile } from "../../redux/User/action";
 import { AppState } from "../../redux/store";
 import { TAllActionUser } from "../../redux/User/type";
-import { SpinnerContainer } from "../../components";
+import SppinerLoading from "../../components/SppinerLoading/index";
 import OrdersProduct from "./Orders";
 import UpdatedContainer from "../../components/UpdatedContainer";
 
@@ -20,11 +20,11 @@ const Profile = () => {
     dispatch(getProfile());
   }, [dispatch]);
   return useProfile.isLoading ? (
-    <SpinnerContainer />
+    <SppinerLoading />
   ) : (
     <UpdatedContainer
       justifyContent="space-between"
-    // style={{ gap: "20px" }}
+      // style={{ gap: "20px" }}
     >
       <Parent>
         <ProfileDashboard user={useProfile.user} isActive={isActive} />

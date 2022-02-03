@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { ThunkDispatch } from "redux-thunk";
 import { Container, SpinnerContainer } from "../../../components";
+import SppinerLoading from "../../../components/SppinerLoading";
 import ComplexCard from "../../../components/Card/productCard";
 import { DeviderTitle } from "../../../components/DeviderTitle/deviderTitle";
 import UpdatedContainer from "../../../components/UpdatedContainer";
@@ -25,7 +26,7 @@ const CategorayPage = () => {
   }, [name, dispatch]);
 
   return categoryProduct.isLoading ? (
-    <SpinnerContainer />
+    <SppinerLoading />
   ) : (
     <UpdatedContainer>
       <Container

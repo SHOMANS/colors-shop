@@ -5,6 +5,7 @@ import { ThunkDispatch } from "redux-thunk";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { Column, Row, SpinnerContainer, Typography } from "../../../components";
+import SppinerLoading from "../../../components/SppinerLoading";
 import {
   IShippingSchema,
   ShippingSchema,
@@ -215,7 +216,7 @@ const ReviewOrder = () => {
                   <Column>
                     <InnerOverFlow>
                       {cart.isLoading ? (
-                        <SpinnerContainer />
+                        <SppinerLoading />
                       ) : (
                         <>
                           {cart?.cart?.items?.map((x) => (
@@ -235,6 +236,7 @@ const ReviewOrder = () => {
                   <FooterTitleRight>
                     <TextFooter>Subtotal</TextFooter>
                     <TextFooter>
+                      SppinerLoading
                       {cart?.cart?.items
                         .reduce(
                           (acc, item) => acc + item?.product?.price * item?.qty,

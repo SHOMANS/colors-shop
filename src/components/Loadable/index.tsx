@@ -1,15 +1,15 @@
-import { Suspense, LazyExoticComponent, ComponentType } from 'react';
-import { SpinnerContainer } from '../SpinnerContainer';
+import { Suspense, LazyExoticComponent, ComponentType } from "react";
+import SppinerLoading from "../SppinerLoading/index";
 
 const Loadable =
   (
     Component:
       | LazyExoticComponent<() => JSX.Element>
-      | ComponentType<React.ReactNode>,
+      | ComponentType<React.ReactNode>
   ) =>
   (props: any) =>
     (
-      <Suspense fallback={<SpinnerContainer />}>
+      <Suspense fallback={<SppinerLoading />}>
         <Component {...props} />
       </Suspense>
     );

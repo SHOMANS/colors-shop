@@ -7,11 +7,12 @@ import { AllRouter } from "./AllRouter";
 import { Navbar } from "./components";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Burger from "./components/Navbar/Burger";
-import Logo from "./components/Navbar/Logo/Logo";
 import { SpinnerContainer } from "./components/SpinnerContainer";
 import { LogoWrapper } from "./components/UpdatedContainer/style";
+import SppinerLoading from "./components/SppinerLoading/index";
 import useTheme from "./Hoc/UseTheme";
 import { darkTheme, GlobalStyle, lightTheme } from "./theme";
+import { Logo } from "./components/Navbar/NavBarStyles";
 
 const stripePromise = loadStripe("pk_test_kvaWWuoOUKU8FfTgtn5U2LVC00If7nyUo0");
 
@@ -24,7 +25,7 @@ const App: React.FC = () => {
       <HelmetProvider>
         <ThemeProvider theme={currentTheme}>
           <GlobalStyle {...currentTheme} />
-          <Suspense fallback={<SpinnerContainer />}>
+          <Suspense fallback={<SppinerLoading />}>
             <ErrorBoundary>
               <LogoWrapper>
                 <Logo />

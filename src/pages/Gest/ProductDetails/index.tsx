@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import ProductOverview from "./Sections/ProductOverview";
 import Review from "./Sections/Review";
-import { PathNavigate, SpinnerContainer } from "../../../components";
+import { PathNavigate } from "../../../components";
+import SppinerLoading from "../../../components/SppinerLoading/index";
 import { getProductById } from "../../../redux/Product/action";
 import { AppState } from "../../../redux/store";
 import { IProducts } from "../../../redux/Product/type";
@@ -33,7 +34,7 @@ const ProductScreen: React.FC = () => {
         alignItems={"flex-start"}
       >
         {isLoading ? (
-          <SpinnerContainer />
+          <SppinerLoading />
         ) : (
           <>
             <PathNavigate name={product?.name} />

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { Link } from "react-router-dom";
 import { Container, SpinnerContainer, Typography } from "../../components";
+import SppinerLoading from "../../components/SppinerLoading";
 import Table from "./Table";
 import { Btn, DashContainer } from "./style";
 import { AppState } from "../../redux/store";
@@ -32,14 +33,19 @@ const DashBoard = () => {
           Products
         </Typography>
         <Btn>
-          <Link to="/addproduct" style={{ textDecoration: "none" }}>
-            <Typography font-size="20px">New Product</Typography>
+          <Link
+            to="/addproduct"
+            style={{ textDecoration: "none", textAlign: "center" }}
+          >
+            <Typography style={{ color: "#242424" }} font-size="20px">
+              New Product
+            </Typography>
           </Link>
         </Btn>
       </Container>
       <DashContainer direction="column">
         {allProduct.isLoading ? (
-          <SpinnerContainer />
+          <SppinerLoading />
         ) : (
           <Table data={allProduct.allProduct?.products} />
         )}

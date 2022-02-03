@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
-import { SpinnerContainer } from "../../../components";
+import SppinerLoading from "../../../components/SppinerLoading/index";
 import { FeaturedCategories } from "../../../components/sections/FeaturedCategories/FeaturedCategories";
 import { FeaturedProduct } from "../../../components/sections/FeaturedProducts/FeaturedProducts";
 import { TopRate } from "../../../components/sections/TopRate/TopRate";
@@ -36,17 +36,17 @@ const Home: React.FC = () => {
   return (
     <>
       {topProducts.isLoading ? (
-        <SpinnerContainer />
+        <SppinerLoading />
       ) : (
         <Slider data={topProducts.product} />
       )}
       {allCatogory.isLoading || !allCatogory.categories ? (
-        <SpinnerContainer />
+        <SppinerLoading />
       ) : (
         <FeaturedCategories data={allCatogory?.categories} />
       )}
       {topProducts.isLoading || !featcheProduct.allProduct ? (
-        <SpinnerContainer />
+        <SppinerLoading />
       ) : (
         <FeaturedProduct data={featcheProduct.allProduct.products} />
       )}

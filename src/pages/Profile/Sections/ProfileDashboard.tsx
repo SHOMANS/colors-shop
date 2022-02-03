@@ -27,6 +27,7 @@ const ProfileDashboard = ({ user, isActive }: IProfileDashboard) => {
         navigation("/login");
       })
     );
+    navigation("/");
   };
   return (
     <DashboardContainer
@@ -72,9 +73,7 @@ const ProfileDashboard = ({ user, isActive }: IProfileDashboard) => {
         <NavLink to="#">Settings</NavLink>
       </Container>
       <Divider color="#707070" />
-      <OutLink to="#" onClick={handleLoagout}>
-        Logout
-      </OutLink>
+      <OutLink onClick={handleLoagout}>Logout</OutLink>
     </DashboardContainer>
   );
 };
